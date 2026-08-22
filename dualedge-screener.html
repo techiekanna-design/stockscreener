@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DUALEDGE — NSE Swing & Investment Screener</title>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#0B0F0E; --surface:#121816; --surface2:#17201D; --border:#1F2A26; --border2:#2A3833;
+  --text:#D5DFD9; --muted:#64756E; --red:#E5534B; --red-dim:#3A1512; --blue:#5AA9E6;
+  --green:#46C08A; --green-dim:#123526; --amber:#F2B33D; --amber-dim:#3A2C0E;
+  --font:'Space Grotesk',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace; --radius:10px;
+}
+body[data-mode="swing"]{ --accent:var(--amber); --accent-dim:var(--amber-dim); }
+body[data-mode="invest"]{ --accent:var(--green); --accent-dim:var(--green-dim); }
+body[data-mode="bottom"]{ --accent:var(--blue); --accent-dim:#122A3C; }
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;min-height:100vh;overflow-x:hidden;transition:background .3s;}
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:99px;}
+button{font-family:var(--font);}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+
+/* HEADER */
+header{display:flex;align-items:center;gap:14px;padding:12px 22px;border-bottom:1px solid var(--border);background:rgba(11,15,14,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;flex-wrap:wrap;}
+.logo-mark{width:32px;height:32px;border:2px solid var(--accent);border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--accent);flex-shrink:0;transition:color .3s,border-color .3s;}
+.logo-text{font-weight:700;font-size:14px;letter-spacing:.12em;color:#fff;}
+.logo-sub{font-size:9px;color:var(--muted);letter-spacing:.14em;margin-top:1px;}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pill{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;padding:4px 9px;border-radius:4px;border:1px solid var(--border2);color:var(--muted);}
+.pill.ok{color:var(--green);border-color:rgba(70,192,138,.3);background:rgba(70,192,138,.07);}
+.pill.warn{color:var(--amber);border-color:rgba(242,179,61,.3);background:rgba(242,179,61,.07);}
+
+/* MODE SWITCH — the signature control */
+.mode-switch{display:flex;border:1px solid var(--border2);border-radius:8px;overflow:hidden;background:var(--surface);}
+.mode-btn{padding:8px 16px;background:transparent;border:none;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.12em;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:7px;}
+.mode-btn .dot{width:7px;height:7px;border-radius:99px;background:var(--border2);transition:background .25s;}
+.mode-btn.active{color:#0B0F0E;background:var(--accent);}
+.mode-btn.active .dot{background:#0B0F0E;}
+.mode-tag{font-size:9px;color:var(--muted);letter-spacing:.1em;max-width:180px;line-height:1.5;}
+
+/* LAYOUT */
+.wrap{display:grid;grid-template-columns:288px 1fr;gap:16px;padding:16px 22px;max-width:1720px;margin:0 auto;}
+@media(max-width:960px){.wrap{grid-template-columns:1fr;}}
+
+/* SIDE RAIL */
+.rail{display:flex;flex-direction:column;gap:12px;align-self:start;position:sticky;top:72px;max-height:calc(100vh - 90px);overflow-y:auto;padding-right:2px;}
+@media(max-width:960px){.rail{position:static;max-height:none;}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;}
+.card h3{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.card h3 .bar{width:3px;height:11px;background:var(--accent);border-radius:2px;transition:background .3s;}
+.fld{margin-bottom:9px;}
+.fld label{display:block;font-size:10px;color:var(--muted);letter-spacing:.06em;margin-bottom:4px;}
+select,input[type=number],input[type=text]{width:100%;background:var(--surface2);border:1px solid var(--border2);color:var(--text);border-radius:6px;padding:7px 9px;font-size:12px;font-family:var(--mono);}
+select:focus,input:focus{border-color:var(--accent);outline:none;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.chk{display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:11.5px;cursor:pointer;color:var(--text);}
+.chk input{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;}
+.chk .hint{color:var(--muted);font-size:9.5px;margin-left:auto;font-family:var(--mono);}
+.btn{width:100%;padding:11px;border:none;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .2s;}
+.btn-run{background:var(--accent);color:#0B0F0E;}
+.btn-run:hover{filter:brightness(1.1);}
+.btn-run:disabled{opacity:.45;cursor:not-allowed;}
+.btn-stop{background:var(--red-dim);color:var(--red);border:1px solid rgba(229,83,75,.3);margin-top:7px;display:none;}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--muted);font-size:11px;padding:8px;}
+.btn-ghost:hover{color:var(--text);border-color:var(--accent);}
+
+/* KPI STRIP */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:9px;margin-bottom:14px;}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;}
+.kpi .v{font-family:var(--mono);font-size:19px;font-weight:600;color:#fff;}
+.kpi .l{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.kpi.hl .v{color:var(--accent);}
+
+/* PROGRESS */
+.prog-card{display:none;margin-bottom:14px;}
+.prog-card.show{display:block;}
+.prog-track{height:5px;background:var(--surface2);border-radius:99px;overflow:hidden;margin:8px 0;}
+.prog-fill{height:100%;background:var(--accent);width:0%;transition:width .3s;border-radius:99px;}
+.prog-head{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--muted);}
+.prog-grid{display:flex;flex-wrap:wrap;gap:4px;max-height:72px;overflow-y:auto;margin-top:8px;}
+.prog-item{font-family:var(--mono);font-size:9px;padding:2px 6px;border-radius:3px;background:var(--surface2);}
+.prog-ok{color:var(--green);} .prog-err{color:var(--red);} .prog-skip{color:var(--muted);}
+
+/* TABLE */
+.tbl-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.tbl-tools{display:flex;gap:8px;padding:11px 14px;border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center;}
+.tbl-tools select{width:auto;min-width:120px;}
+.tool-btn{background:var(--surface2);border:1px solid var(--border2);color:var(--muted);border-radius:6px;padding:6px 11px;font-size:10.5px;cursor:pointer;letter-spacing:.04em;}
+.tool-btn:hover{color:var(--text);border-color:var(--accent);}
+.tool-btn.active{color:var(--accent);border-color:var(--accent);background:var(--accent-dim);}
+.tbl-scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:11.5px;}
+th{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:9px 10px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface);}
+th:hover{color:var(--text);}
+td{padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:var(--mono);font-size:11px;vertical-align:middle;}
+tr.row-main{cursor:pointer;}
+tr.row-main:hover td{background:var(--surface2);}
+.sym{font-weight:600;color:#fff;font-family:var(--font);font-size:12px;}
+.sec-tag{font-size:9px;color:var(--muted);font-family:var(--font);}
+.pos{color:var(--green);} .neg{color:var(--red);} .dim{color:var(--muted);}
+.sig{font-size:9px;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:4px;font-family:var(--font);}
+.sig-long{background:var(--green-dim);color:var(--green);border:1px solid rgba(70,192,138,.35);}
+.sig-setup{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(242,179,61,.35);}
+.sig-neutral{background:var(--surface2);color:var(--muted);border:1px solid var(--border2);}
+.sig-err{background:var(--red-dim);color:var(--red);border:1px solid rgba(229,83,75,.3);}
+.stage-tag{font-size:8.5px;font-weight:700;color:var(--blue);border:1px solid rgba(90,169,230,.4);border-radius:3px;padding:1px 5px;margin-left:5px;font-family:var(--font);letter-spacing:.05em;}
+.star{cursor:pointer;font-size:14px;color:var(--border2);transition:color .15s;background:none;border:none;padding:0;}
+.star.on{color:var(--amber);}
+.score{display:flex;gap:2px;}
+.score i{width:9px;height:5px;border-radius:2px;background:var(--surface2);display:block;}
+.score i.p{background:var(--green);} .score i.f{background:var(--red);opacity:.55;}
+.cond-pills{display:flex;flex-wrap:wrap;gap:4px;padding:4px 0;}
+.cond-pill{font-size:9px;font-family:var(--mono);padding:2px 7px;border-radius:3px;}
+.cond-pass{background:var(--green-dim);color:var(--green);} .cond-fail{background:var(--red-dim);color:var(--red);} .cond-na{background:var(--surface2);color:var(--muted);}
+.detail-row td{background:var(--surface2);padding:14px;}
+.detail-grid{display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr;gap:16px;}
+@media(max-width:820px){.detail-grid{grid-template-columns:1fr;}}
+.dstat{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--border2);font-size:11px;}
+.dstat b{color:#fff;font-weight:600;}
+.dstat .k{color:var(--muted);font-family:var(--font);}
+.empty{padding:38px 20px;text-align:center;color:var(--muted);font-size:12px;line-height:1.7;}
+.empty b{color:var(--text);}
+.spark{display:block;}
+.link{color:var(--blue);text-decoration:none;font-size:10.5px;}
+.link:hover{text-decoration:underline;}
+.note{font-size:10px;color:var(--muted);line-height:1.55;margin-top:8px;}
+.wl-strip{display:flex;flex-wrap:wrap;gap:6px;}
+.wl-chip{font-family:var(--mono);font-size:10px;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:3px 8px;color:var(--text);display:flex;gap:6px;align-items:center;}
+.wl-chip button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;padding:0;}
+.wl-chip button:hover{color:var(--red);}
+footer{padding:18px 22px;color:var(--muted);font-size:10px;text-align:center;line-height:1.7;}
+</style>
+</head>
+<body data-mode="swing">
+
+<header>
+  <div class="logo-mark">DE</div>
+  <div>
+    <div class="logo-text">DUALEDGE</div>
+    <div class="logo-sub">NSE SWING &amp; INVESTMENT SCREENER</div>
+  </div>
+  <div class="mode-switch" role="tablist" aria-label="Screener mode">
+    <button class="mode-btn active" id="modeSwing" onclick="setMode('swing')" role="tab" aria-selected="true"><span class="dot"></span>SWING</button>
+    <button class="mode-btn" id="modeInvest" onclick="setMode('invest')" role="tab" aria-selected="false"><span class="dot"></span>INVEST</button>
+    <button class="mode-btn" id="modeBottom" onclick="setMode('bottom')" role="tab" aria-selected="false"><span class="dot"></span>BOTTOM</button>
+  </div>
+  <div class="mode-tag" id="modeTag">Daily bars · pullback entries in confirmed uptrends · defined risk</div>
+  <div class="hdr-right">
+    <span class="pill" id="bhavPill">BHAVCOPY —</span>
+    <span class="pill" id="niftyPill">NIFTY RS —</span>
+    <span class="pill" id="scanTimeLabel">NO SCAN YET</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- ══ CONFIG RAIL ══ -->
+  <div class="rail">
+    <div class="card">
+      <h3><span class="bar"></span>Universe</h3>
+      <div class="fld"><label for="universe">Scan universe</label>
+        <select id="universe">
+          <option value="nifty50">Nifty 50</option>
+          <option value="nifty100">Nifty 100</option>
+          <option value="nifty500" selected>Nifty 500</option>
+          <option value="all">All listed (~750)</option>
+        </select></div>
+      <div class="fld"><label for="secFilterDD">Sector scope</label>
+        <select id="secFilterDD"><option value="all">All sectors</option></select></div>
+      <div class="row2">
+        <div class="fld"><label for="period">Lookback</label>
+          <select id="period"><option value="400" selected>1 year+</option><option value="560">1.5 years</option><option value="760">2 years</option></select></div>
+        <div class="fld"><label for="concurrency">Parallel</label>
+          <select id="concurrency"><option value="1">1 · slow</option><option value="2" selected>2 · balanced</option><option value="3">3 · fast</option></select></div>
+      </div>
+      <div class="note" id="uniCount">—</div>
+      <button class="btn btn-ghost" style="margin-top:8px" id="testBtn" onclick="testConnection()">⚡ Test data connection</button>
+      <div class="note" id="testOut"></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="bar"></span>Pre-filter <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted)">(bhavcopy)</span></h3>
+      <div class="row2">
+        <div class="fld"><label for="priceMin">Min price ₹</label><input type="number" id="priceMin" value="25"/></div>
+        <div class="fld"><label for="priceMax">Max price ₹</label><input type="number" id="priceMax" value="100000"/></div>
+      </div>
+      <div class="fld"><label for="minVol">Min day volume (shares)</label><input type="number" id="minVol" value="100000"/></div>
+      <label class="chk"><input type="checkbox" id="usePrefilter" checked/>Skip stocks failing pre-filter<span class="hint">saves API calls</span></label>
+      <div class="note">One bhavcopy request pre-screens the whole universe on price &amp; liquidity. History is fetched only for survivors.</div>
+    </div>
+
+    <!-- SWING CRITERIA -->
+    <div class="card" id="swingCard">
+      <h3><span class="bar"></span>Swing criteria</h3>
+      <label class="chk"><input type="checkbox" id="s1" checked/>Close above WMA42<span class="hint" id="h_s1">buffer %</span></label>
+      <label class="chk"><input type="checkbox" id="s2" checked/>WMA42 above WMA84</label>
+      <label class="chk"><input type="checkbox" id="s3" checked/>WMA30 stack (close&gt;30&gt;60)</label>
+      <label class="chk"><input type="checkbox" id="s4" checked/>EMA20 rising (vs 5 bars ago)</label>
+      <label class="chk"><input type="checkbox" id="s5" checked/>Pullback near EMA20</label>
+      <label class="chk"><input type="checkbox" id="s6" checked/>RSI(14) in band</label>
+      <label class="chk"><input type="checkbox" id="s7" checked/>Liquidity (5-day volume)</label>
+      <label class="chk"><input type="checkbox" id="s8"/>Quiet pullback (vol contraction)</label>
+      <label class="chk"><input type="checkbox" id="s9" checked/>RS &gt; Nifty (63-day)</label>
+      <label class="chk"><input type="checkbox" id="s10" checked/>Within 25% of 52-wk high</label>
+      <label class="chk"><input type="checkbox" id="s11"/>Delivery % floor<span class="hint">bhavcopy only</span></label>
+      <div class="row2" style="margin-top:8px">
+        <div class="fld"><label for="maBuffer">MA buffer %</label><input type="number" id="maBuffer" value="0.3" step="0.1"/></div>
+        <div class="fld"><label for="ema20dist">EMA20 dist ≤ %</label><input type="number" id="ema20dist" value="3" step="0.5"/></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label for="rsiMin">RSI min</label><input type="number" id="rsiMin" value="40"/></div>
+        <div class="fld"><label for="rsiMax">RSI max</label><input type="number" id="rsiMax" value="75"/></div>
+      </div>
+      <div class="fld"><label for="delivMinS">Min delivery %</label><input type="number" id="delivMinS" value="40"/></div>
+    </div>
+
+    <!-- INVEST CRITERIA -->
+    <div class="card" id="investCard" style="display:none">
+      <h3><span class="bar"></span>Investment criteria <span style="font-weight:400;text-transform:none;letter-spacing:0">(weekly bars)</span></h3>
+      <label class="chk"><input type="checkbox" id="i1" checked/>Close above 30-week WMA</label>
+      <label class="chk"><input type="checkbox" id="i2" checked/>30-wk WMA rising (4 wks)</label>
+      <label class="chk"><input type="checkbox" id="i3" checked/>Within X% of 52-wk high</label>
+      <label class="chk"><input type="checkbox" id="i4" checked/>Weekly RSI(14) ≥ 50</label>
+      <label class="chk"><input type="checkbox" id="i5" checked/>RS &gt; Nifty (26-week)</label>
+      <label class="chk"><input type="checkbox" id="i6" checked/>Liquidity (avg wkly volume)</label>
+      <label class="chk"><input type="checkbox" id="i7"/>Delivery % floor<span class="hint">bhavcopy only</span></label>
+      <div class="row2" style="margin-top:8px">
+        <div class="fld"><label for="hi52Max">52wH dist ≤ %</label><input type="number" id="hi52Max" value="30"/></div>
+        <div class="fld"><label for="delivMinI">Min delivery %</label><input type="number" id="delivMinI" value="50"/></div>
+      </div>
+      <div class="note">Stocks that crossed above the 30-week WMA within the last 8 weeks get an <b style="color:var(--blue)">EARLY S2</b> tag — fresh Stage-2 candidates reversing from lows. Pair every pick with a fundamentals check (link in each row).</div>
+    </div>
+
+    <!-- BOTTOM CRITERIA -->
+    <div class="card" id="bottomCard" style="display:none">
+      <h3><span class="bar"></span>Bottom-fishing criteria</h3>
+      <label class="chk"><input type="checkbox" id="b1" checked/>Near lookback low<span class="hint">≤ X% above</span></label>
+      <label class="chk"><input type="checkbox" id="b2" checked/>Base formed (no new low ≥ N wks)</label>
+      <label class="chk"><input type="checkbox" id="b3" checked/>Higher lows (20d vs prior 20d)</label>
+      <label class="chk"><input type="checkbox" id="b4" checked/>Reclaimed EMA20</label>
+      <label class="chk"><input type="checkbox" id="b5" checked/>RSI recovering<span class="hint">≥ floor</span></label>
+      <label class="chk"><input type="checkbox" id="b6" checked/>Genuinely beaten down<span class="hint">≥ Y% off 52wH</span></label>
+      <label class="chk"><input type="checkbox" id="b7" checked/>Liquidity (5-day volume)</label>
+      <label class="chk"><input type="checkbox" id="b8"/>Up-day volume &gt; down-day volume</label>
+      <label class="chk"><input type="checkbox" id="b9"/>Delivery % floor<span class="hint">bhavcopy only</span></label>
+      <div class="row2" style="margin-top:8px">
+        <div class="fld"><label for="lowDist">Above low ≤ %</label><input type="number" id="lowDist" value="20"/></div>
+        <div class="fld"><label for="baseWeeks">Base ≥ weeks</label><input type="number" id="baseWeeks" value="8"/></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label for="hiDistMin">Off 52wH ≥ %</label><input type="number" id="hiDistMin" value="40"/></div>
+        <div class="fld"><label for="rsiFloorB">RSI floor</label><input type="number" id="rsiFloorB" value="45"/></div>
+      </div>
+      <div class="fld"><label for="delivMinB">Min delivery %</label><input type="number" id="delivMinB" value="50"/></div>
+      <div class="note">Proximity to the low only qualifies a stock — the signal needs reversal evidence: a finished base, higher lows, and a reclaimed EMA20. The lookback low is the <b>invalidation level</b>: a close below it kills the thesis, no averaging down. Use the 2-year lookback for the deepest low.</div>
+    </div>
+
+    <div class="card" id="riskCard">
+      <h3><span class="bar"></span>Risk sizing</h3>
+      <div class="row2">
+        <div class="fld"><label for="capital">Capital ₹</label><input type="number" id="capital" value="500000"/></div>
+        <div class="fld"><label for="riskPct">Risk / trade %</label><input type="number" id="riskPct" value="1" step="0.25"/></div>
+      </div>
+      <div class="fld"><label for="rrTarget">Reward : risk target (R)</label><input type="number" id="rrTarget" value="2" step="0.5"/></div>
+      <div class="note">Stop = close − 2×ATR(14) · Target = close + R × (close − stop) · Qty = (capital × risk%) ÷ (close − stop). At 1:2 you break even at a 33% win rate.</div>
+    </div>
+
+    <div class="card" id="btCard">
+      <h3><span class="bar"></span>Backtest <span style="font-weight:400;text-transform:none;letter-spacing:0">(swing rules)</span></h3>
+      <div class="row2">
+        <div class="fld"><label for="btHold">Max hold (bars)</label><input type="number" id="btHold" value="20"/></div>
+        <div class="fld"><label for="btTarget">Target (R)</label><input type="number" id="btTarget" value="2" step="0.5"/></div>
+      </div>
+      <button class="btn btn-ghost" id="btBtn" onclick="runBacktest()" disabled>⟲ Backtest scanned stocks</button>
+      <div class="note">Replays the checked swing criteria over the history cached by your last scan. Entry = next open after signal, stop = 2×ATR, exit at stop / target / time. Same-bar stop+target counts as a stop (conservative). Run a swing scan first.</div>
+    </div>
+
+    <div class="card">
+      <button class="btn btn-run" id="runBtn" onclick="runAll()">▶ RUN SCAN</button>
+      <button class="btn btn-stop" id="stopBtn" onclick="stopScan()">■ STOP</button>
+    </div>
+
+    <div class="card">
+      <h3><span class="bar"></span>Tracked <span id="wlCount" style="color:var(--accent)">(0)</span></h3>
+      <div class="wl-strip" id="wlStrip"><span class="dim" style="font-size:10.5px">Star any row to track it.</span></div>
+      <button class="btn btn-ghost" style="margin-top:9px" onclick="clearWatchlist()">Clear tracked</button>
+    </div>
+  </div>
+
+  <!-- ══ MAIN ══ -->
+  <div>
+    <div class="kpis">
+      <div class="kpi"><div class="v" id="kScanned">—</div><div class="l">Scanned</div></div>
+      <div class="kpi"><div class="v" id="kSkipped">—</div><div class="l">Pre-filtered out</div></div>
+      <div class="kpi hl"><div class="v" id="kLong">—</div><div class="l" id="kLongL">Long signals</div></div>
+      <div class="kpi"><div class="v" id="kSetup">—</div><div class="l">In setup</div></div>
+      <div class="kpi"><div class="v" id="kEarly">—</div><div class="l" id="kEarlyL">Early Stage-2</div></div>
+      <div class="kpi"><div class="v" id="kErr">—</div><div class="l">Data errors</div></div>
+    </div>
+
+    <div class="card prog-card" id="progCard">
+      <div class="prog-head"><span id="progLabel">Scanning…</span><span id="progNums">0 / 0</span></div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="prog-grid" id="progGrid"></div>
+    </div>
+
+    <div class="card prog-card" id="btResults" style="margin-bottom:14px">
+      <h3 style="font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px"><span class="bar" style="width:3px;height:11px;background:var(--accent);border-radius:2px"></span>Backtest — swing rules on scanned universe</h3>
+      <div class="kpis" style="margin-bottom:10px">
+        <div class="kpi"><div class="v" id="btTrades">—</div><div class="l">Trades</div></div>
+        <div class="kpi hl"><div class="v" id="btWin">—</div><div class="l">Win rate</div></div>
+        <div class="kpi"><div class="v" id="btExp">—</div><div class="l">Expectancy (R)</div></div>
+        <div class="kpi"><div class="v" id="btPF">—</div><div class="l">Profit factor</div></div>
+        <div class="kpi"><div class="v" id="btNetR">—</div><div class="l">Net R</div></div>
+        <div class="kpi"><div class="v" id="btMaxDD">—</div><div class="l">Max drawdown (R)</div></div>
+      </div>
+      <div id="btChart" style="min-height:190px"></div>
+      <div class="tbl-scroll" style="max-height:260px;overflow-y:auto;margin-top:8px">
+        <table><thead><tr><th>Security</th><th>Trades</th><th>Wins</th><th>Win %</th><th>Net R</th><th>Avg hold</th><th>Exits S/T/⏱</th></tr></thead>
+        <tbody id="btBody"></tbody></table>
+      </div>
+      <div class="note">R = risk multiple per trade (1R = entry − stop). Expectancy is average R per trade — positive means the ruleset had an edge over this window, on this universe, before costs. Slippage, brokerage, and gap risk are not modeled. Past performance is not a guarantee.</div>
+    </div>
+
+    <div class="tbl-card">
+      <div class="tbl-tools">
+        <select id="sigFilter" onchange="applyFilter()">
+          <option value="all">All signals</option>
+          <option value="BUY">Long only</option>
+          <option value="WATCH">In-setup only</option>
+          <option value="FAIL">Neutral only</option>
+        </select>
+        <select id="secResultDD" onchange="applyFilter()"><option value="all">All sectors</option></select>
+        <button class="tool-btn" id="wlFilterBtn" onclick="toggleWlFilter()">⭐ Tracked only</button>
+        <button class="tool-btn" onclick="exportCSV()">↓ Export CSV</button>
+        <button class="tool-btn" onclick="resetAll()">✕ Reset</button>
+      </div>
+      <div class="tbl-scroll">
+        <table id="tbl">
+          <thead id="thead"></thead>
+          <tbody id="tbody">
+            <tr><td colspan="14"><div class="empty">Pick a universe, choose <b>SWING</b> or <b>INVEST</b>, and hit <b>RUN SCAN</b>.<br/>The bhavcopy pre-filter trims the universe first; signals stream in as each stock is analyzed.</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer>Data: NSE bhavcopy (EOD) with Stooq / Yahoo Finance history fallback via public CORS proxy · All computation runs in your browser · Educational tool, not investment advice.</footer>
+  </div>
+</div>
+
+<script>
+const ALL_STOCKS = [
+  ["ABDL","Tobacco - Alcohol"],["AKUMS","Pharma"],["APARINDS","Electric Equipments"],["ASIANPAINT","Paints - Pigments"],["AVALON","IT - Hardware"],["BOSCHLTD","Auto Ancillary"],["CAPLIPOINT","Pharma"],["CERA","Ceramics"],["CGCL","Finance - Investment - Management"],["CUPID","FMCG"],["DATAPATTNS","Defence"],["EQUITASBNK","Banks"],["FEDERALBNK","Banks"],["ICIL","Textile"],["IFCI","Finance - Housing - NBFC"],["INOXGREEN","Engineering - Construction"],["J&KBANK","Banks"],["KOTAKBANK","Banks"],["KTKBANK","Banks"],["MAHABANK","Banks"],["NAVINFLUOR","Chemicals"],["NUVAMA","Finance - Investment - Management"],["PARAS","Defence"],["PIDILITIND","Chemicals"],["PIRAMALFIN","Finance - Housing - NBFC"],["PRIVISCL","Chemicals"],["QPOWER","Electric Equipments"],["RBLBANK","Banks"],["SAATVIKGL","IT - Hardware"],["SAILIFE","Pharma"],["SFL","FMCG"],["SOUTHBANK","Banks"],["SPARC","Trading"],["STYL","Finance - Investment - Management"],["SYRMA","IT - Hardware"],["TEJASNET","Telecommunication"],["ABSLAMC","Finance - Investment - Management"],["ACE","Construction"],["ADANIPORTS","Infrastructure"],["AEGISLOG","Trading"],["AEGISVOPAK","Trading"],["AIIL","Finance - Investment - Management"],["ANTHEM","Pharma"],["APOLLOHOSP","Hospital - Healthcare Services"],["APTUS","Finance - Housing - NBFC"],["ASTERDM","Hospital - Healthcare Services"],["ASTRAMICRO","Defence"],["AXISBANK","Banks"],["BANCOINDIA","Auto Ancillary"],["BLUEJET","Pharma"],["CHAMBLFERT","Fertilizers - Pesticides"],["CONCORDBIO","Pharma"],["DEEPAKFERT","Chemicals"],["DIACABS","Cable"],["ELECON","Engg - Industrial Equipments"],["FIEMIND","Auto Ancillary"],["GAIL","Oil - Gas"],["GMRAIRPORT","Travel"],["GROWW","Finance - Investment - Management"],["HONAUT","Consumer Durables"],["ICICIBANK","Banks"],["IDEA","Telecommunication"],["IDFCFIRSTB","Banks"],["IIFL","Finance - Housing - NBFC"],["INDHOTEL","Hotels"],["INDIGO","Travel"],["IXIGO","Travel"],["JBCHEPHARM","Pharma"],["JSWINFRA","Infrastructure"],["KIRLOSBROS","Engg - Industrial Equipments"],["KRBL","Food"],["KRN","Engg - Industrial Equipments"],["MOTHERSON","Auto Ancillary"],["MSTCLTD","Trading"],["NBCC","Construction"],["NEOGEN","Chemicals"],["NETWEB","IT - Hardware"],["POWERMECH","Engineering - Construction"],["PRUDENT","Finance - Investment - Management"],["QUESS","IT - BPO - ITeS"],["RATEGAIN","IT - Software"],["RBA","Hotels"],["SHRIPISTON","Auto Ancillary"],["SMLMAH","Auto"],["SUPRIYA","Pharma"],["SWSOLAR","Engineering - Construction"],["TBOTEK","Travel"],["THANGAMAYL","Diamond - Jewellery"],["AAVAS","Finance - Housing - NBFC"],["AETHER","Chemicals"],["AJANTPHARM","Pharma"],["ALKYLAMINE","Chemicals"],["AUBANK","Banks"],["BANKBARODA","Banks"],["BELRISE","Auto Ancillary"],["BORORENEW","Manufacturing"],["CHOLAFIN","Finance - Housing - NBFC"],["COROMANDEL","Fertilizers - Pesticides"],["EPL","Packaging"],["FORTIS","Hospital - Healthcare Services"],["HCC","Engineering - Construction"],["HOMEFIRST","Finance - Housing - NBFC"],["HYUNDAI","Auto"],["IFBIND","Consumer Durables"],["INTELLECT","IT - Software"],["JBMA","Auto Ancillary"],["KEI","Cable"],["KPIL","Engineering - Construction"],["KSB","Engg - Industrial Equipments"],["MARKSANS","Pharma"],["MMTC","Trading"],["MOTILALOFS","Finance - Stock Broking"],["NEULANDLAB","Pharma"],["NYKAA","Retail"],["OSWALPUMPS","Engg - Industrial Equipments"],["PAGEIND","Textile"],["RKFORGE","Forgings"],["SHAKTIPUMP","Engg - Industrial Equipments"],["SURYAROSNI","Metals - Steel - Iron Products"],["TATACAP","Finance - Housing - NBFC"],["THELEELA","Hotels"],["AADHARHFC","Finance - Housing - NBFC"],["ARVIND","Textile"],["ASHOKA","Engineering - Construction"],["ATHERENERG","Auto"],["AUROPHARMA","Pharma"],["BALAMINES","Chemicals"],["BANKINDIA","Banks"],["BIKAJI","Food"],["CUB","Banks"],["EICHERMOT","Auto"],["HONASA","Trading"],["HSCL","Chemicals"],["IDBI","Banks"],["INDIANB","Banks"],["INDIGOPNTS","Paints - Pigments"],["JYOTICNC","Engg - Industrial Equipments"],["KIMS","Hospital - Healthcare Services"],["KIRLOSENG","Engg - Industrial Equipments"],["MEDANTA","Hospital - Healthcare Services"],["MIDHANI","Metals - Steel - Iron Products"],["NAM-INDIA","Finance - Investment - Management"],["NAZARA","IT - Software"],["OLECTRA","Auto"],["PARADEEP","Fertilizers - Pesticides"],["PNB","Banks"],["POLYMED","Hospital - Healthcare Services"],["PTCIL","Forgings"],["RAIN","Chemicals - Petrochem"],["RAYMONDLSL","Textile"],["RELAXO","Footwear"],["SANSERA","Auto Ancillary"],["SHYAMMETL","Metals - Steel - Iron Products"],["SKIPPER","Engg - Industrial Equipments"],["SRF","Chemicals"],["STAR","Pharma"],["TATATECH","IT - Software"],["360ONE","Finance - Stock Broking"],["ABCAPITAL","Finance - Housing - NBFC"],["ANGELONE","Finance - Stock Broking"],["APOLLOTYRE","Tyres"],["BANDHANBNK","Banks"],["BHARATFORG","Forgings"],["CANFINHOME","Finance - Housing - NBFC"],["CARBORUNIV","Manufacturing"],["CEATLTD","Tyres"],["CHOLAHLDNG","Finance - Investment - Management"],["CRAMC","Finance - Investment - Management"],["CREDITACC","Finance - Housing - NBFC"],["CSBBANK","Banks"],["DCBBANK","Banks"],["DIXON","Consumer Durables"],["DOMS","Paper - Printing"],["ELGIEQUIP","Engg - Industrial Equipments"],["EMCURE","Pharma"],["ERIS","Pharma"],["GABRIEL","Auto Ancillary"],["GAEL","Chemicals"],["GOKULAGRO","Food"],["GREAVESCOT","Engg - Industrial Equipments"],["GVT&D","Electric Equipments"],["IGIL","Trading"],["IKS","IT - BPO - ITeS"],["INDIAGLYCO","Tobacco - Alcohol"],["INDIASHLTR","Finance - Housing - NBFC"],["ITI","Telecommunication"],["JAMNAAUTO","Auto Ancillary"],["JSWSTEEL","Metals - Steel - Iron Products"],["JUBLPHARMA","Pharma"],["JUSTDIAL","Trading"],["KARURVYSYA","Banks"],["KPRMILL","Textile"],["LICHSGFIN","Finance - Housing - NBFC"],["LLOYDSENGG","Engg - Industrial Equipments"],["LLOYDSME","Metals - Steel - Iron Products"],["M&MFIN","Finance - Housing - NBFC"],["MAHSEAMLES","Metals - Steel - Iron Products"],["MAXHEALTH","Hospital - Healthcare Services"],["MINDACORP","Auto Ancillary"],["MTARTECH","Engineering"],["NIACL","Insurance"],["NIVABUPA","Insurance"],["POLYCAB","Cable"],["RADICO","Tobacco - Alcohol"],["RECLTD","Finance - Housing - NBFC"],["RELIGARE","Finance - Investment - Management"],["RRKABEL","Cable"],["SAREGAMA","Media"],["SBIN","Banks"],["SHARDACROP","Fertilizers - Pesticides"],["SHRIRAMFIN","Finance - Housing - NBFC"],["SYNGENE","Trading"],["TATACOMM","Telecommunication"],["TEGA","Engg - Industrial Equipments"],["ANANDRATHI","Finance - Investment - Management"],["ANUP","Engg - Industrial Equipments"],["ASHOKLEY","Auto"],["AZAD","Engg - Industrial Equipments"],["BAJFINANCE","Finance - Housing - NBFC"],["BECTORFOOD","Food"],["BERGEPAINT","Paints - Pigments"],["BPCL","Oil - Gas"],["BRIGADE","Construction"],["BSE","Finance - Investment - Management"],["CGPOWER","Electric Equipments"],["CRAFTSMAN","Auto Ancillary"],["DATAMATICS","IT - Software"],["EIEL","Engineering - Construction"],["ENGINERSIN","Engineering"],["ENRIN","Electric Equipments"],["EXIDEIND","Batteries"],["FACT","Fertilizers - Pesticides"],["FLUOROCHEM","Chemicals"],["GLAND","Pharma"],["GODFRYPHLP","Tobacco - Alcohol"],["GRASIM","Trading"],["HEROMOTOCO","Auto"],["HFCL","Telecommunication"],["IGL","Oil - Gas"],["INOXWIND","Electric Equipments"],["IOC","Oil - Gas"],["JSL","Metals - Steel - Iron Products"],["KEC","Engineering - Construction"],["LT","Engineering - Construction"],["LXCHEM","Chemicals"],["MANAPPURAM","Finance - Housing - NBFC"],["MARICO","Food"],["MARUTI","Auto"],["MRPL","Oil - Gas"],["NSLNISP","Metals - Steel - Iron Products"],["OLAELEC","Auto"],["PCBL","Chemicals"],["PIIND","Fertilizers - Pesticides"],["POONAWALLA","Finance - Housing - NBFC"],["PRESTIGE","Construction"],["RAINBOW","Hospital - Healthcare Services"],["RCF","Fertilizers - Pesticides"],["REDINGTON","Trading"],["ROUTE","IT - Software"],["SCI","Ship - Ship Building"],["SHILPAMED","Pharma"],["STLTECH","Cable"],["SUZLON","Electric Equipments"],["THERMAX","Engg - Industrial Equipments"],["THOMASCOOK","Travel"],["THYROCARE","Hospital - Healthcare Services"],["AARTIPHARM","Pharma"],["ADANIGREEN","Power"],["ADVENZYMES","Pharma"],["ANANTRAJ","Construction"],["BALRAMCHIN","Sugar"],["BIOCON","Pharma"],["BLS","Trading"],["CAMS","Finance - Investment - Management"],["CANBK","Banks"],["CENTRALBK","Banks"],["COLPAL","FMCG"],["DBREALTY","Construction"],["DLF","Construction"],["FINCABLES","Cable"],["GNFC","Chemicals"],["GODREJCP","FMCG"],["GRANULES","Pharma"],["GRAVITA","Metals - Non Ferrous"],["HDFCBANK","Banks"],["HINDUNILVR","FMCG"],["IIFLCAPS","Finance - Stock Broking"],["INDIACEM","Cement"],["INDIAMART","Retail"],["INDUSINDBK","Banks"],["INOXINDIA","Engg - Industrial Equipments"],["IRCON","Engineering - Construction"],["JINDALSAW","Metals - Steel - Iron Products"],["JMFINANCIL","Finance - Investment - Management"],["JSWCEMENT","Cement"],["LTFOODS","Food"],["LUPIN","Pharma"],["MCX","Finance - Stock Broking"],["MEDPLUS","Retail"],["NCC","Engineering - Construction"],["NMDC","Mining"],["PAYTM","Finance - Investment - Management"],["PETRONET","Chemicals"],["PNBHOUSING","Finance - Housing - NBFC"],["POLICYBZR","Finance - Investment - Management"],["RAMCOCEM","Cement"],["RATNAMANI","Metals - Steel - Iron Products"],["SANDUMA","Mining"],["SUNDARMFIN","Finance - Housing - NBFC"],["TATAINVEST","Finance - Housing - NBFC"],["TDPOWERSYS","Electric Equipments"],["ABBOTINDIA","Pharma"],["ADANIPOWER","Power"],["AFCONS","Engineering - Construction"],["AMBUJACEM","Cement"],["ATGL","Oil - Gas"],["AURIONPRO","IT - Software"],["AVANTIFEED","Agriculture"],["AWL","Food"],["BBTC","Agriculture"],["BDL","Defence"],["BEML","Construction"],["BHARTIARTL","Telecommunication"],["CARTRADE","Auto"],["CDSL","Finance - Investment - Management"],["CHOICEIN","Finance - Stock Broking"],["CIEINDIA","Auto Ancillary"],["CYIENT","IT - Software"],["DBL","Construction"],["EDELWEISS","Finance - Housing - NBFC"],["FEDFINA","Finance - Housing - NBFC"],["FIVESTAR","Finance - Housing - NBFC"],["FORCEMOT","Auto"],["GMDCLTD","Mining"],["GODREJIND","Chemicals"],["GODREJPROP","Construction"],["GRSE","Ship - Ship Building"],["HBLENGINE","Batteries"],["HINDPETRO","Oil - Gas"],["IONEXCHANG","Water Treatment"],["IPCALAB","Pharma"],["IRB","Engineering - Construction"],["JIOFIN","Finance - Housing - NBFC"],["JKTYRE","Tyres"],["JPPOWER","Power"],["JWL","Railway"],["KAJARIACER","Ceramics"],["KANSAINER","Paints - Pigments"],["LALPATHLAB","Hospital - Healthcare Services"],["LATENTVIEW","Trading"],["LICI","Insurance"],["LTTS","IT - Software"],["MANKIND","Pharma"],["MAZDOCK","Ship - Ship Building"],["METROPOLIS","Hospital - Healthcare Services"],["MRF","Tyres"],["NETWORK18","Media"],["NFL","Fertilizers - Pesticides"],["NH","Hospital - Healthcare Services"],["PGEL","Consumer Durables"],["PHOENIXLTD","Construction"],["POWERINDIA","Electric Equipments"],["RAILTEL","Telecommunication"],["REDTAPE","Retail"],["RVNL","Engineering - Construction"],["SCHAEFFLER","Bearings"],["SJVN","Power"],["SOBHA","Construction"],["SONACOMS","Auto Ancillary"],["SUBROS","Auto Ancillary"],["SUDARSCHEM","Chemicals - Dyes - Pigments"],["SUMICHEM","Fertilizers - Pesticides"],["SUNPHARMA","Pharma"],["SUNTECK","Construction"],["SUNTV","Media"],["TANLA","IT - Software"],["TATACHEM","Chemicals"],["ACC","Cement"],["ACMESOLAR","Power"],["ADANIENSOL","Power"],["ALOKINDS","Textile"],["APLAPOLLO","Metals - Steel - Iron Products"],["APLLTD","Pharma"],["BAJAJHLDNG","Finance - Housing - NBFC"],["BIRLACORPN","Cement"],["CCL","Tea - Coffee"],["CIPLA","Pharma"],["CUMMINSIND","Engg - Industrial Equipments"],["DIVISLAB","Pharma"],["ECLERX","IT - BPO - ITeS"],["EIHOTEL","Hotels"],["ETHOSLTD","Retail"],["FINPIPE","Plastic"],["GRAPHITE","Manufacturing"],["GSFC","Fertilizers - Pesticides"],["HDBFS","Finance - Housing - NBFC"],["HGINFRA","Engineering - Construction"],["HUDCO","Finance - Housing - NBFC"],["IRFC","Finance - Housing - NBFC"],["JLHL","Hospital - Healthcare Services"],["KNRCON","Engineering - Construction"],["KPIGREEN","Engineering - Construction"],["LAURUSLABS","Pharma"],["LINDEINDIA","Chemicals"],["LUMAXTECH","Auto Ancillary"],["MANYAVAR","Textile"],["MGL","Oil - Gas"],["MUTHOOTFIN","Finance - Housing - NBFC"],["NEWGEN","IT - Software"],["NLCINDIA","Power"],["OBEROIRLTY","Construction"],["ORIENTCEM","Cement"],["RENUKA","Sugar"],["RITES","Engineering"],["RPOWER","Power"],["SBICARD","Finance - Housing - NBFC"],["SENCO","Diamond - Jewellery"],["SHREECEM","Cement"],["SWIGGY","Retail"],["AARTIDRUGS","Pharma"],["AARTIIND","Chemicals"],["ABFRL","Retail"],["ASTRAL","Plastic"],["BAJAJFINSV","Finance - Investment - Management"],["BAJAJHFL","Finance - Housing - NBFC"],["BATAINDIA","Footwear"],["BHEL","Engg - Industrial Equipments"],["BLUEDART","Logistics"],["BLUESTARCO","Consumer Durables"],["BLUESTONE","Diamond - Jewellery"],["BRITANNIA","Food"],["CAMPUS","Footwear"],["CANHLIFE","Insurance"],["CLEAN","Chemicals"],["CONCOR","Logistics"],["DEEPAKNTR","Chemicals"],["DELHIVERY","Logistics"],["DRREDDY","Pharma"],["ETERNAL","Retail"],["GPIL","Metals - Steel - Iron Products"],["HDFCAMC","Finance - Investment - Management"],["HEG","Manufacturing"],["IEX","Power"],["INDUSTOWER","Telecommunication"],["IOB","Banks"],["IREDA","Finance - Housing - NBFC"],["ITC","Tobacco - Alcohol"],["ITCHOTELS","Hotels"],["JINDALSTEL","Metals - Steel - Iron Products"],["KALYANKJIL","Diamond - Jewellery"],["M&M","Auto"],["MOIL","Mining"],["NHPC","Power"],["PATANJALI","Food"],["PURVA","Construction"],["RELIANCE","Oil - Gas"],["SAIL","Metals - Steel - Iron Products"],["SCHNEIDER","Electric Equipments"],["STARHEALTH","Insurance"],["ABREL","Construction"],["ASHOKLEY","Auto"],["BHARTIHEXA","Telecommunication"],["CASTROLIND","Oil - Gas"],["CHENNPETRO","Oil - Gas"],["COCHINSHIP","Ship - Ship Building"],["DABUR","FMCG"],["DALBHARAT","Cement"],["EMAMILTD","FMCG"],["GODIGIT","Insurance"],["GODREJAGRO","Agriculture"],["HAPPSTMNDS","IT - Software"],["HAVELLS","Electric Equipments"],["HCG","Hospital - Healthcare Services"],["HINDCOPPER","Metals - Non Ferrous"],["HINDZINC","Metals - Non Ferrous"],["IRCTC","Travel"],["JKCEMENT","Cement"],["KAYNES","IT - Hardware"],["KPITTECH","IT - Software"],["MAPMYINDIA","IT - Software"],["MPHASIS","IT - Software"],["NATCOPHARM","Pharma"],["NAUKRI","IT - BPO - ITeS"],["PFC","Finance - Housing - NBFC"],["PFIZER","Pharma"],["PNCINFRA","Engineering - Construction"],["SKFINDIA","Bearings"],["3MINDIA","Trading"],["ABB","Electric Equipments"],["ADANIENT","Trading"],["AIAENG","Forgings"],["AMBER","Consumer Durables"],["BEL","Defence"],["CRISIL","Finance - Investment - Management"],["DEVYANI","Food"],["EIDPARRY","Sugar"],["ENDURANCE","Auto Ancillary"],["FIRSTCRY","Retail"],["GHCL","Chemicals"],["HERITGFOOD","Food"],["JAIBALAJI","Metals - Steel - Iron Products"],["JKLAKSHMI","Cement"],["JSWENERGY","Power"],["JUBLFOOD","Food"],["JUBLINGREA","Chemicals"],["JYOTHYLAB","FMCG"],["KFINTECH","Finance - Investment - Management"],["LEMONTREE","Hotels"],["MFSL","Finance - Investment - Management"],["NATIONALUM","Metals - Non Ferrous"],["NAVA","Power"],["NESTLEIND","Food"],["PRAJIND","Engg - Industrial Equipments"],["SANOFICONR","Pharma"],["SAPPHIRE","Food"],["STYRENIX","Chemicals"],["TCS","IT - Software"],["AFFLE","IT - BPO - ITeS"],["BAJAJ-AUTO","Auto"],["BALKRISIND","Tyres"],["BSOFT","IT - Software"],["COALINDIA","Mining"],["CROMPTON","Consumer Durables"],["ESCORTS","Auto"],["FSL","IT - BPO - ITeS"],["GESHIP","Ship - Ship Building"],["GICRE","Insurance"],["GILLETTE","FMCG"],["HAL","Defence"],["HDFCLIFE","Insurance"],["ICICIPRULI","Insurance"],["MSUMI","Auto Ancillary"],["NTPCGREEN","Power"],["OFSS","IT - Software"],["PVRINOX","Media"],["SARDAEN","Metals - Steel - Iron Products"],["SBFC","Finance - Housing - NBFC"],["SIEMENS","Electric Equipments"],["SUPREMEIND","Plastic"],["TATAELXSI","IT - Software"],["ALKEM","Pharma"],["GLAXO","Pharma"],["HINDALCO","Metals - Non Ferrous"],["NTPC","Power"],["ONESOURCE","Pharma"],["SOLARINDS","Chemicals"],["SONATSOFTW","IT - Software"],["TATAPOWER","Power"],["TATASTEEL","Metals - Steel - Iron Products"],["ATUL","Chemicals"],["CENTURYPLY","Manufacturing"],["CESC","Power"],["COFORGE","IT - Software"],["DMART","Retail"],["ICICIGI","Insurance"],["INFY","IT - Software"],["MASTEK","IT - Software"],["OIL","Oil - Gas"],["ONGC","Oil - Gas"],["PERSISTENT","IT - Software"],["POWERGRID","Power"],["TATACONSUM","Tea - Coffee"],["TECHM","IT - Software"],["HCLTECH","IT - Software"],["SBILIFE","Insurance"],["TIINDIA","Auto Ancillary"],["TIMKEN","Bearings"],["TITAGARH","Railway"],["TITAN","Diamond - Jewellery"],["TMB","Banks"],["TVSMOTOR","Auto"],["TORNTPHARM","Pharma"],["TORNTPOWER","Power"],["TRIDENT","Textile - Spinning - Weaving"],["TRIVENI","Sugar"],["UBL","Tobacco - Alcohol"],["UCOBANK","Banks"],["UJJIVANSFB","Banks"],["ULTRACEMCO","Cement"],["UNIONBANK","Banks"],["UNOMINDA","Auto Ancillary"],["UPL","Fertilizers - Pesticides"],["USHAMART","Metals - Steel - Iron Products"],["UTIAMC","Finance - Investment - Management"],["VAIBHAVGBL","Diamond - Jewellery"],["VBL","Food"],["VEDL","Metals - Non Ferrous"],["VGUARD","Electric Equipments"],["VIJAYA","Hospital - Healthcare Services"],["VOLTAS","Consumer Durables"],["WAAREEENER","Electric Equipments"],["WABAG","Water Treatment"],["WELCORP","Metals - Steel - Iron Products"],["WELSPUNLIV","Textile"],["WHIRLPOOL","Consumer Durables"],["WIPRO","IT - Software"],["WOCKPHARMA","Pharma"],["YATHARTH","Hospital - Healthcare Services"],["YESBANK","Banks"],["ZAGGLE","IT - Software"],["ZEEL","Media"],["ZENSARTECH","IT - Software"],["ZENTEC","Defence"],["ZFCVINDIA","Auto Ancillary"],["ZYDUSLIFE","Pharma"],["ZYDUSWELL","Food"]
+];
+
+const NIFTY50_SYMS=["ASIANPAINT","KOTAKBANK","ADANIPORTS","AXISBANK","ICICIBANK","INDIGO","EICHERMOT","JSWSTEEL","MAXHEALTH","SBIN","SHRIRAMFIN","BAJFINANCE","GRASIM","MARUTI","SUNPHARMA","CIPLA","BAJAJFINSV","DRREDDY","ITC","M&M","RELIANCE","BHARTIARTL","JIOFIN","ADANIENT","BEL","TCS","BAJAJ-AUTO","COALINDIA","HDFCLIFE","HINDALCO","NTPC","TATAPOWER","TATASTEEL","INFY","POWERGRID","TATACONSUM","TECHM","HCLTECH","SBILIFE","TITAN","TVSMOTOR","TRENT","ULTRACEMCO","WIPRO"];
+const NIFTY100_SYMS=[...NIFTY50_SYMS,"BOSCHLTD","PIDILITIND","GAIL","MOTHERSON","BANKBARODA","CHOLAFIN","HYUNDAI","PNB","RECLTD","BPCL","CGPOWER","ENRIN","IOC","ADANIGREEN","CANBK","DLF","GODREJCP","LODHA","ADANIPOWER","AMBUJACEM","LICI","MAZDOCK","ADANIENSOL","BAJAJHLDNG","DIVISLAB","IRFC","SHREECEM","JINDALSTEL","HAVELLS","HINDZINC","NAUKRI","PFC","ABB","JSWENERGY","SIEMENS","SOLARINDS","DMART","ICICIGI","TORNTPHARM","UNITDSPR","VBL","VEDL","ZYDUSLIFE"];
+const NIFTY500_SYMS=[...NIFTY100_SYMS,"APARINDS","FEDERALBNK","MAHABANK","GMRAIRPORT","HONAUT","IDEA","IDFCFIRSTB","JSWINFRA","AJANTPHARM","AUBANK","COROMANDEL","FORTIS","KEI","MOTILALOFS","NYKAA","PAGEIND","AUROPHARMA","BANKINDIA","IDBI","INDIANB","MEDANTA","NAM-INDIA","SRF","TATATECH","360ONE","ABCAPITAL","APOLLOTYRE","BHARATFORG","DIXON","GVT&D","KPRMILL","LICHSGFIN","LLOYDSME","M&MFIN","NIACL","POLYCAB","BERGEPAINT","BSE","EXIDEIND","FACT","FLUOROCHEM","GODFRYPHLP","HEROMOTOCO","IGL","JSL","MARICO","PIIND","PRESTIGE","SUZLON","THERMAX","BIOCON","COLPAL","INDUSINDBK","LTF","LUPIN","NMDC","PAYTM","PETRONET","POLICYBZR","SUNDARMFIN","TATAINVEST","ABBOTINDIA","ATGL","AWL","BDL","IRB","LTTS","MANKIND","MRF","PHOENIXLTD","POWERINDIA","RVNL","SCHAEFFLER","SJVN","SONACOMS","ACC","APLAPOLLO","CUMMINSIND","DALBHARAT","HUDCO","LINDEINDIA","MUTHOOTFIN","NLCINDIA","OBEROIRLTY","SBICARD","SWIGGY","ASTRAL","BHEL","BLUESTARCO","CONCOR","DEEPAKNTR","HDFCAMC","INDUSTOWER","IOB","IREDA","ITCHOTELS","NHPC","PATANJALI","SAIL","BHARTIHEXA","COCHINSHIP","DABUR","GLENMARK","IRCTC","JKCEMENT","KPITTECH","MPHASIS","3MINDIA","AIAENG","CRISIL","ENDURANCE","BALKRISIND","ESCORTS","GICRE","ICICIPRULI","NTPCGREEN","OFSS","SUPREMEIND","TATAELXSI","ALKEM","GLAXO","COFORGE","OIL","PERSISTENT","TIINDIA","TORNTPOWER","UBL","UCOBANK","UNIONBANK","UNOMINDA","UPL","VOLTAS","WAAREEENER","YESBANK"];
+const MIDCAP150_SYMS=["APARINDS","FEDERALBNK","MAHABANK","GMRAIRPORT","HONAUT","IDEA","IDFCFIRSTB","JSWINFRA","AJANTPHARM","AUBANK","COROMANDEL","FORTIS","KEI","MOTILALOFS","NYKAA","PAGEIND","AUROPHARMA","BANKINDIA","IDBI","INDIANB","MEDANTA","NAM-INDIA","SRF","TATATECH","360ONE","ABCAPITAL","APOLLOTYRE","BHARATFORG","DIXON","GVT&D","KPRMILL","LICHSGFIN","LLOYDSME","M&MFIN","NIACL","POLYCAB","ASHOKLEY","BERGEPAINT","BSE","EXIDEIND","FACT","FLUOROCHEM","GODFRYPHLP","HEROMOTOCO","IGL","JSL","MARICO","PIIND","PRESTIGE","SUZLON","THERMAX","BIOCON","COLPAL","INDUSINDBK","LTF","LUPIN","NMDC","PAYTM","PETRONET","POLICYBZR","SUNDARMFIN","TATAINVEST","ABBOTINDIA","ATGL","AWL","BDL","IRB","LTTS","MANKIND","MRF","PHOENIXLTD","POWERINDIA","RVNL","SCHAEFFLER","SJVN","SONACOMS","ACC","APLAPOLLO","CUMMINSIND","DALBHARAT","HUDCO","LINDEINDIA","MUTHOOTFIN","NLCINDIA","OBEROIRLTY","SBICARD","SWIGGY","ASTRAL","BHEL","BLUESTARCO","CONCOR","DEEPAKNTR","HDFCAMC","INDUSTOWER","IOB","IREDA","ITCHOTELS","NHPC","PATANJALI","SAIL","BHARTIHEXA","COCHINSHIP","DABUR","GLENMARK","IRCTC","JKCEMENT","KPITTECH","MPHASIS","3MINDIA","AIAENG","CRISIL","ENDURANCE","BALKRISIND","ESCORTS","GICRE","ICICIPRULI","NTPCGREEN","OFSS","SUPREMEIND","TATAELXSI","ALKEM","GLAXO","COFORGE","OIL","PERSISTENT","TIINDIA","TORNTPOWER","UBL","UCOBANK","UNIONBANK","UNOMINDA","UPL","VOLTAS","WAAREEENER","YESBANK"];
+const SMALLCAP250_SYMS=["AKUMS","CAPLIPOINT","CERA","CGCL","IFCI","J&KBANK","NAVINFLUOR","NUVAMA","PIRAMALFIN","RBLBANK","SAILIFE","SYRMA","TEJASNET","ABSLAMC","ACE","AEGISLOG","AEGISVOPAK","AIIL","APTUS","ASTERDM","BLUEJET","CHAMBLFERT","CONCORDBIO","DEEPAKFERT","ELECON","JBCHEPHARM","KIRLOSBROS","NBCC","NETWEB","TBOTEK","AAVAS","ALKYLAMINE","HOMEFIRST","INTELLECT","JBMA","KPIL","KSB","MMTC","NEULANDLAB","RKFORGE","THELEELA","AADHARHFC","ATHERENERG","BIKAJI","CUB","HONASA","HSCL","JYOTICNC","KIMS","KIRLOSENG","OLECTRA","POLYMED","PTCIL","SHYAMMETL","ANGELONE","BANDHANBNK","CANFINHOME","CARBORUNIV","CEATLTD","CHOLAHLDNG","CREDITACC","DOMS","ELGIEQUIP","EMCURE","ERIS","IGIL","IKS","ITI","JUBLPHARMA","KARURVYSYA","MAHSEAMLES","MINDACORP","NIVABUPA","RADICO","RRKABEL","SAREGAMA","ANANDRATHI","BRIGADE","CRAFTSMAN","ENGINERSIN","GLAND","INOXWIND","KEC","MANAPPURAM","NSLNISP","OLAELEC","PCBL","POONAWALLA","RAINBOW","RCF","REDINGTON","SCI","ANANTRAJ","BALRAMCHIN","BLS","CAMS","DBREALTY","FINCABLES","GRANULES","GRAVITA","INDIACEM","INDIAMART","INOXINDIA","IRCON","JINDALSAW","JMFINANCIL","LTFOODS","MCX","NCC","PNBHOUSING","RAMCOCEM","AFCONS","BBTC","BEML","CDSL","CHOICEIN","CYIENT","FIVESTAR","FORCEMOT","GMDCLTD","GRSE","HBLENGINE","JKTYRE","JPPOWER","JWL","KAJARIACER","LALPATHLAB","LATENTVIEW","METROPOLIS","NH","PGEL","RAILTEL","SOBHA","SUMICHEM","SUNTV","TATACHEM","ACMESOLAR","ALOKINDS","APLLTD","CCL","ECLERX","EIHOTEL","FINPIPE","GRAPHITE","LAURUSLABS","MANYAVAR","MGL","NEWGEN","RITES","RPOWER","AARTIIND","ABFRL","BATAINDIA","BLUEDART","CAMPUS","CLEAN","DELHIVERY","GPIL","HEG","IEX","NUVOCO","SCHNEIDER","STARHEALTH","CASTROLIND","EMAMILTD","GODIGIT","GODREJAGRO","HAPPSTMNDS","HINDCOPPER","KAYNES","MAPMYINDIA","NATCOPHARM","PFIZER","AMBER","DEVYANI","EIDPARRY","FIRSTCRY","JUBLINGREA","KFINTECH","LEMONTREE","NAVA","PRAJIND","SAPPHIRE","AFFLE","BSOFT","CROMPTON","FSL","GESHIP","GILLETTE","PVRINOX","SARDAEN","SBFC","ATUL","CENTURYPLY","CESC","BAYERCROP","TIMKEN","TITAGARH","TRIDENT","USHAMART","UTIAMC","VGUARD","VIJAYA","WELCORP","WELSPUNLIV","WHIRLPOOL","WOCKPHARMA","ZEEL","ZENSARTECH","ZENTEC","ZFCVINDIA"];
+
+
+// ═════════ UNIVERSE / SECTORS ═════════
+const SECTOR_MAP=Object.fromEntries(ALL_STOCKS.map(s=>[s[0],s[1]]));
+const UNIQUE_SECTORS=[...new Set(ALL_STOCKS.map(s=>s[1]).filter(s=>s&&s!=='-'))].sort();
+const secFilterDD=document.getElementById('secFilterDD'),secResultDD=document.getElementById('secResultDD');
+UNIQUE_SECTORS.forEach(s=>{[secFilterDD,secResultDD].forEach(dd=>{const o=document.createElement('option');o.value=s;o.textContent=s;dd.appendChild(o);});});
+
+function getSymsForUniverse(){
+  const u=document.getElementById('universe').value;
+  if(u==='nifty50')return NIFTY50_SYMS;
+  if(u==='nifty100')return NIFTY100_SYMS;
+  if(u==='nifty500')return NIFTY500_SYMS;
+  return ALL_STOCKS.map(s=>s[0]);
+}
+function getFilteredSyms(){
+  let base=getSymsForUniverse();
+  const sec=secFilterDD.value;
+  if(sec!=='all')base=base.filter(s=>SECTOR_MAP[s]===sec);
+  return base;
+}
+function updateCount(){document.getElementById('uniCount').textContent=getFilteredSyms().length+' securities in scope';}
+document.getElementById('universe').addEventListener('change',updateCount);
+secFilterDD.addEventListener('change',updateCount);
+updateCount();
+
+// ═════════ MODE ═════════
+let MODE='swing';
+function setMode(m){
+  MODE=m;
+  document.body.dataset.mode=m;
+  ['swing','invest','bottom'].forEach(x=>{
+    const b=document.getElementById('mode'+x[0].toUpperCase()+x.slice(1));
+    b.classList.toggle('active',m===x);b.setAttribute('aria-selected',m===x);
+  });
+  document.getElementById('swingCard').style.display=m==='swing'?'':'none';
+  document.getElementById('investCard').style.display=m==='invest'?'':'none';
+  document.getElementById('bottomCard').style.display=m==='bottom'?'':'none';
+  document.getElementById('riskCard').style.display=m!=='invest'?'':'none';
+  document.getElementById('btCard').style.display=m==='swing'?'':'none';
+  if(m!=='swing')document.getElementById('btResults').classList.remove('show');
+  document.getElementById('modeTag').textContent=
+    m==='swing'?'Daily bars · pullback entries in confirmed uptrends · defined risk'
+    :m==='invest'?'Weekly bars · Stage-2 accumulation · pair with fundamentals'
+    :'Daily bars · beaten-down stocks with basing evidence · thesis dies on a new low';
+  document.getElementById('kLongL').textContent=m==='swing'?'Long signals':m==='invest'?'Accumulate':'Reversal buys';
+  document.getElementById('kEarlyL').textContent=m==='bottom'?'Fresh reclaims':'Early Stage-2';
+  renderResults();
+}
+
+// ═════════ INDICATORS ═════════
+function calcWMA(a,p){const r=Array(a.length).fill(null),d=p*(p+1)/2;for(let i=p-1;i<a.length;i++){let s=0;for(let j=0;j<p;j++)s+=a[i-(p-1-j)]*(j+1);r[i]=s/d;}return r;}
+function calcSMA(a,p){const r=Array(a.length).fill(null);let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=p)s-=a[i-p];if(i>=p-1)r[i]=s/p;}return r;}
+function calcEMA(a,p){const r=Array(a.length).fill(null),k=2/(p+1);let s=0;for(let i=0;i<a.length;i++){if(i<p){s+=a[i];if(i===p-1)r[i]=s/p;}else r[i]=a[i]*k+r[i-1]*(1-k);}return r;}
+function calcRSI(a,p=14){const r=Array(a.length).fill(null);if(a.length<p+1)return r;let g=0,l=0;
+  for(let i=1;i<=p;i++){const d=a[i]-a[i-1];if(d>0)g+=d;else l-=d;}g/=p;l/=p;r[p]=100-100/(1+g/(l||1e-4));
+  for(let i=p+1;i<a.length;i++){const d=a[i]-a[i-1];g=(g*(p-1)+(d>0?d:0))/p;l=(l*(p-1)+(d<0?-d:0))/p;r[i]=100-100/(1+g/(l||1e-4));}return r;}
+function calcATR(rows,p=14){const n=rows.length;if(n<p+1)return null;let trs=[];
+  for(let i=1;i<n;i++){const h=rows[i].h,l=rows[i].l,pc=rows[i-1].c;trs.push(Math.max(h-l,Math.abs(h-pc),Math.abs(l-pc)));}
+  let atr=trs.slice(0,p).reduce((a,b)=>a+b,0)/p;
+  for(let i=p;i<trs.length;i++)atr=(atr*(p-1)+trs[i])/p;
+  return atr;}
+function toWeekly(rows){ // rows must carry d = 'YYYY-MM-DD'
+  const map=new Map();
+  for(const r of rows){
+    const dt=new Date(r.d+'T00:00:00Z');
+    const mon=new Date(dt);mon.setUTCDate(dt.getUTCDate()-((dt.getUTCDay()+6)%7));
+    const k=mon.toISOString().slice(0,10);
+    if(!map.has(k))map.set(k,{d:k,o:r.o,h:r.h,l:r.l,c:r.c,v:r.v});
+    else{const w=map.get(k);w.h=Math.max(w.h,r.h);w.l=Math.min(w.l,r.l);w.c=r.c;w.v+=r.v;}
+  }
+  return [...map.values()];
+}
+
+// ═════════ DATA FETCH ═════════
+// Proxy chain: if one CORS proxy blocks or rate-limits, rotate to the next and stick with what works.
+const PROXIES=[
+  u=>'https://corsproxy.io/?'+encodeURIComponent(u),
+  u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u),
+  u=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(u)
+];
+let proxyIdx=+localStorage.getItem('de_proxyIdx')||0;
+async function proxFetch(url,timeout=15000){
+  let lastErr=null;
+  for(let k=0;k<PROXIES.length;k++){
+    const idx=(proxyIdx+k)%PROXIES.length;
+    try{
+      const res=await fetch(PROXIES[idx](url),{signal:AbortSignal.timeout(timeout)});
+      if(!res.ok)throw new Error('HTTP '+res.status);
+      if(idx!==proxyIdx){proxyIdx=idx;localStorage.setItem('de_proxyIdx',idx);}
+      return res;
+    }catch(e){lastErr=e;}
+  }
+  throw lastErr||new Error('all proxies failed');
+}
+async function fetchStooq(sym,days){
+  const to=new Date(),from=new Date();from.setDate(from.getDate()-days);
+  const fmt=d=>d.toISOString().split('T')[0].replace(/-/g,'');
+  const url=`https://stooq.com/q/d/l/?s=${sym.toLowerCase()}.in&d1=${fmt(from)}&d2=${fmt(to)}&i=d`;
+  const res=await proxFetch(url,13000);
+  const text=await res.text();
+  if(text.includes('No data')||text.trim().length<50)throw new Error('no data');
+  const lines=text.trim().split('\n');const start=isNaN(+lines[0].split(',')[1])?1:0;const rows=[];
+  for(let i=start;i<lines.length;i++){const c=lines[i].split(',');if(c.length<6)continue;
+    const o=+c[1],h=+c[2],l=+c[3],cl=+c[4],v=+c[5];
+    if([o,h,l,cl].some(isNaN)||cl===0)continue;
+    rows.push({d:c[0],o,h,l,c:cl,v:isNaN(v)?0:v});}
+  if(rows.length<10)throw new Error('thin');
+  return rows;
+}
+async function fetchYahoo(sym,days){
+  const to=Math.floor(Date.now()/1000),from=to-days*86400;
+  const url=`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}.NS?interval=1d&period1=${from}&period2=${to}`;
+  const res=await proxFetch(url,13000);
+  const json=await res.json();const q=json?.chart?.result?.[0];
+  if(!q||!q.timestamp)throw new Error('no data');
+  const ts=q.timestamp,x=q.indicators.quote[0],rows=[];
+  for(let i=0;i<ts.length;i++){const o=x.open[i],h=x.high[i],l=x.low[i],c=x.close[i],v=x.volume[i];
+    if([o,h,l,c].some(z=>z==null||isNaN(z)))continue;
+    rows.push({d:new Date(ts[i]*1000).toISOString().slice(0,10),o,h,l,c,v:v||0});}
+  if(rows.length<10)throw new Error('thin');
+  return rows;
+}
+async function fetchYahooIndex(days){ // ^NSEI benchmark
+  const to=Math.floor(Date.now()/1000),from=to-days*86400;
+  const url=`https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&period1=${from}&period2=${to}`;
+  const res=await proxFetch(url,13000);
+  const json=await res.json();const q=json?.chart?.result?.[0];
+  if(!q)throw new Error('no index');
+  const ts=q.timestamp,cl=q.indicators.quote[0].close,rows=[];
+  for(let i=0;i<ts.length;i++){if(cl[i]==null)continue;rows.push({d:new Date(ts[i]*1000).toISOString().slice(0,10),c:cl[i]});}
+  return rows;
+}
+async function fetchStock(sym,days){
+  try{const r=await fetchStooq(sym,days);return{rows:r,source:'stooq'};}catch(e){}
+  try{const r=await fetchYahoo(sym,days);return{rows:r,source:'yahoo'};}catch(e){}
+  return null;
+}
+
+// ═════════ BHAVCOPY (primary EOD) ═════════
+let BHAV=null,BHAV_DATE=null; // { SYM: {close, vol, delivPer} }
+async function loadBhavcopy(){
+  const pill=document.getElementById('bhavPill');
+  pill.textContent='BHAVCOPY …';pill.className='pill';
+  for(let back=0;back<8;back++){
+    const d=new Date();d.setDate(d.getDate()-back);
+    const dow=d.getDay();if(dow===0||dow===6)continue;
+    const dd=String(d.getDate()).padStart(2,'0'),mm=String(d.getMonth()+1).padStart(2,'0'),yyyy=d.getFullYear();
+    const url=`https://nsearchives.nseindia.com/products/content/sec_bhavdata_full_${dd}${mm}${yyyy}.csv`;
+    try{
+      const res=await proxFetch(url,15000);
+      const text=await res.text();
+      if(!text.includes('SYMBOL'))continue;
+      const lines=text.trim().split('\n');
+      const hdr=lines[0].split(',').map(h=>h.trim().toUpperCase());
+      const ix={sym:hdr.indexOf('SYMBOL'),ser:hdr.indexOf('SERIES'),cl:hdr.indexOf('CLOSE_PRICE'),vol:hdr.indexOf('TTL_TRD_QNTY'),del:hdr.indexOf('DELIV_PER')};
+      if(ix.sym<0||ix.cl<0)continue;
+      const map={};
+      for(let i=1;i<lines.length;i++){
+        const c=lines[i].split(',').map(x=>x.trim());
+        if(c.length<6)continue;
+        if(ix.ser>=0&&c[ix.ser]!=='EQ')continue;
+        const dp=ix.del>=0?parseFloat(c[ix.del]):NaN;
+        map[c[ix.sym]]={close:+c[ix.cl],vol:+c[ix.vol]||0,delivPer:isNaN(dp)?null:dp};
+      }
+      if(Object.keys(map).length<100)continue;
+      BHAV=map;BHAV_DATE=`${dd}-${mm}-${yyyy}`;
+      pill.textContent=`BHAVCOPY ${dd}/${mm} ✓`;pill.className='pill ok';
+      return true;
+    }catch(e){}
+  }
+  pill.textContent='BHAVCOPY UNAVAILABLE → FALLBACK';pill.className='pill warn';
+  return false;
+}
+
+let NIFTY_CLOSES=null,NIFTY_ROWS=null,NIFTY_DATES=null;
+async function loadNifty(days){
+  const pill=document.getElementById('niftyPill');
+  try{
+    NIFTY_ROWS=await fetchYahooIndex(days);
+    NIFTY_CLOSES=NIFTY_ROWS.map(r=>r.c);
+    NIFTY_DATES=NIFTY_ROWS.map(r=>r.d);
+    pill.textContent='NIFTY RS ✓';pill.className='pill ok';
+  }
+  catch(e){NIFTY_CLOSES=null;NIFTY_ROWS=null;NIFTY_DATES=null;pill.textContent='NIFTY RS UNAVAILABLE';pill.className='pill warn';}
+}
+function niftyIdxForDate(d){ // largest index with date <= d
+  if(!NIFTY_DATES)return -1;
+  let lo=0,hi=NIFTY_DATES.length-1,ans=-1;
+  while(lo<=hi){const m=(lo+hi)>>1;if(NIFTY_DATES[m]<=d){ans=m;lo=m+1;}else hi=m-1;}
+  return ans;
+}
+function niftyReturn(nBars){
+  if(!NIFTY_CLOSES||NIFTY_CLOSES.length<nBars+1)return null;
+  const a=NIFTY_CLOSES[NIFTY_CLOSES.length-1-nBars],b=NIFTY_CLOSES[NIFTY_CLOSES.length-1];
+  return(b-a)/a*100;
+}
+
+// ═════════ SCREEN: SWING (daily) ═════════
+const S_LABELS={s1:'C>W42',s2:'W42>W84',s3:'W30 stack',s4:'EMA20↑',s5:'Pullback',s6:'RSI band',s7:'Liquidity',s8:'Quiet PB',s9:'RS>Nifty',s10:'52wH',s11:'Deliv%'};
+function screenSwing(sym,rows,source){
+  const closes=rows.map(r=>r.c),vols=rows.map(r=>r.v),last=rows.length-1;
+  if(rows.length<100)return null;
+  const buf=1+((+document.getElementById('maBuffer').value||0.3)/100);
+  const w42=calcWMA(closes,42),w84=calcWMA(closes,84),w30=calcWMA(closes,30),w60=calcWMA(closes,60);
+  const e20a=calcEMA(closes,20),vs20=calcSMA(vols,20),rsiA=calcRSI(closes,14);
+  const close=closes[last],prev=closes[last-1]||close,chg=(close-prev)/prev*100;
+  const v42=w42[last],v84=w84[last],v30=w30[last],v60=w60[last],e20=e20a[last],e20p=e20a[Math.max(0,last-5)];
+  if(!v42||!v84||!v30||!v60||!e20||!e20p)return null;
+  const rsi=rsiA[last],vSMA=vs20[last]||0;
+  const wkVol=vols.slice(Math.max(0,last-4),last+1).reduce((a,b)=>a+b,0);
+  const vol3=vols.slice(Math.max(0,last-2),last+1).reduce((a,b)=>a+b,0)/3;
+  const volRat=vSMA>0?vols[last]/vSMA:0;
+  const eDist=Math.abs((close-e20)/e20)*100;
+  const hi52=Math.max(...closes.slice(-250)),hiDist=(hi52-close)/hi52*100;
+  const atr=calcATR(rows,14);
+  const ret63=last>=63?(close-closes[last-63])/closes[last-63]*100:null;
+  const nRet=niftyReturn(63);
+  const bh=BHAV?BHAV[sym]:null;
+  const delivMin=+document.getElementById('delivMinS').value||40;
+  const rsiMin=+document.getElementById('rsiMin').value||40,rsiMax=+document.getElementById('rsiMax').value||75;
+  const maxEd=+document.getElementById('ema20dist').value||3;
+  const minVol=+document.getElementById('minVol').value||100000;
+  const conds={
+    s1:close>v42*buf, s2:v42>v84*buf, s3:close>v30*buf&&v30>v60*buf, s4:e20>e20p,
+    s5:eDist<=maxEd&&close>e20*0.995, s6:rsi!=null&&rsi>=rsiMin&&rsi<=rsiMax,
+    s7:wkVol>minVol*3, s8:vSMA>0&&vol3<vSMA,
+    s9:ret63!=null&&nRet!=null?ret63>nRet:null,
+    s10:hiDist<=25,
+    s11:bh&&bh.delivPer!=null?bh.delivPer>=delivMin:null
+  };
+  const {results,passed,required}=evalConds(conds,['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11']);
+  const trendOK=conds.s2&&conds.s4; // structural uptrend intact + short-term average still rising
+  let signal='FAIL';
+  if(required>0&&passed===required)signal='BUY';
+  else if(trendOK&&passed>=required-2)signal='WATCH';
+  const stop=atr?close-2*atr:null;
+  const cap=+document.getElementById('capital').value||0,rp=+document.getElementById('riskPct').value||1;
+  const rr=+document.getElementById('rrTarget').value||2;
+  const qty=stop&&close>stop?Math.floor(cap*rp/100/(close-stop)):null;
+  const target=stop?close+rr*(close-stop):null;
+  return{sym,sector:SECTOR_MAP[sym]||'—',close,chg,signal,source,rsi,volRat,eDist,hiDist,
+    atr,stop,target,rr,qty,ret63,nRet,delivPer:bh?bh.delivPer:null,earlyS2:false,tag:'',
+    results,passed,required,history:rows,mode:'swing',
+    ov:{e20:e20a,w42,w84}};
+}
+
+// ═════════ SCREEN: INVEST (weekly) ═════════
+const I_LABELS={i1:'C>30wW',i2:'30wW↑',i3:'52wH',i4:'wRSI≥50',i5:'RS>Nifty',i6:'Liquidity',i7:'Deliv%'};
+function screenInvest(sym,rows,source){
+  const wk=toWeekly(rows);
+  if(wk.length<40)return null;
+  const closes=wk.map(r=>r.c),vols=wk.map(r=>r.v),last=wk.length-1;
+  const w30=calcWMA(closes,30),rsiA=calcRSI(closes,14);
+  const close=closes[last],prev=closes[last-1]||close,chg=(close-prev)/prev*100;
+  const v30=w30[last],v30p=w30[Math.max(0,last-4)];
+  if(!v30||!v30p)return null;
+  const rsi=rsiA[last];
+  const hi52=Math.max(...closes.slice(-52)),hiDist=(hi52-close)/hi52*100;
+  const avgWkVol=vols.slice(-8).reduce((a,b)=>a+b,0)/Math.min(8,vols.length);
+  const ret26=last>=26?(close-closes[last-26])/closes[last-26]*100:null;
+  const nRet=niftyReturn(126);
+  const bh=BHAV?BHAV[sym]:null;
+  const hiMax=+document.getElementById('hi52Max').value||30;
+  const delivMin=+document.getElementById('delivMinI').value||50;
+  const minVol=+document.getElementById('minVol').value||100000;
+  // fresh Stage-2: crossed above 30wWMA within last 8 weeks, was below before
+  let earlyS2=false;
+  if(close>v30){
+    for(let k=1;k<=8&&last-k>=0;k++){
+      if(w30[last-k]&&closes[last-k]<w30[last-k]){earlyS2=true;break;}
+    }
+  }
+  const conds={
+    i1:close>v30, i2:v30>v30p,
+    i3:hiDist<=hiMax, i4:rsi!=null&&rsi>=50,
+    i5:ret26!=null&&nRet!=null?ret26>nRet:null,
+    i6:avgWkVol>minVol*5,
+    i7:bh&&bh.delivPer!=null?bh.delivPer>=delivMin:null
+  };
+  const {results,passed,required}=evalConds(conds,['i1','i2','i3','i4','i5','i6','i7']);
+  const trendOK=conds.i1&&conds.i2;
+  let signal='FAIL';
+  if(required>0&&passed===required)signal='BUY';
+  else if(trendOK&&passed>=required-2)signal='WATCH';
+  return{sym,sector:SECTOR_MAP[sym]||'—',close,chg,signal,source,rsi,eDist:null,hiDist,
+    atr:null,stop:null,qty:null,ret63:ret26,nRet,delivPer:bh?bh.delivPer:null,earlyS2,tag:earlyS2?'EARLY S2':'',volRat:null,
+    results,passed,required,history:wk,mode:'invest',
+    ov:{w30}};
+}
+
+
+// ═════════ SCREEN: BOTTOM (daily, reversal-gated) ═════════
+const B_LABELS={b1:'Near low',b2:'Base ok',b3:'Higher lows',b4:'>EMA20',b5:'RSI rec',b6:'Off high',b7:'Liquidity',b8:'U/D vol',b9:'Deliv%'};
+function screenBottom(sym,rows,source){
+  if(rows.length<200)return null;
+  const closes=rows.map(r=>r.c),lows=rows.map(r=>r.l),vols=rows.map(r=>r.v),last=rows.length-1;
+  const e20a=calcEMA(closes,20),w30=calcWMA(closes,30),rsiA=calcRSI(closes,14);
+  const close=closes[last],prev=closes[last-1]||close,chg=(close-prev)/prev*100;
+  const e20=e20a[last],rsi=rsiA[last];
+  if(!e20)return null;
+  // lookback low & when it happened (last occurrence)
+  let lowVal=Infinity,lowIdx=0;
+  for(let i=0;i<=last;i++){if(lows[i]<=lowVal){lowVal=lows[i];lowIdx=i;}}
+  const aboveLow=(close-lowVal)/lowVal*100;
+  const wksLow=(last-lowIdx)/5;
+  const hi52=Math.max(...closes.slice(-250)),hiDist=(hi52-close)/hi52*100;
+  // higher lows: last 20d min vs prior 20d min
+  const recLow=Math.min(...lows.slice(last-19,last+1));
+  const priorLow=last>=40?Math.min(...lows.slice(last-39,last-19)):null;
+  // up-day vs down-day volume, 20 bars
+  let uv=0,dv=0;
+  for(let i=last-19;i<=last;i++){if(i<1)continue;if(closes[i]>closes[i-1])uv+=vols[i];else if(closes[i]<closes[i-1])dv+=vols[i];}
+  const udRatio=dv>0?uv/dv:(uv>0?9.99:1);
+  const wkVol=vols.slice(Math.max(0,last-4),last+1).reduce((a,b)=>a+b,0);
+  const atr=calcATR(rows,14);
+  const bh=BHAV?BHAV[sym]:null;
+  const lowMax=+document.getElementById('lowDist').value||20;
+  const baseW=+document.getElementById('baseWeeks').value||8;
+  const hiMin=+document.getElementById('hiDistMin').value||40;
+  const rsiFloor=+document.getElementById('rsiFloorB').value||45;
+  const delivMin=+document.getElementById('delivMinB').value||50;
+  const minVol=+document.getElementById('minVol').value||100000;
+  const conds={
+    b1:aboveLow<=lowMax, b2:wksLow>=baseW,
+    b3:priorLow!=null?recLow>priorLow:null,
+    b4:close>e20, b5:rsi!=null&&rsi>=rsiFloor,
+    b6:hiDist>=hiMin, b7:wkVol>minVol*3,
+    b8:udRatio>1.1,
+    b9:bh&&bh.delivPer!=null?bh.delivPer>=delivMin:null
+  };
+  const {results,passed,required}=evalConds(conds,['b1','b2','b3','b4','b5','b6','b7','b8','b9']);
+  const coreOK=conds.b6&&conds.b2; // beaten down + base finished; the EMA20 reclaim (b4) is the BUY trigger
+  let signal='FAIL';
+  if(required>0&&passed===required)signal='BUY';
+  else if(coreOK&&passed>=required-2)signal='WATCH';
+  // fresh reclaim: above EMA20 now, was below it within last 10 bars
+  let fresh=false;
+  if(close>e20){for(let k=1;k<=10&&last-k>=0;k++){if(e20a[last-k]&&closes[last-k]<e20a[last-k]){fresh=true;break;}}}
+  const stop=atr?close-2*atr:null;
+  const cap=+document.getElementById('capital').value||0,rp=+document.getElementById('riskPct').value||1;
+  const rr=+document.getElementById('rrTarget').value||2;
+  const qty=stop&&close>stop?Math.floor(cap*rp/100/(close-stop)):null;
+  const target=stop?close+rr*(close-stop):null;
+  return{sym,sector:SECTOR_MAP[sym]||'—',close,chg,signal,source,rsi,volRat:null,eDist:null,hiDist,
+    lowDist:aboveLow,wksLow,udRatio,invalid:lowVal,
+    atr,stop,target,rr,qty,ret63:null,nRet:null,delivPer:bh?bh.delivPer:null,earlyS2:fresh,tag:fresh?'FRESH RECLAIM':'',
+    results,passed,required,history:rows,mode:'bottom',
+    ov:{e20:e20a,w30}};
+}
+
+function evalConds(conds,keys){
+  let passed=0,required=0;const results={};
+  for(const k of keys){
+    const el=document.getElementById(k);
+    if(!el||!el.checked)continue;
+    if(conds[k]===null){results[k]='na';continue;} // data unavailable → neutral, not counted
+    required++;results[k]=conds[k];if(conds[k])passed++;
+  }
+  return{results,passed,required};
+}
+
+// ═════════ SCAN ORCHESTRATION ═════════
+let screenResults=[],scanning=false,skippedCount=0,sortCol=null,sortDir=1;
+
+async function runAll(){
+  const syms=getFilteredSyms();
+  if(!syms.length){alert('No securities in selected universe/sector.');return;}
+  const days=+document.getElementById('period').value;
+  const concurrency=+document.getElementById('concurrency').value;
+  scanning=true;screenResults=[];skippedCount=0;
+  const runBtn=document.getElementById('runBtn');
+  runBtn.disabled=true;runBtn.textContent='⏳ ANALYZING…';
+  document.getElementById('stopBtn').style.display='block';
+  document.getElementById('progCard').classList.add('show');
+  document.getElementById('progGrid').innerHTML='';
+  document.getElementById('progFill').style.width='0%';
+
+  document.getElementById('progLabel').textContent='Loading bhavcopy + Nifty benchmark…';
+  await Promise.all([BHAV?Promise.resolve():loadBhavcopy(),loadNifty(days)]);
+
+  // pre-filter via bhavcopy
+  let scanSyms=syms;
+  if(BHAV&&document.getElementById('usePrefilter').checked){
+    const pMin=+document.getElementById('priceMin').value||0,pMax=+document.getElementById('priceMax').value||1e9;
+    const mVol=+document.getElementById('minVol').value||0;
+    scanSyms=syms.filter(s=>{
+      const b=BHAV[s];
+      if(!b)return true; // unknown in bhavcopy → don't drop, verify via history
+      return b.close>=pMin&&b.close<=pMax&&b.vol>=mVol;
+    });
+    skippedCount=syms.length-scanSyms.length;
+  }
+  document.getElementById('progLabel').textContent=`Scanning ${scanSyms.length} securities (${skippedCount} pre-filtered out)…`;
+  document.getElementById('progNums').textContent=`0 / ${scanSyms.length}`;
+
+  let done=0;
+  const addLog=(sym,cls,srcTag)=>{
+    done++;
+    document.getElementById('progFill').style.width=Math.round(done/scanSyms.length*100)+'%';
+    document.getElementById('progNums').textContent=`${done} / ${scanSyms.length}`;
+    const el=document.createElement('div');
+    el.className='prog-item '+cls;
+    el.textContent=sym+(srcTag?' ·'+srcTag:'');
+    const g=document.getElementById('progGrid');g.appendChild(el);g.scrollTop=1e6;
+  };
+
+  for(let i=0;i<scanSyms.length;i+=concurrency){
+    if(!scanning)break;
+    const batch=scanSyms.slice(i,i+concurrency);
+    await Promise.all(batch.map(async sym=>{
+      if(!scanning)return;
+      try{
+        const res=await fetchStock(sym,days);
+        if(!res)throw new Error('no data');
+        const r=MODE==='swing'?screenSwing(sym,res.rows,res.source):MODE==='invest'?screenInvest(sym,res.rows,res.source):screenBottom(sym,res.rows,res.source);
+        if(!r)throw new Error('insufficient history');
+        screenResults.push(r);
+        addLog('✓ '+sym,'prog-ok',res.source==='yahoo'?'YFN':'STQ');
+      }catch(e){
+        screenResults.push({sym,sector:SECTOR_MAP[sym]||'—',close:0,chg:0,signal:'ERR',source:'error',results:{},passed:0,required:0,history:[],mode:MODE,earlyS2:false});
+        addLog('✗ '+sym,'prog-err','');
+      }
+    }));
+    renderResults();
+    if(i+concurrency<scanSyms.length)await sleep(400);
+  }
+  runBtn.disabled=false;runBtn.textContent='▶ RUN SCAN';
+  document.getElementById('stopBtn').style.display='none';
+  scanning=false;
+  document.getElementById('scanTimeLabel').textContent='SCANNED '+new Date().toLocaleTimeString();
+  if(MODE==='swing'&&screenResults.some(r=>r.mode==='swing'&&r.signal!=='ERR'))document.getElementById('btBtn').disabled=false;
+  renderResults();
+}
+function stopScan(){scanning=false;document.getElementById('runBtn').disabled=false;document.getElementById('runBtn').textContent='▶ RUN SCAN';document.getElementById('stopBtn').style.display='none';}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+
+// ═════════ CONNECTION SELF-TEST ═════════
+async function testConnection(){
+  const out=document.getElementById('testOut'),btn=document.getElementById('testBtn');
+  btn.disabled=true;out.innerHTML='Testing proxies with RELIANCE…';
+  const lines=[];
+  const names=['corsproxy.io','allorigins.win','codetabs.com'];
+  for(let i=0;i<PROXIES.length;i++){
+    let stooqOK=false,yahooOK=false;
+    try{
+      const r=await fetch(PROXIES[i]('https://stooq.com/q/d/l/?s=reliance.in&i=d'),{signal:AbortSignal.timeout(12000)});
+      const t=await r.text();stooqOK=r.ok&&t.includes('Date');
+    }catch(e){}
+    try{
+      const r=await fetch(PROXIES[i]('https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.NS?interval=1d&range=5d'),{signal:AbortSignal.timeout(12000)});
+      const j=await r.json();yahooOK=!!j?.chart?.result;
+    }catch(e){}
+    lines.push(`${names[i]}: Stooq ${stooqOK?'✓':'✗'} · Yahoo ${yahooOK?'✓':'✗'}`);
+    if((stooqOK||yahooOK)&&i!==proxyIdx){proxyIdx=i;localStorage.setItem('de_proxyIdx',i);}
+  }
+  const anyOK=lines.some(l=>l.includes('✓'));
+  const isFile=location.protocol==='file:';
+  out.innerHTML=lines.join('<br/>')+(anyOK
+    ?'<br/><b style="color:var(--green)">Working route found — scans will use it.</b>'
+    :'<br/><b style="color:var(--red)">All routes blocked.</b> '+(isFile
+      ?'You are running from a local file (file://) — some proxies reject that. Serve it over HTTP: <b>python -m http.server</b> in the folder, then open localhost:8000, or push to GitHub Pages.'
+      :'Likely network/firewall or temporary proxy outage — try again in a few minutes or on another network.'));
+  btn.disabled=false;
+}
+
+// ═════════ WATCHLIST ═════════
+let watchlist=new Set(JSON.parse(localStorage.getItem('de_watchlist')||'[]')),wlFilterActive=false;
+function saveWL(){localStorage.setItem('de_watchlist',JSON.stringify([...watchlist]));}
+function toggleWL(sym,ev){ev.stopPropagation();watchlist.has(sym)?watchlist.delete(sym):watchlist.add(sym);saveWL();renderWL();applyFilter();}
+function clearWatchlist(){watchlist.clear();saveWL();renderWL();applyFilter();}
+function toggleWlFilter(){wlFilterActive=!wlFilterActive;document.getElementById('wlFilterBtn').classList.toggle('active',wlFilterActive);applyFilter();}
+function renderWL(){
+  document.getElementById('wlCount').textContent='('+watchlist.size+')';
+  const strip=document.getElementById('wlStrip');
+  strip.innerHTML=watchlist.size?[...watchlist].map(s=>`<span class="wl-chip">${s}<button onclick="toggleWL('${s}',event)" aria-label="Untrack ${s}">✕</button></span>`).join('')
+    :'<span class="dim" style="font-size:10.5px">Star any row to track it.</span>';
+}
+renderWL();
+
+// ═════════ RENDER ═════════
+const SIG_TXT={swing:{BUY:'LONG',WATCH:'IN SETUP',FAIL:'NEUTRAL'},invest:{BUY:'ACCUMULATE',WATCH:'WATCH',FAIL:'NEUTRAL'},bottom:{BUY:'REVERSAL',WATCH:'BASING',FAIL:'NEUTRAL'}};
+const SIG_CLS={BUY:'sig-long',WATCH:'sig-setup',FAIL:'sig-neutral',ERR:'sig-err'};
+let openDetail=null,detailChart=null;
+
+function headers(){
+  const common=[['','star'],['Security','sym'],['LTP ₹','close'],['Δ %','chg'],['Signal','signal']];
+  if(MODE==='swing')return common.concat([['EMA20 dist','eDist'],['RSI','rsi'],['52wH dist','hiDist'],['Deliv %','delivPer'],['ATR','atr'],['Stop','stop'],['Target','target'],['Qty','qty'],['Score','passed'],['Trend','spark']]);
+  if(MODE==='bottom')return common.concat([['Above low','lowDist'],['Wks since low','wksLow'],['Off 52wH','hiDist'],['RSI','rsi'],['U/D vol','udRatio'],['Deliv %','delivPer'],['Stop','stop'],['Target','target'],['Qty','qty'],['Score','passed'],['Trend','spark']]);
+  return common.concat([['52wH dist','hiDist'],['wRSI','rsi'],['26w vs Nifty','ret63'],['Deliv %','delivPer'],['Score','passed'],['Trend','spark']]);
+}
+function renderResults(){buildHead();applyFilter();updateKPIs();}
+function buildHead(){
+  document.getElementById('thead').innerHTML='<tr>'+headers().map(([t,k])=>`<th onclick="sortBy('${k}')">${t}${sortCol===k?(sortDir>0?' ↑':' ↓'):''}</th>`).join('')+'</tr>';
+}
+function sortBy(k){
+  if(k==='star'||k==='spark')return;
+  if(sortCol===k)sortDir*=-1;else{sortCol=k;sortDir=1;}
+  renderResults();
+}
+function applyFilter(){
+  const sf=document.getElementById('sigFilter').value,sec=secResultDD.value;
+  let data=screenResults.filter(r=>r.mode===MODE&&r.signal!=='ERR');
+  if(sf!=='all')data=data.filter(r=>r.signal===sf);
+  if(sec!=='all')data=data.filter(r=>r.sector===sec);
+  if(wlFilterActive)data=data.filter(r=>watchlist.has(r.sym));
+  if(sortCol)data.sort((a,b)=>{const av=a[sortCol]??-1e18,bv=b[sortCol]??-1e18;return(av<bv?-1:av>bv?1:0)*sortDir;});
+  else data.sort((a,b)=>{const o={BUY:0,WATCH:1,FAIL:2};return(o[a.signal]||2)-(o[b.signal]||2)||(b.passed-a.passed);});
+  renderTable(data);
+}
+function fmt(n,d=1){return n==null||isNaN(n)?'—':(+n).toFixed(d);}
+function fmtInt(n){return n==null?'—':n.toLocaleString('en-IN');}
+function scoreBar(p,r){return '<span class="score">'+Array.from({length:r},(_,i)=>`<i class="${i<p?'p':'f'}"></i>`).join('')+'</span>';}
+function spark(rows){
+  const cl=rows.slice(-30).map(r=>r.c);if(cl.length<2)return'—';
+  const min=Math.min(...cl),rng=Math.max(...cl)-min||1,W=72,H=24;
+  const pts=cl.map((c,i)=>`${(i/(cl.length-1))*W},${H-((c-min)/rng)*H}`).join(' ');
+  const up=cl[cl.length-1]>=cl[0];
+  return `<svg class="spark" width="${W}" height="${H}"><polyline points="${pts}" fill="none" stroke="${up?'var(--green)':'var(--red)'}" stroke-width="1.5"/></svg>`;
+}
+function renderTable(data){
+  const tb=document.getElementById('tbody');
+  const cols=headers().length;
+  if(!data.length){tb.innerHTML=`<tr><td colspan="${cols}"><div class="empty">No results yet — run a scan, or loosen the filters above.</div></td></tr>`;return;}
+  tb.innerHTML=data.map((r,i)=>{
+    const labels=r.mode==='swing'?S_LABELS:r.mode==='bottom'?B_LABELS:I_LABELS;
+    let cells=`
+      <td><button class="star ${watchlist.has(r.sym)?'on':''}" onclick="toggleWL('${r.sym}',event)" aria-label="Track ${r.sym}">★</button></td>
+      <td><span class="sym">${r.sym}</span>${r.tag?'<span class="stage-tag">'+r.tag+'</span>':''}<br/><span class="sec-tag">${r.sector}</span></td>
+      <td>${fmt(r.close,2)}</td>
+      <td class="${r.chg>=0?'pos':'neg'}">${r.chg>=0?'+':''}${fmt(r.chg,2)}</td>
+      <td><span class="sig ${SIG_CLS[r.signal]}">${SIG_TXT[r.mode][r.signal]||r.signal}</span></td>`;
+    if(r.mode==='swing'){
+      cells+=`
+      <td>${fmt(r.eDist,1)}%</td><td>${fmt(r.rsi,0)}</td>
+      <td class="dim">−${fmt(r.hiDist,1)}%</td>
+      <td class="${r.delivPer!=null&&r.delivPer>=50?'pos':'dim'}">${fmt(r.delivPer,0)}</td>
+      <td class="dim">${fmt(r.atr,1)}</td>
+      <td class="neg">${fmt(r.stop,1)}</td><td class="pos">${fmt(r.target,1)}</td><td>${r.qty!=null?fmtInt(r.qty):'—'}</td>`;
+    }else if(r.mode==='bottom'){
+      cells+=`
+      <td class="pos">+${fmt(r.lowDist,1)}%</td><td>${fmt(r.wksLow,0)}</td>
+      <td class="neg">−${fmt(r.hiDist,1)}%</td><td>${fmt(r.rsi,0)}</td>
+      <td class="${r.udRatio>1.1?'pos':'dim'}">${fmt(r.udRatio,2)}</td>
+      <td class="${r.delivPer!=null&&r.delivPer>=50?'pos':'dim'}">${fmt(r.delivPer,0)}</td>
+      <td class="neg">${fmt(r.stop,1)}</td><td class="pos">${fmt(r.target,1)}</td><td>${r.qty!=null?fmtInt(r.qty):'—'}</td>`;
+    }else{
+      cells+=`
+      <td class="dim">−${fmt(r.hiDist,1)}%</td><td>${fmt(r.rsi,0)}</td>
+      <td class="${r.ret63!=null&&r.nRet!=null&&r.ret63>r.nRet?'pos':'dim'}">${r.ret63!=null?fmt(r.ret63,1)+'% / '+fmt(r.nRet,1)+'%':'—'}</td>
+      <td class="${r.delivPer!=null&&r.delivPer>=50?'pos':'dim'}">${fmt(r.delivPer,0)}</td>`;
+    }
+    cells+=`<td>${scoreBar(r.passed,r.required)}</td><td>${spark(r.history)}</td>`;
+    let out=`<tr class="row-main" onclick="toggleDetail(${i},this)" data-sym="${r.sym}">${cells}</tr>`;
+    if(openDetail===r.sym){
+      const pills=Object.entries(r.results).map(([k,v])=>`<span class="cond-pill ${v==='na'?'cond-na':v?'cond-pass':'cond-fail'}">${labels[k]||k}${v==='na'?' · n/a':''}</span>`).join('');
+      out+=`<tr class="detail-row"><td colspan="${cols}">
+        <div class="detail-grid">
+          <div><div id="dchart" style="min-height:220px"></div></div>
+          <div>
+            <div class="cond-pills">${pills}</div>
+            ${r.mode==='swing'?`
+              <div class="dstat"><span class="k">ATR(14)</span><b>₹${fmt(r.atr,2)}</b></div>
+              <div class="dstat"><span class="k">Suggested stop (2×ATR)</span><b class="neg">₹${fmt(r.stop,2)}</b></div>
+              <div class="dstat"><span class="k">Take profit (1:${r.rr})</span><b class="pos">₹${fmt(r.target,2)}</b></div>
+              <div class="dstat"><span class="k">Risk / reward per share</span><b>₹${fmt(r.close-r.stop,2)} / ₹${fmt(r.target-r.close,2)}</b></div>
+              <div class="dstat"><span class="k">Risk-sized qty</span><b>${r.qty!=null?fmtInt(r.qty):'—'}</b></div>
+              <div class="dstat"><span class="k">Position value</span><b>₹${r.qty!=null?fmtInt(Math.round(r.qty*r.close)):'—'}</b></div>
+              <div class="dstat"><span class="k">₹ at stop / at target</span><b><span class="neg">−₹${r.qty!=null?fmtInt(Math.round(r.qty*(r.close-r.stop))):'—'}</span> / <span class="pos">+₹${r.qty!=null?fmtInt(Math.round(r.qty*(r.target-r.close))):'—'}</span></b></div>
+              <div class="dstat"><span class="k">63-day return vs Nifty</span><b>${r.ret63!=null?fmt(r.ret63,1)+'% vs '+fmt(r.nRet,1)+'%':'—'}</b></div>`
+            :r.mode==='bottom'?`
+              <div class="dstat"><span class="k">Above lookback low</span><b>+${fmt(r.lowDist,1)}%</b></div>
+              <div class="dstat"><span class="k">Weeks since that low</span><b>${fmt(r.wksLow,0)}</b></div>
+              <div class="dstat"><span class="k">Invalidation (the low)</span><b class="neg">₹${fmt(r.invalid,2)}</b></div>
+              <div class="dstat"><span class="k">ATR stop (2×ATR)</span><b class="neg">₹${fmt(r.stop,2)}</b></div>
+              <div class="dstat"><span class="k">Take profit (1:${r.rr})</span><b class="pos">₹${fmt(r.target,2)}</b></div>
+              <div class="dstat"><span class="k">Risk-sized qty</span><b>${r.qty!=null?fmtInt(r.qty):'—'}</b></div>
+              <div class="dstat"><span class="k">Up/down volume (20d)</span><b>${fmt(r.udRatio,2)}</b></div>`
+            :`
+              <div class="dstat"><span class="k">Stage</span><b>${r.earlyS2?'Early Stage-2 (fresh 30wWMA cross)':'Established trend'}</b></div>
+              <div class="dstat"><span class="k">26-week return vs Nifty</span><b>${r.ret63!=null?fmt(r.ret63,1)+'% vs '+fmt(r.nRet,1)+'%':'—'}</b></div>
+              <div class="dstat"><span class="k">Delivery %</span><b>${fmt(r.delivPer,1)}</b></div>`}
+            <div style="margin-top:10px">
+              <a class="link" href="https://www.screener.in/company/${r.sym}/consolidated/" target="_blank" rel="noopener">Fundamentals on Screener.in ↗</a> &nbsp;·&nbsp;
+              <a class="link" href="https://www.tradingview.com/chart/?symbol=NSE%3A${r.sym}" target="_blank" rel="noopener">TradingView ↗</a>
+            </div>
+          </div>
+        </div>
+      </td></tr>`;
+    }
+    return out;
+  }).join('');
+  if(openDetail){const r=data.find(x=>x.sym===openDetail);if(r)drawDetail(r);}
+}
+function toggleDetail(i,tr){
+  const sym=tr.dataset.sym;
+  openDetail=openDetail===sym?null:sym;
+  applyFilter();
+}
+function drawDetail(r){
+  const el=document.getElementById('dchart');if(!el)return;
+  if(detailChart){detailChart.destroy();detailChart=null;}
+  const rows=r.history.slice(-(r.mode==='invest'?80:160));
+  const cats=rows.map(x=>x.d);
+  const series=[{name:'Close',data:rows.map(x=>+x.c.toFixed(2))}];
+  const off=r.history.length-rows.length;
+  if(r.mode==='swing'){
+    series.push({name:'EMA20',data:rows.map((_,j)=>r.ov.e20[off+j]?+r.ov.e20[off+j].toFixed(2):null)});
+    series.push({name:'WMA42',data:rows.map((_,j)=>r.ov.w42[off+j]?+r.ov.w42[off+j].toFixed(2):null)});
+    series.push({name:'WMA84',data:rows.map((_,j)=>r.ov.w84[off+j]?+r.ov.w84[off+j].toFixed(2):null)});
+  }else if(r.mode==='bottom'){
+    series.push({name:'EMA20',data:rows.map((_,j)=>r.ov.e20[off+j]?+r.ov.e20[off+j].toFixed(2):null)});
+    series.push({name:'WMA30',data:rows.map((_,j)=>r.ov.w30[off+j]?+r.ov.w30[off+j].toFixed(2):null)});
+  }else{
+    series.push({name:'30wWMA',data:rows.map((_,j)=>r.ov.w30[off+j]?+r.ov.w30[off+j].toFixed(2):null)});
+  }
+  detailChart=new ApexCharts(el,{
+    chart:{type:'line',height:230,background:'transparent',toolbar:{show:false},animations:{enabled:false}},
+    theme:{mode:'dark'},
+    series,
+    xaxis:{categories:cats,labels:{show:true,rotate:0,style:{colors:'#64756E',fontSize:'9px'},formatter:(v,ts,o)=>{const i=o?.i??0;return i%Math.ceil(cats.length/6)===0?String(v).slice(5):'';}},tooltip:{enabled:false}},
+    yaxis:{labels:{style:{colors:'#64756E',fontSize:'9px'}},decimalsInFloat:1},
+    stroke:{width:[2,1.4,1.4,1.4],curve:'straight'},
+    colors:['#D5DFD9','#5AA9E6','#F2B33D','#E5534B'],
+    grid:{borderColor:'#1F2A26'},
+    legend:{labels:{colors:'#64756E'},fontSize:'10px'},
+    tooltip:{theme:'dark'}
+  });
+  detailChart.render();
+}
+function updateKPIs(){
+  const data=screenResults.filter(r=>r.mode===MODE);
+  const set=(id,v)=>document.getElementById(id).textContent=v;
+  set('kScanned',data.length||'—');
+  set('kSkipped',skippedCount||'—');
+  set('kLong',data.filter(r=>r.signal==='BUY').length);
+  set('kSetup',data.filter(r=>r.signal==='WATCH').length);
+  set('kEarly',data.filter(r=>r.earlyS2).length);
+  set('kErr',data.filter(r=>r.signal==='ERR').length);
+}
+function exportCSV(){
+  const data=screenResults.filter(r=>r.mode===MODE&&r.signal!=='ERR');
+  if(!data.length){alert('Nothing to export — run a scan first.');return;}
+  const head=MODE==='swing'
+    ?['Symbol','Sector','Close','Chg%','Signal','EMA20Dist%','RSI','VolX','52wHDist%','Deliv%','ATR','Stop','Target','Qty','Score']
+    :MODE==='bottom'
+    ?['Symbol','Sector','Close','Chg%','Signal','AboveLow%','WksSinceLow','Off52wH%','RSI','UDVolRatio','Deliv%','Invalidation','Stop','Target','Qty','Score']
+    :['Symbol','Sector','Close','Chg%','Signal','52wHDist%','wRSI','Ret%','NiftyRet%','Deliv%','EarlyS2','Score'];
+  const rows=data.map(r=>MODE==='swing'
+    ?[r.sym,r.sector,r.close,r.chg?.toFixed(2),SIG_TXT[r.mode][r.signal],r.eDist?.toFixed(2),r.rsi?.toFixed(0),r.volRat?.toFixed(2),r.hiDist?.toFixed(2),r.delivPer??'',r.atr?.toFixed(2),r.stop?.toFixed(2),r.target?.toFixed(2),r.qty??'',r.passed+'/'+r.required]
+    :MODE==='bottom'
+    ?[r.sym,r.sector,r.close,r.chg?.toFixed(2),SIG_TXT[r.mode][r.signal],r.lowDist?.toFixed(2),r.wksLow?.toFixed(0),r.hiDist?.toFixed(2),r.rsi?.toFixed(0),r.udRatio?.toFixed(2),r.delivPer??'',r.invalid?.toFixed(2),r.stop?.toFixed(2),r.target?.toFixed(2),r.qty??'',r.passed+'/'+r.required]
+    :[r.sym,r.sector,r.close,r.chg?.toFixed(2),SIG_TXT[r.mode][r.signal],r.hiDist?.toFixed(2),r.rsi?.toFixed(0),r.ret63?.toFixed(2),r.nRet?.toFixed(2),r.delivPer??'',r.earlyS2?'Y':'',r.passed+'/'+r.required]);
+  const csv=[head,...rows].map(r=>r.map(c=>`"${c??''}"`).join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`dualedge_${MODE}_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+function resetAll(){
+  screenResults=[];skippedCount=0;openDetail=null;sortCol=null;
+  document.getElementById('sigFilter').value='all';secResultDD.value='all';
+  wlFilterActive=false;document.getElementById('wlFilterBtn').classList.remove('active');
+  document.getElementById('progCard').classList.remove('show');
+  renderResults();
+}
+
+// ═════════ BACKTEST (swing rules, cached history) ═════════
+let btChart=null;
+function calcATRSeries(rows,p=14){
+  const n=rows.length,res=Array(n).fill(null);
+  if(n<p+1)return res;
+  const trs=[null];
+  for(let i=1;i<n;i++)trs.push(Math.max(rows[i].h-rows[i].l,Math.abs(rows[i].h-rows[i-1].c),Math.abs(rows[i].l-rows[i-1].c)));
+  let atr=trs.slice(1,p+1).reduce((a,b)=>a+b,0)/p;res[p]=atr;
+  for(let i=p+1;i<n;i++){atr=(atr*(p-1)+trs[i])/p;res[i]=atr;}
+  return res;
+}
+function btConfig(){
+  return{
+    buf:1+((+document.getElementById('maBuffer').value||0.3)/100),
+    maxEd:+document.getElementById('ema20dist').value||3,
+    rsiMin:+document.getElementById('rsiMin').value||40,
+    rsiMax:+document.getElementById('rsiMax').value||75,
+    minVol:+document.getElementById('minVol').value||100000,
+    checks:Object.fromEntries(['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10'].map(k=>[k,document.getElementById(k).checked])),
+    hold:Math.max(2,+document.getElementById('btHold').value||20),
+    rTarget:Math.max(0.5,+document.getElementById('btTarget').value||2)
+  };
+}
+function evalSwingAt(A,rows,t,cfg){
+  const c=A.closes[t],v42=A.w42[t],v84=A.w84[t],v30=A.w30[t],v60=A.w60[t];
+  const e20=A.e20[t],e20p=A.e20[t-5],rsi=A.rsi[t],vSMA=A.vs20[t];
+  if(!v42||!v84||!v30||!v60||!e20||!e20p)return false;
+  const eDist=Math.abs((c-e20)/e20)*100;
+  const wkVol=A.vols.slice(t-4,t+1).reduce((a,b)=>a+b,0);
+  const vol3=A.vols.slice(t-2,t+1).reduce((a,b)=>a+b,0)/3;
+  const hi52=Math.max(...A.closes.slice(Math.max(0,t-249),t+1));
+  let rsOK=null;
+  if(NIFTY_DATES&&t>=63){
+    const ni=niftyIdxForDate(rows[t].d);
+    if(ni>=63){
+      const sr=(c-A.closes[t-63])/A.closes[t-63]*100;
+      const nr=(NIFTY_CLOSES[ni]-NIFTY_CLOSES[ni-63])/NIFTY_CLOSES[ni-63]*100;
+      rsOK=sr>nr;
+    }
+  }
+  const conds={
+    s1:c>v42*cfg.buf, s2:v42>v84*cfg.buf, s3:c>v30*cfg.buf&&v30>v60*cfg.buf, s4:e20>e20p,
+    s5:eDist<=cfg.maxEd&&c>e20*0.995, s6:rsi!=null&&rsi>=cfg.rsiMin&&rsi<=cfg.rsiMax,
+    s7:wkVol>cfg.minVol*3, s8:vSMA>0&&vol3<vSMA, s9:rsOK, s10:(hi52-c)/hi52*100<=25
+  };
+  for(const k of Object.keys(cfg.checks)){
+    if(!cfg.checks[k])continue;
+    if(conds[k]===null)continue; // unavailable (e.g. RS with no nifty) → skip like live NA
+    if(!conds[k])return false;
+  }
+  return true;
+}
+function backtestSymbol(r,cfg){
+  const rows=r.history;
+  if(!rows||rows.length<130)return null;
+  const A={
+    closes:rows.map(x=>x.c),vols:rows.map(x=>x.v),
+    w42:calcWMA(rows.map(x=>x.c),42),w84:calcWMA(rows.map(x=>x.c),84),
+    w30:calcWMA(rows.map(x=>x.c),30),w60:calcWMA(rows.map(x=>x.c),60),
+    e20:calcEMA(rows.map(x=>x.c),20),rsi:calcRSI(rows.map(x=>x.c),14),
+    vs20:calcSMA(rows.map(x=>x.v),20)
+  };
+  const atrS=calcATRSeries(rows,14);
+  const trades=[];
+  let t=100;
+  while(t<rows.length-2){
+    if(!evalSwingAt(A,rows,t,cfg)){t++;continue;}
+    const atr=atrS[t];
+    if(!atr){t++;continue;}
+    const entryBar=t+1,entry=rows[entryBar].o;
+    const stop=entry-2*atr;
+    if(stop<=0||entry<=stop){t++;continue;}
+    const risk=entry-stop,target=entry+cfg.rTarget*risk;
+    let exit=null,exitBar=null,kind=null;
+    for(let u=entryBar;u<Math.min(rows.length,entryBar+cfg.hold);u++){
+      const b=rows[u];
+      const stopHit=b.l<=stop,tgtHit=b.h>=target;
+      if(u===entryBar&&b.o<=stop){exit=b.o;exitBar=u;kind='S';break;} // gap through stop at entry open
+      if(stopHit){exit=Math.min(stop,b.o<stop?b.o:stop);exitBar=u;kind='S';break;} // gap-down honored
+      if(tgtHit){exit=target;exitBar=u;kind='T';break;}
+    }
+    if(exit===null){exitBar=Math.min(rows.length-1,entryBar+cfg.hold-1);exit=rows[exitBar].c;kind='X';}
+    trades.push({entryD:rows[entryBar].d,exitD:rows[exitBar].d,R:(exit-entry)/risk,hold:exitBar-entryBar+1,kind});
+    t=exitBar+1; // one open trade per stock
+  }
+  return trades.length?trades:null;
+}
+function runBacktest(){
+  const cfg=btConfig();
+  const data=screenResults.filter(r=>r.mode==='swing'&&r.signal!=='ERR'&&r.history&&r.history.length);
+  if(!data.length){alert('Run a swing scan first — backtest replays its cached history.');return;}
+  const perSym=[];let all=[];
+  for(const r of data){
+    const tr=backtestSymbol(r,cfg);
+    if(!tr)continue;
+    perSym.push({sym:r.sym,trades:tr});
+    all=all.concat(tr.map(x=>({...x,sym:r.sym})));
+  }
+  const panel=document.getElementById('btResults');
+  panel.classList.add('show');
+  if(!all.length){
+    document.getElementById('btBody').innerHTML='<tr><td colspan="7"><div class="empty">No historical signals under the current criteria — loosen a filter or extend the lookback and rescan.</div></td></tr>';
+    ['btTrades','btWin','btExp','btPF','btNetR','btMaxDD'].forEach(id=>document.getElementById(id).textContent='—');
+    if(btChart){btChart.destroy();btChart=null;}
+    return;
+  }
+  all.sort((a,b)=>a.exitD<b.exitD?-1:1);
+  const wins=all.filter(x=>x.R>0),losses=all.filter(x=>x.R<=0);
+  const netR=all.reduce((a,b)=>a+b.R,0);
+  const gw=wins.reduce((a,b)=>a+b.R,0),gl=Math.abs(losses.reduce((a,b)=>a+b.R,0));
+  let eq=0,peak=0,maxDD=0;const curve=[];
+  for(const x of all){eq+=x.R;peak=Math.max(peak,eq);maxDD=Math.max(maxDD,peak-eq);curve.push({x:x.exitD,y:+eq.toFixed(2)});}
+  const set=(id,v)=>document.getElementById(id).textContent=v;
+  set('btTrades',all.length);
+  set('btWin',(wins.length/all.length*100).toFixed(1)+'%');
+  set('btExp',(netR/all.length).toFixed(2));
+  set('btPF',gl>0?(gw/gl).toFixed(2):'∞');
+  set('btNetR',(netR>=0?'+':'')+netR.toFixed(1));
+  set('btMaxDD','−'+maxDD.toFixed(1));
+  perSym.sort((a,b)=>b.trades.reduce((x,y)=>x+y.R,0)-a.trades.reduce((x,y)=>x+y.R,0));
+  document.getElementById('btBody').innerHTML=perSym.map(p=>{
+    const w=p.trades.filter(x=>x.R>0).length,net=p.trades.reduce((a,b)=>a+b.R,0);
+    const avgH=p.trades.reduce((a,b)=>a+b.hold,0)/p.trades.length;
+    const s=p.trades.filter(x=>x.kind==='S').length,tt=p.trades.filter(x=>x.kind==='T').length,x=p.trades.filter(x=>x.kind==='X').length;
+    return `<tr><td class="sym">${p.sym}</td><td>${p.trades.length}</td><td>${w}</td><td>${(w/p.trades.length*100).toFixed(0)}%</td><td class="${net>=0?'pos':'neg'}">${net>=0?'+':''}${net.toFixed(2)}</td><td>${avgH.toFixed(1)}</td><td class="dim">${s}/${tt}/${x}</td></tr>`;
+  }).join('');
+  if(btChart){btChart.destroy();btChart=null;}
+  btChart=new ApexCharts(document.getElementById('btChart'),{
+    chart:{type:'area',height:190,background:'transparent',toolbar:{show:false},animations:{enabled:false}},
+    theme:{mode:'dark'},
+    series:[{name:'Cumulative R',data:curve.map(c=>c.y)}],
+    xaxis:{categories:curve.map(c=>c.x),labels:{style:{colors:'#64756E',fontSize:'9px'},formatter:(v,ts,o)=>{const i=o?.i??0;return i%Math.ceil(curve.length/7)===0?String(v).slice(2):'';}},tooltip:{enabled:false}},
+    yaxis:{labels:{style:{colors:'#64756E',fontSize:'9px'}},decimalsInFloat:1},
+    stroke:{width:2,curve:'straight'},colors:['#F2B33D'],
+    fill:{type:'gradient',gradient:{opacityFrom:.25,opacityTo:0}},
+    grid:{borderColor:'#1F2A26'},tooltip:{theme:'dark'},dataLabels:{enabled:false}
+  });
+  btChart.render();
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+buildHead();
+</script>
+</body>
+</html>

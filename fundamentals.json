@@ -1,10 +1,11 @@
 {
- "fetched": "2026-08-23T06:31:23+00:00",
+ "fetched": "2026-08-23T07:21:15+00:00",
  "source": "NSE bhavcopy (prices) + Yahoo Finance via yfinance (fundamentals)",
  "universe": "Nifty 500",
  "failed": [],
  "stocks": [
   {
+   "v": 2,
    "ticker": "360ONE",
    "name": "360 One Wam Limited",
    "sector": "Financial Services",
@@ -13,7 +14,7 @@
    "epsG": 7.6,
    "opm": 89.9,
    "opmPrev": 87.4,
-   "roe": null,
+   "roe": 14.4,
    "de": 1.61,
    "fcf": -3019,
    "pat": 1216,
@@ -22,9 +23,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:45+00:00"
+   "fetched": "2026-08-23T07:21:32+00:00"
   },
   {
+   "v": 2,
    "ticker": "ABB",
    "name": "ABB India Limited",
    "sector": "Capital Goods",
@@ -33,7 +35,7 @@
    "epsG": -10.9,
    "opm": 18.3,
    "opmPrev": 22.0,
-   "roe": 19.1,
+   "roe": 22.4,
    "de": 0.01,
    "fcf": 980,
    "pat": 1668,
@@ -42,9 +44,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2025-12-31",
-   "fetched": "2026-08-23T06:10:46+00:00"
+   "fetched": "2026-08-23T07:21:33+00:00"
   },
   {
+   "v": 2,
    "ticker": "ACMESOLAR",
    "name": "ACME SOLAR HOLDINGS LTD",
    "sector": "Power",
@@ -53,7 +56,7 @@
    "epsG": 80.1,
    "opm": 112.1,
    "opmPrev": 98.5,
-   "roe": null,
+   "roe": 10.4,
    "de": 3.93,
    "fcf": -4073,
    "pat": 499,
@@ -62,9 +65,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:47+00:00"
+   "fetched": "2026-08-23T07:21:34+00:00"
   },
   {
+   "v": 2,
    "ticker": "APLAPOLLO",
    "name": "APL Apollo Tubes Limited",
    "sector": "Capital Goods",
@@ -73,7 +77,7 @@
    "epsG": 58.9,
    "opm": 8.5,
    "opmPrev": 6.5,
-   "roe": null,
+   "roe": 25.3,
    "de": 0.09,
    "fcf": 1407,
    "pat": 1203,
@@ -82,9 +86,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:48+00:00"
+   "fetched": "2026-08-23T07:21:35+00:00"
   },
   {
+   "v": 2,
    "ticker": "AUBANK",
    "name": "AU SMALL FINANCE BANK LTD",
    "sector": "Financial Services",
@@ -93,7 +98,7 @@
    "epsG": 24.0,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 14.2,
    "de": 0.69,
    "fcf": 1020,
    "pat": 2641,
@@ -102,9 +107,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:49+00:00"
+   "fetched": "2026-08-23T07:21:36+00:00"
   },
   {
+   "v": 2,
    "ticker": "AARTIIND",
    "name": "Aarti Industries Limited",
    "sector": "Chemicals",
@@ -113,7 +119,7 @@
    "epsG": 26.6,
    "opm": 14.2,
    "opmPrev": 14.0,
-   "roe": null,
+   "roe": 7.2,
    "de": 0.83,
    "fcf": 781,
    "pat": 419,
@@ -122,9 +128,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:50+00:00"
+   "fetched": "2026-08-23T07:21:37+00:00"
   },
   {
+   "v": 2,
    "ticker": "ACE",
    "name": "Action Construction Equipment Limited",
    "sector": "Capital Goods",
@@ -133,7 +140,7 @@
    "epsG": 1.5,
    "opm": 18.7,
    "opmPrev": 18.2,
-   "roe": null,
+   "roe": 22.9,
    "de": 0.0,
    "fcf": 324,
    "pat": 415,
@@ -142,9 +149,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:52+00:00"
+   "fetched": "2026-08-23T07:21:38+00:00"
   },
   {
+   "v": 2,
    "ticker": "ADANIENT",
    "name": "Adani Enterprises Limited",
    "sector": "Metals & Mining",
@@ -153,7 +161,7 @@
    "epsG": 25.2,
    "opm": 26.0,
    "opmPrev": 20.0,
-   "roe": null,
+   "roe": 14.2,
    "de": 1.32,
    "fcf": -31012,
    "pat": 9339,
@@ -162,9 +170,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:53+00:00"
+   "fetched": "2026-08-23T07:21:39+00:00"
   },
   {
+   "v": 2,
    "ticker": "ABCAPITAL",
    "name": "Aditya Birla Capital Limited",
    "sector": "Financial Services",
@@ -173,7 +182,7 @@
    "epsG": 12.4,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 11.6,
    "de": 5.21,
    "fcf": -36938,
    "pat": 3764,
@@ -182,9 +191,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:54+00:00"
+   "fetched": "2026-08-23T07:21:40+00:00"
   },
   {
+   "v": 2,
    "ticker": "ABREL",
    "name": "Aditya Birla Real Estate Limited",
    "sector": "Realty",
@@ -193,7 +203,7 @@
    "epsG": null,
    "opm": -84.0,
    "opmPrev": 7.4,
-   "roe": null,
+   "roe": -2.7,
    "de": 1.52,
    "fcf": 535,
    "pat": -103,
@@ -202,9 +212,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:55+00:00"
+   "fetched": "2026-08-23T07:21:41+00:00"
   },
   {
+   "v": 2,
    "ticker": "AEGISLOG",
    "name": "AEGIS LOGISTICS LIMITED",
    "sector": "Oil Gas & Consumable Fuels",
@@ -213,7 +224,7 @@
    "epsG": 35.4,
    "opm": 21.3,
    "opmPrev": 19.8,
-   "roe": null,
+   "roe": 16.8,
    "de": 0.69,
    "fcf": 1207,
    "pat": 898,
@@ -222,9 +233,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:56+00:00"
+   "fetched": "2026-08-23T07:21:42+00:00"
   },
   {
+   "v": 2,
    "ticker": "AEGISVOPAK",
    "name": "AEGIS VOPAK TERMINALS LTD",
    "sector": "Oil Gas & Consumable Fuels",
@@ -233,7 +245,7 @@
    "epsG": 57.5,
    "opm": 78.1,
    "opmPrev": 76.6,
-   "roe": null,
+   "roe": 11.0,
    "de": 0.87,
    "fcf": 1,
    "pat": 310,
@@ -242,9 +254,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:57+00:00"
+   "fetched": "2026-08-23T07:21:43+00:00"
   },
   {
+   "v": 2,
    "ticker": "AFFLE",
    "name": "Affle 3i Limited",
    "sector": "Information Technology",
@@ -253,7 +266,7 @@
    "epsG": 18.9,
    "opm": 25.4,
    "opmPrev": 25.5,
-   "roe": null,
+   "roe": 13.8,
    "de": 0.0,
    "fcf": 291,
    "pat": 455,
@@ -262,9 +275,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:58+00:00"
+   "fetched": "2026-08-23T07:21:44+00:00"
   },
   {
+   "v": 2,
    "ticker": "AJANTPHARM",
    "name": "Ajanta Pharma Limited",
    "sector": "Healthcare",
@@ -273,7 +287,7 @@
    "epsG": 14.9,
    "opm": 29.0,
    "opmPrev": 29.5,
-   "roe": null,
+   "roe": 25.4,
    "de": 0.06,
    "fcf": 164,
    "pat": 1056,
@@ -282,9 +296,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:10:59+00:00"
+   "fetched": "2026-08-23T07:21:45+00:00"
   },
   {
+   "v": 2,
    "ticker": "ALKEM",
    "name": "Alkem Laboratories Limited",
    "sector": "Healthcare",
@@ -293,7 +308,7 @@
    "epsG": 6.3,
    "opm": 23.2,
    "opmPrev": 23.2,
-   "roe": null,
+   "roe": 17.8,
    "de": 0.15,
    "fcf": 1346,
    "pat": 2302,
@@ -302,9 +317,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:00+00:00"
+   "fetched": "2026-08-23T07:21:46+00:00"
   },
   {
+   "v": 2,
    "ticker": "ARE&M",
    "name": "Amara Raja Energy & Mobility Limited",
    "sector": "Automobile and Auto Components",
@@ -313,7 +329,7 @@
    "epsG": -5.2,
    "opm": 13.4,
    "opmPrev": 14.3,
-   "roe": null,
+   "roe": 11.6,
    "de": 0.05,
    "fcf": -223,
    "pat": 896,
@@ -322,9 +338,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:01+00:00"
+   "fetched": "2026-08-23T07:21:47+00:00"
   },
   {
+   "v": 2,
    "ticker": "ANANDRATHI",
    "name": "Anand Rathi Wealth Limited",
    "sector": "Financial Services",
@@ -333,7 +350,7 @@
    "epsG": 30.4,
    "opm": 51.0,
    "opmPrev": 47.0,
-   "roe": null,
+   "roe": 47.4,
    "de": 0.08,
    "fcf": 268,
    "pat": 396,
@@ -342,9 +359,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:02+00:00"
+   "fetched": "2026-08-23T07:21:48+00:00"
   },
   {
+   "v": 2,
    "ticker": "ANANTRAJ",
    "name": "Anant Raj Limited",
    "sector": "Realty",
@@ -353,7 +371,7 @@
    "epsG": 27.2,
    "opm": 28.8,
    "opmPrev": 25.8,
-   "roe": null,
+   "roe": 11.2,
    "de": 0.12,
    "fcf": -638,
    "pat": 557,
@@ -362,9 +380,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:03+00:00"
+   "fetched": "2026-08-23T07:21:49+00:00"
   },
   {
+   "v": 2,
    "ticker": "ANTHEM",
    "name": "ANTHEM BIOSCIENCES LTD",
    "sector": "Healthcare",
@@ -373,7 +392,7 @@
    "epsG": 29.8,
    "opm": 45.4,
    "opmPrev": 41.0,
-   "roe": null,
+   "roe": 21.7,
    "de": 0.02,
    "fcf": 633,
    "pat": 592,
@@ -382,9 +401,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:04+00:00"
+   "fetched": "2026-08-23T07:21:50+00:00"
   },
   {
+   "v": 2,
    "ticker": "APARINDS",
    "name": "APAR Industries Limited",
    "sector": "Capital Goods",
@@ -393,7 +413,7 @@
    "epsG": 18.8,
    "opm": 8.4,
    "opmPrev": 8.9,
-   "roe": null,
+   "roe": 19.7,
    "de": 0.18,
    "fcf": 231,
    "pat": 977,
@@ -402,9 +422,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:05+00:00"
+   "fetched": "2026-08-23T07:21:52+00:00"
   },
   {
+   "v": 2,
    "ticker": "APOLLOHOSP",
    "name": "Apollo Hospitals Enterprise Limited",
    "sector": "Healthcare",
@@ -413,7 +434,7 @@
    "epsG": 34.2,
    "opm": 15.6,
    "opmPrev": 15.0,
-   "roe": null,
+   "roe": 21.9,
    "de": 0.9,
    "fcf": 894,
    "pat": 1942,
@@ -422,9 +443,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:07+00:00"
+   "fetched": "2026-08-23T07:21:53+00:00"
   },
   {
+   "v": 2,
    "ticker": "APOLLOTYRE",
    "name": "Apollo Tyres Limited",
    "sector": "Automobile and Auto Components",
@@ -433,7 +455,7 @@
    "epsG": 22.6,
    "opm": 11.5,
    "opmPrev": 13.5,
-   "roe": null,
+   "roe": 8.7,
    "de": 0.22,
    "fcf": 2264,
    "pat": 1372,
@@ -442,9 +464,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:08+00:00"
+   "fetched": "2026-08-23T07:21:54+00:00"
   },
   {
+   "v": 2,
    "ticker": "ASAHIINDIA",
    "name": "Asahi India Glass Limited",
    "sector": "Automobile and Auto Components",
@@ -453,7 +476,7 @@
    "epsG": -9.5,
    "opm": 19.3,
    "opmPrev": 18.3,
-   "roe": null,
+   "roe": 10.4,
    "de": 0.56,
    "fcf": -165,
    "pat": 345,
@@ -462,9 +485,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:09+00:00"
+   "fetched": "2026-08-23T07:21:55+00:00"
   },
   {
+   "v": 2,
    "ticker": "ASHOKLEY",
    "name": "ASHOK LEYLAND LTD",
    "sector": "Capital Goods",
@@ -473,7 +497,7 @@
    "epsG": 11.9,
    "opm": 19.6,
    "opmPrev": 19.9,
-   "roe": null,
+   "roe": 26.2,
    "de": 4.49,
    "fcf": -7840,
    "pat": 3471,
@@ -482,9 +506,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:10+00:00"
+   "fetched": "2026-08-23T07:21:56+00:00"
   },
   {
+   "v": 2,
    "ticker": "ASTRAL",
    "name": "Astral Limited",
    "sector": "Capital Goods",
@@ -493,7 +518,7 @@
    "epsG": null,
    "opm": 16.0,
    "opmPrev": 16.7,
-   "roe": null,
+   "roe": 14.0,
    "de": 0.06,
    "fcf": 658,
    "pat": 537,
@@ -502,9 +527,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:11+00:00"
+   "fetched": "2026-08-23T07:21:57+00:00"
   },
   {
+   "v": 2,
    "ticker": "ATHERENERG",
    "name": "Ather Energy Limited",
    "sector": "Automobile and Auto Components",
@@ -513,7 +539,7 @@
    "epsG": null,
    "opm": -7.5,
    "opmPrev": -23.8,
-   "roe": null,
+   "roe": -33.7,
    "de": 0.26,
    "fcf": -474,
    "pat": -517,
@@ -522,9 +548,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:12+00:00"
+   "fetched": "2026-08-23T07:21:58+00:00"
   },
   {
+   "v": 2,
    "ticker": "ATUL",
    "name": "Atul Ltd",
    "sector": "Chemicals",
@@ -533,7 +560,7 @@
    "epsG": 40.1,
    "opm": 20.0,
    "opmPrev": 18.7,
-   "roe": null,
+   "roe": 11.5,
    "de": 0.03,
    "fcf": 848,
    "pat": 678,
@@ -542,9 +569,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:14+00:00"
+   "fetched": "2026-08-23T07:21:59+00:00"
   },
   {
+   "v": 2,
    "ticker": "AUROPHARMA",
    "name": "Aurobindo Pharma Limited",
    "sector": "Healthcare",
@@ -553,7 +581,7 @@
    "epsG": 0.9,
    "opm": 21.6,
    "opmPrev": 22.6,
-   "roe": null,
+   "roe": 9.9,
    "de": 0.21,
    "fcf": 2422,
    "pat": 3505,
@@ -562,9 +590,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:15+00:00"
+   "fetched": "2026-08-23T07:22:00+00:00"
   },
   {
+   "v": 2,
    "ticker": "AIIL",
    "name": "Authum Investment & Infrastructure Limited",
    "sector": "Financial Services",
@@ -573,7 +602,7 @@
    "epsG": -75.3,
    "opm": 80.6,
    "opmPrev": 88.3,
-   "roe": null,
+   "roe": 13.1,
    "de": 0.1,
    "fcf": 1184,
    "pat": 1931,
@@ -582,9 +611,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:16+00:00"
+   "fetched": "2026-08-23T07:22:01+00:00"
   },
   {
+   "v": 2,
    "ticker": "BEML",
    "name": "BEML Limited",
    "sector": "Capital Goods",
@@ -593,7 +623,7 @@
    "epsG": -75.8,
    "opm": 7.5,
    "opmPrev": 13.2,
-   "roe": null,
+   "roe": 4.9,
    "de": 0.11,
    "fcf": -263,
    "pat": 141,
@@ -602,9 +632,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:17+00:00"
+   "fetched": "2026-08-23T07:22:02+00:00"
   },
   {
+   "v": 2,
    "ticker": "BLS",
    "name": "BLS International Services Limited",
    "sector": "Consumer Services",
@@ -613,7 +644,7 @@
    "epsG": 35.0,
    "opm": 30.5,
    "opmPrev": 32.4,
-   "roe": null,
+   "roe": 32.7,
    "de": 0.17,
    "fcf": 766,
    "pat": 687,
@@ -622,9 +653,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:18+00:00"
+   "fetched": "2026-08-23T07:22:03+00:00"
   },
   {
+   "v": 2,
    "ticker": "BAJAJ-AUTO",
    "name": "Bajaj Auto Limited",
    "sector": "Automobile and Auto Components",
@@ -633,7 +665,7 @@
    "epsG": 46.7,
    "opm": 26.1,
    "opmPrev": 22.4,
-   "roe": null,
+   "roe": 29.0,
    "de": 0.58,
    "fcf": 1874,
    "pat": 10744,
@@ -642,9 +674,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:19+00:00"
+   "fetched": "2026-08-23T07:22:04+00:00"
   },
   {
+   "v": 2,
    "ticker": "BAJFINANCE",
    "name": "Bajaj Finance Limited",
    "sector": "Financial Services",
@@ -653,7 +686,7 @@
    "epsG": 13.8,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 18.1,
    "de": 3.1,
    "fcf": -66751,
    "pat": 19017,
@@ -662,9 +695,10 @@
    "moat": 5,
    "leader": true,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:20+00:00"
+   "fetched": "2026-08-23T07:22:05+00:00"
   },
   {
+   "v": 2,
    "ticker": "BAJAJFINSV",
    "name": "Bajaj Finserv Ltd.",
    "sector": "Financial Services",
@@ -673,7 +707,7 @@
    "epsG": 10.9,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 13.0,
    "de": 4.64,
    "fcf": -56750,
    "pat": 9801,
@@ -682,9 +716,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:21+00:00"
+   "fetched": "2026-08-23T07:22:06+00:00"
   },
   {
+   "v": 2,
    "ticker": "BAJAJHLDNG",
    "name": "Bajaj Holdings & Investment Limited",
    "sector": "Financial Services",
@@ -693,7 +728,7 @@
    "epsG": 47.8,
    "opm": null,
    "opmPrev": null,
-   "roe": 11.6,
+   "roe": 14.2,
    "de": 0.0,
    "fcf": 4780,
    "pat": 9637,
@@ -702,9 +737,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:22+00:00"
+   "fetched": "2026-08-23T07:22:07+00:00"
   },
   {
+   "v": 2,
    "ticker": "BALKRISIND",
    "name": "Balkrishna Industries Limited",
    "sector": "Automobile and Auto Components",
@@ -713,7 +749,7 @@
    "epsG": -24.9,
    "opm": 23.5,
    "opmPrev": 28.7,
-   "roe": null,
+   "roe": 11.6,
    "de": 0.38,
    "fcf": -754,
    "pat": 1243,
@@ -722,9 +758,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:23+00:00"
+   "fetched": "2026-08-23T07:22:08+00:00"
   },
   {
+   "v": 2,
    "ticker": "BALRAMCHIN",
    "name": "Balrampur Chini Mills Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -733,7 +770,7 @@
    "epsG": -13.8,
    "opm": 13.0,
    "opmPrev": 15.3,
-   "roe": null,
+   "roe": 9.5,
    "de": 0.77,
    "fcf": -349,
    "pat": 378,
@@ -742,9 +779,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:24+00:00"
+   "fetched": "2026-08-23T07:22:09+00:00"
   },
   {
+   "v": 2,
    "ticker": "BERGEPAINT",
    "name": "Berger Paints India Limited",
    "sector": "Consumer Durables",
@@ -753,7 +791,7 @@
    "epsG": -4.5,
    "opm": 16.4,
    "opmPrev": 17.3,
-   "roe": null,
+   "roe": 17.2,
    "de": 0.09,
    "fcf": 1022,
    "pat": 1127,
@@ -762,9 +800,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:25+00:00"
+   "fetched": "2026-08-23T07:22:11+00:00"
   },
   {
+   "v": 2,
    "ticker": "BDL",
    "name": "Bharat Dynamics Limited",
    "sector": "Capital Goods",
@@ -773,7 +812,7 @@
    "epsG": null,
    "opm": 26.8,
    "opmPrev": 24.8,
-   "roe": null,
+   "roe": 10.2,
    "de": 0.0,
    "fcf": 375,
    "pat": 420,
@@ -782,9 +821,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:26+00:00"
+   "fetched": "2026-08-23T07:22:12+00:00"
   },
   {
+   "v": 2,
    "ticker": "BEL",
    "name": "Bharat Electronics Limited",
    "sector": "Capital Goods",
@@ -793,7 +833,7 @@
    "epsG": 13.9,
    "opm": 32.2,
    "opmPrev": 32.8,
-   "roe": null,
+   "roe": 27.6,
    "de": 0.0,
    "fcf": 556,
    "pat": 6062,
@@ -802,9 +842,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:28+00:00"
+   "fetched": "2026-08-23T07:22:13+00:00"
   },
   {
+   "v": 2,
    "ticker": "BHEL",
    "name": "Bharat Heavy Electricals Limited",
    "sector": "Capital Goods",
@@ -813,7 +854,7 @@
    "epsG": 200.7,
    "opm": 9.9,
    "opmPrev": 6.5,
-   "roe": null,
+   "roe": 6.3,
    "de": 0.31,
    "fcf": 5248,
    "pat": 1600,
@@ -822,9 +863,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:29+00:00"
+   "fetched": "2026-08-23T07:22:14+00:00"
   },
   {
+   "v": 2,
    "ticker": "BHARTIARTL",
    "name": "Bharti Airtel Limited",
    "sector": "Telecommunication",
@@ -833,7 +875,7 @@
    "epsG": -20.8,
    "opm": 54.9,
    "opmPrev": 58.7,
-   "roe": 20.2,
+   "roe": 20.3,
    "de": 1.31,
    "fcf": 75515,
    "pat": 26695,
@@ -842,9 +884,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:30+00:00"
+   "fetched": "2026-08-23T07:22:15+00:00"
   },
   {
+   "v": 2,
    "ticker": "BHARTIHEXA",
    "name": "BHARTI HEXACOM LIMITED",
    "sector": "Telecommunication",
@@ -853,7 +896,7 @@
    "epsG": 16.0,
    "opm": 53.3,
    "opmPrev": 52.7,
-   "roe": null,
+   "roe": 26.5,
    "de": 0.82,
    "fcf": 2981,
    "pat": 1733,
@@ -862,9 +905,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:33+00:00"
+   "fetched": "2026-08-23T07:22:16+00:00"
   },
   {
+   "v": 2,
    "ticker": "BIOCON",
    "name": "BIOCON LIMITED.",
    "sector": "Healthcare",
@@ -873,7 +917,7 @@
    "epsG": -66.7,
    "opm": 20.1,
    "opmPrev": 29.6,
-   "roe": null,
+   "roe": 1.4,
    "de": 0.45,
    "fcf": 82,
    "pat": 386,
@@ -882,9 +926,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:35+00:00"
+   "fetched": "2026-08-23T07:22:17+00:00"
   },
   {
+   "v": 2,
    "ticker": "BSOFT",
    "name": "Birlasoft Limited",
    "sector": "Information Technology",
@@ -893,7 +938,7 @@
    "epsG": 0.1,
    "opm": 16.8,
    "opmPrev": 15.0,
-   "roe": null,
+   "roe": 13.7,
    "de": 0.03,
    "fcf": 437,
    "pat": 518,
@@ -902,9 +947,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:37+00:00"
+   "fetched": "2026-08-23T07:22:19+00:00"
   },
   {
+   "v": 2,
    "ticker": "BLUEDART",
    "name": "Blue Dart Express Limited",
    "sector": "Services",
@@ -913,7 +959,7 @@
    "epsG": -2.0,
    "opm": 15.4,
    "opmPrev": 16.0,
-   "roe": null,
+   "roe": 14.8,
    "de": 0.64,
    "fcf": 496,
    "pat": 247,
@@ -922,9 +968,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:38+00:00"
+   "fetched": "2026-08-23T07:22:20+00:00"
   },
   {
+   "v": 2,
    "ticker": "BLUEJET",
    "name": "Blue Jet Healthcare Limited",
    "sector": "Healthcare",
@@ -933,7 +980,7 @@
    "epsG": -18.8,
    "opm": 38.4,
    "opmPrev": 41.3,
-   "roe": null,
+   "roe": 19.9,
    "de": 0.03,
    "fcf": 115,
    "pat": 248,
@@ -942,9 +989,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:39+00:00"
+   "fetched": "2026-08-23T07:22:21+00:00"
   },
   {
+   "v": 2,
    "ticker": "BOSCHLTD",
    "name": "BOSCH LIMITED",
    "sector": "Automobile and Auto Components",
@@ -953,7 +1001,7 @@
    "epsG": 37.6,
    "opm": 20.7,
    "opmPrev": 17.6,
-   "roe": null,
+   "roe": 19.4,
    "de": 0.01,
    "fcf": 1859,
    "pat": 2773,
@@ -962,9 +1010,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:40+00:00"
+   "fetched": "2026-08-23T07:22:22+00:00"
   },
   {
+   "v": 2,
    "ticker": "BRIGADE",
    "name": "Brigade Enterprises Limited",
    "sector": "Realty",
@@ -973,7 +1022,7 @@
    "epsG": -8.2,
    "opm": 28.4,
    "opmPrev": 32.6,
-   "roe": null,
+   "roe": 10.3,
    "de": 1.01,
    "fcf": -1876,
    "pat": 644,
@@ -982,9 +1031,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:41+00:00"
+   "fetched": "2026-08-23T07:22:23+00:00"
   },
   {
+   "v": 2,
    "ticker": "CRISIL",
    "name": "CRISIL Limited",
    "sector": "Financial Services",
@@ -993,7 +1043,7 @@
    "epsG": 12.0,
    "opm": 32.7,
    "opmPrev": 30.7,
-   "roe": 29.1,
+   "roe": 27.4,
    "de": 0.1,
    "fcf": 682,
    "pat": 766,
@@ -1002,9 +1052,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2025-12-31",
-   "fetched": "2026-08-23T06:11:42+00:00"
+   "fetched": "2026-08-23T07:22:24+00:00"
   },
   {
+   "v": 2,
    "ticker": "CANBK",
    "name": "Canara Bank",
    "sector": "Financial Services",
@@ -1013,7 +1064,7 @@
    "epsG": 12.4,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 17.7,
    "de": 1.02,
    "fcf": 6652,
    "pat": 19706,
@@ -1022,9 +1073,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:43+00:00"
+   "fetched": "2026-08-23T07:22:25+00:00"
   },
   {
+   "v": 2,
    "ticker": "CANHLIFE",
    "name": "CANARA HSBC LIFE INS CO L",
    "sector": "Financial Services",
@@ -1033,7 +1085,7 @@
    "epsG": 8.0,
    "opm": null,
    "opmPrev": null,
-   "roe": 8.3,
+   "roe": 8.1,
    "de": 0.16,
    "fcf": 3523,
    "pat": 127,
@@ -1042,9 +1094,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:44+00:00"
+   "fetched": "2026-08-23T07:22:26+00:00"
   },
   {
+   "v": 2,
    "ticker": "CAPLIPOINT",
    "name": "Caplin Point Laboratories Limited",
    "sector": "Healthcare",
@@ -1053,7 +1106,7 @@
    "epsG": 19.7,
    "opm": 40.1,
    "opmPrev": 38.4,
-   "roe": null,
+   "roe": 19.9,
    "de": 0.0,
    "fcf": 275,
    "pat": 641,
@@ -1062,9 +1115,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:45+00:00"
+   "fetched": "2026-08-23T07:22:27+00:00"
   },
   {
+   "v": 2,
    "ticker": "CARBORUNIV",
    "name": "Carborundum Universal Limited",
    "sector": "Capital Goods",
@@ -1073,7 +1127,7 @@
    "epsG": -33.8,
    "opm": 10.6,
    "opmPrev": 14.3,
-   "roe": null,
+   "roe": 5.2,
    "de": 0.08,
    "fcf": 57,
    "pat": 195,
@@ -1082,9 +1136,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:46+00:00"
+   "fetched": "2026-08-23T07:22:28+00:00"
   },
   {
+   "v": 2,
    "ticker": "CARTRADE",
    "name": "CarTrade Tech Limited",
    "sector": "Consumer Services",
@@ -1093,7 +1148,7 @@
    "epsG": 68.8,
    "opm": 43.8,
    "opmPrev": 34.4,
-   "roe": null,
+   "roe": 9.5,
    "de": 0.06,
    "fcf": 230,
    "pat": 223,
@@ -1102,9 +1157,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:48+00:00"
+   "fetched": "2026-08-23T07:22:29+00:00"
   },
   {
+   "v": 2,
    "ticker": "CASTROLIND",
    "name": "Castrol India Limited",
    "sector": "Oil Gas & Consumable Fuels",
@@ -1113,7 +1169,7 @@
    "epsG": 2.5,
    "opm": 24.4,
    "opmPrev": 25.6,
-   "roe": 57.0,
+   "roe": 45.5,
    "de": 0.03,
    "fcf": 993,
    "pat": 950,
@@ -1122,9 +1178,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2025-12-31",
-   "fetched": "2026-08-23T06:11:49+00:00"
+   "fetched": "2026-08-23T07:22:30+00:00"
   },
   {
+   "v": 2,
    "ticker": "CEATLTD",
    "name": "CEAT Limited",
    "sector": "Automobile and Auto Components",
@@ -1133,7 +1190,7 @@
    "epsG": 47.9,
    "opm": 13.1,
    "opmPrev": 11.4,
-   "roe": null,
+   "roe": 14.8,
    "de": 0.65,
    "fcf": 639,
    "pat": 698,
@@ -1142,9 +1199,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:50+00:00"
+   "fetched": "2026-08-23T07:22:31+00:00"
   },
   {
+   "v": 2,
    "ticker": "CDSL",
    "name": "Central Depository Services (India) Limited",
    "sector": "Financial Services",
@@ -1153,7 +1211,7 @@
    "epsG": -13.4,
    "opm": 59.0,
    "opmPrev": 68.7,
-   "roe": 23.9,
+   "roe": 24.5,
    "de": 0.0,
    "fcf": 346,
    "pat": 456,
@@ -1162,9 +1220,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:51+00:00"
+   "fetched": "2026-08-23T07:22:32+00:00"
   },
   {
+   "v": 2,
    "ticker": "CHALET",
    "name": "CHALET HOTELS LIMITED",
    "sector": "Consumer Services",
@@ -1173,7 +1232,7 @@
    "epsG": 351.8,
    "opm": 44.4,
    "opmPrev": 45.0,
-   "roe": null,
+   "roe": 19.1,
    "de": 0.64,
    "fcf": 729,
    "pat": 645,
@@ -1182,9 +1241,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:52+00:00"
+   "fetched": "2026-08-23T07:22:33+00:00"
   },
   {
+   "v": 2,
    "ticker": "CHENNPETRO",
    "name": "Chennai Petroleum Corporation Limited",
    "sector": "Oil Gas & Consumable Fuels",
@@ -1193,7 +1253,7 @@
    "epsG": 1349.0,
    "opm": 7.7,
    "opmPrev": 1.9,
-   "roe": null,
+   "roe": 32.1,
    "de": 0.18,
    "fcf": 2042,
    "pat": 3103,
@@ -1202,9 +1262,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:53+00:00"
+   "fetched": "2026-08-23T07:22:34+00:00"
   },
   {
+   "v": 2,
    "ticker": "CHOICEIN",
    "name": "Choice International Limited",
    "sector": "Financial Services",
@@ -1213,7 +1274,7 @@
    "epsG": 40.6,
    "opm": 38.0,
    "opmPrev": 32.5,
-   "roe": null,
+   "roe": 16.1,
    "de": 0.54,
    "fcf": -369,
    "pat": 218,
@@ -1222,9 +1283,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:54+00:00"
+   "fetched": "2026-08-23T07:22:35+00:00"
   },
   {
+   "v": 2,
    "ticker": "CHOLAFIN",
    "name": "Cholamandalam Investment and Finance Company Limited",
    "sector": "Financial Services",
@@ -1233,7 +1295,7 @@
    "epsG": 22.2,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 19.3,
    "de": 6.95,
    "fcf": -30286,
    "pat": 5233,
@@ -1242,9 +1304,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:56+00:00"
+   "fetched": "2026-08-23T07:22:37+00:00"
   },
   {
+   "v": 2,
    "ticker": "CUB",
    "name": "City Union Bank Limited",
    "sector": "Financial Services",
@@ -1253,7 +1316,7 @@
    "epsG": 18.3,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 13.2,
    "de": 0.46,
    "fcf": 450,
    "pat": 1326,
@@ -1262,9 +1325,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:56+00:00"
+   "fetched": "2026-08-23T07:22:38+00:00"
   },
   {
+   "v": 2,
    "ticker": "CLEAN",
    "name": "Clean Science and Technology Limited",
    "sector": "Chemicals",
@@ -1273,7 +1337,7 @@
    "epsG": -13.2,
    "opm": 41.1,
    "opmPrev": 44.9,
-   "roe": null,
+   "roe": 15.3,
    "de": 0.0,
    "fcf": 73,
    "pat": 230,
@@ -1282,9 +1346,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:57+00:00"
+   "fetched": "2026-08-23T07:22:39+00:00"
   },
   {
+   "v": 2,
    "ticker": "COCHINSHIP",
    "name": "Cochin Shipyard Limited",
    "sector": "Capital Goods",
@@ -1293,7 +1358,7 @@
    "epsG": -13.4,
    "opm": 24.3,
    "opmPrev": 26.3,
-   "roe": null,
+   "roe": 12.5,
    "de": 0.28,
    "fcf": -1385,
    "pat": 717,
@@ -1302,9 +1367,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:11:59+00:00"
+   "fetched": "2026-08-23T07:22:40+00:00"
   },
   {
+   "v": 2,
    "ticker": "COFORGE",
    "name": "Coforge Limited",
    "sector": "Information Technology",
@@ -1313,7 +1379,7 @@
    "epsG": 88.0,
    "opm": 17.0,
    "opmPrev": 15.7,
-   "roe": null,
+   "roe": 19.5,
    "de": 0.08,
    "fcf": 1049,
    "pat": 1556,
@@ -1322,9 +1388,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:00+00:00"
+   "fetched": "2026-08-23T07:22:41+00:00"
   },
   {
+   "v": 2,
    "ticker": "COHANCE",
    "name": "COHANCE LIFESCIENCES LTD",
    "sector": "Healthcare",
@@ -1333,7 +1400,7 @@
    "epsG": -63.1,
    "opm": 19.0,
    "opmPrev": 32.6,
-   "roe": null,
+   "roe": 6.4,
    "de": 0.1,
    "fcf": 148,
    "pat": 179,
@@ -1342,9 +1409,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:01+00:00"
+   "fetched": "2026-08-23T07:22:42+00:00"
   },
   {
+   "v": 2,
    "ticker": "CONCORDBIO",
    "name": "Concord Biotech Limited",
    "sector": "Healthcare",
@@ -1353,7 +1421,7 @@
    "epsG": -30.2,
    "opm": 40.1,
    "opmPrev": 46.6,
-   "roe": null,
+   "roe": 13.6,
    "de": 0.0,
    "fcf": 172,
    "pat": 261,
@@ -1362,9 +1430,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:02+00:00"
+   "fetched": "2026-08-23T07:22:43+00:00"
   },
   {
+   "v": 2,
    "ticker": "CONCOR",
    "name": "Container Corporation of India Limited",
    "sector": "Services",
@@ -1373,7 +1442,7 @@
    "epsG": -3.7,
    "opm": 25.5,
    "opmPrev": 26.4,
-   "roe": null,
+   "roe": 9.8,
    "de": 0.07,
    "fcf": 333,
    "pat": 1242,
@@ -1382,9 +1451,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:03+00:00"
+   "fetched": "2026-08-23T07:22:44+00:00"
   },
   {
+   "v": 2,
    "ticker": "CRAFTSMAN",
    "name": "Craftsman Automation Limited",
    "sector": "Automobile and Auto Components",
@@ -1393,7 +1463,7 @@
    "epsG": 92.4,
    "opm": 15.9,
    "opmPrev": 14.6,
-   "roe": null,
+   "roe": 12.5,
    "de": 1.11,
    "fcf": -667,
    "pat": 384,
@@ -1402,9 +1472,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:04+00:00"
+   "fetched": "2026-08-23T07:22:45+00:00"
   },
   {
+   "v": 2,
    "ticker": "CREDITACC",
    "name": "CreditAccess Grameen Limited",
    "sector": "Financial Services",
@@ -1413,7 +1484,7 @@
    "epsG": 45.7,
    "opm": 21.2,
    "opmPrev": 17.5,
-   "roe": 16.4,
+   "roe": 10.5,
    "de": 3.01,
    "fcf": -2788,
    "pat": 778,
@@ -1422,9 +1493,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:05+00:00"
+   "fetched": "2026-08-23T07:22:46+00:00"
   },
   {
+   "v": 2,
    "ticker": "CYIENT",
    "name": "Cyient Limited",
    "sector": "Information Technology",
@@ -1433,7 +1505,7 @@
    "epsG": -30.6,
    "opm": 13.5,
    "opmPrev": 16.8,
-   "roe": null,
+   "roe": 7.8,
    "de": 0.08,
    "fcf": 690,
    "pat": 428,
@@ -1442,9 +1514,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:06+00:00"
+   "fetched": "2026-08-23T07:22:47+00:00"
   },
   {
+   "v": 2,
    "ticker": "DCMSHRIRAM",
    "name": "DCM Shriram Limited",
    "sector": "Diversified",
@@ -1453,7 +1526,7 @@
    "epsG": 41.2,
    "opm": 12.3,
    "opmPrev": 12.2,
-   "roe": null,
+   "roe": 11.6,
    "de": 0.38,
    "fcf": 346,
    "pat": 853,
@@ -1462,9 +1535,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:07+00:00"
+   "fetched": "2026-08-23T07:22:49+00:00"
   },
   {
+   "v": 2,
    "ticker": "DLF",
    "name": "DLF Limited",
    "sector": "Realty",
@@ -1473,7 +1547,7 @@
    "epsG": 1.1,
    "opm": 41.6,
    "opmPrev": 35.1,
-   "roe": 10.1,
+   "roe": 10.0,
    "de": 0.01,
    "fcf": 6218,
    "pat": 4415,
@@ -1482,9 +1556,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:08+00:00"
+   "fetched": "2026-08-23T07:22:50+00:00"
   },
   {
+   "v": 2,
    "ticker": "DALBHARAT",
    "name": "Dalmia Bharat Limited",
    "sector": "Construction Materials",
@@ -1493,7 +1568,7 @@
    "epsG": 66.7,
    "opm": 22.1,
    "opmPrev": 18.2,
-   "roe": null,
+   "roe": 6.4,
    "de": 0.41,
    "fcf": 222,
    "pat": 1139,
@@ -1502,9 +1577,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:09+00:00"
+   "fetched": "2026-08-23T07:22:51+00:00"
   },
   {
+   "v": 2,
    "ticker": "DATAPATTNS",
    "name": "Data Patterns (India) Limited",
    "sector": "Capital Goods",
@@ -1513,7 +1589,7 @@
    "epsG": 22.3,
    "opm": 41.9,
    "opmPrev": 43.7,
-   "roe": null,
+   "roe": 16.7,
    "de": 0.0,
    "fcf": 8,
    "pat": 271,
@@ -1522,9 +1598,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:10+00:00"
+   "fetched": "2026-08-23T07:22:52+00:00"
   },
   {
+   "v": 2,
    "ticker": "DEEPAKNTR",
    "name": "Deepak Nitrite Limited",
    "sector": "Chemicals",
@@ -1533,7 +1610,7 @@
    "epsG": -21.0,
    "opm": 13.2,
    "opmPrev": 14.5,
-   "roe": null,
+   "roe": 9.8,
    "de": 0.28,
    "fcf": -659,
    "pat": 551,
@@ -1542,9 +1619,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:11+00:00"
+   "fetched": "2026-08-23T07:22:53+00:00"
   },
   {
+   "v": 2,
    "ticker": "DEVYANI",
    "name": "Devyani International Limited",
    "sector": "Consumer Services",
@@ -1553,7 +1631,7 @@
    "epsG": -487.5,
    "opm": 15.7,
    "opmPrev": 17.2,
-   "roe": null,
+   "roe": -2.9,
    "de": 2.45,
    "fcf": 460,
    "pat": -39,
@@ -1562,9 +1640,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:12+00:00"
+   "fetched": "2026-08-23T07:22:54+00:00"
   },
   {
+   "v": 2,
    "ticker": "DIVISLAB",
    "name": "Divi's Laboratories Limited",
    "sector": "Healthcare",
@@ -1573,7 +1652,7 @@
    "epsG": 17.2,
    "opm": 37.0,
    "opmPrev": 35.6,
-   "roe": null,
+   "roe": 16.2,
    "de": 0.0,
    "fcf": 218,
    "pat": 2568,
@@ -1582,9 +1661,10 @@
    "moat": 5,
    "leader": true,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:13+00:00"
+   "fetched": "2026-08-23T07:22:56+00:00"
   },
   {
+   "v": 2,
    "ticker": "DIXON",
    "name": "Dixon Technologies (India) Limited",
    "sector": "Consumer Durables",
@@ -1593,7 +1673,7 @@
    "epsG": 33.0,
    "opm": 5.3,
    "opmPrev": 5.2,
-   "roe": null,
+   "roe": 37.4,
    "de": 0.21,
    "fcf": 715,
    "pat": 1439,
@@ -1602,9 +1682,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:15+00:00"
+   "fetched": "2026-08-23T07:22:57+00:00"
   },
   {
+   "v": 2,
    "ticker": "LALPATHLAB",
    "name": "Dr. Lal PathLabs Limited",
    "sector": "Healthcare",
@@ -1613,7 +1694,7 @@
    "epsG": 3.4,
    "opm": 30.9,
    "opmPrev": 32.1,
-   "roe": null,
+   "roe": 21.6,
    "de": 0.08,
    "fcf": 462,
    "pat": 505,
@@ -1622,9 +1703,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:16+00:00"
+   "fetched": "2026-08-23T07:22:58+00:00"
   },
   {
+   "v": 2,
    "ticker": "EIDPARRY",
    "name": "E.I.D.- Parry (India) Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -1633,7 +1715,7 @@
    "epsG": -35.3,
    "opm": 12.0,
    "opmPrev": 14.1,
-   "roe": null,
+   "roe": 6.8,
    "de": 0.98,
    "fcf": -76,
    "pat": 570,
@@ -1642,9 +1724,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:17+00:00"
+   "fetched": "2026-08-23T07:22:59+00:00"
   },
   {
+   "v": 2,
    "ticker": "EICHERMOT",
    "name": "Eicher Motors Limited",
    "sector": "Automobile and Auto Components",
@@ -1653,7 +1736,7 @@
    "epsG": 16.5,
    "opm": 34.9,
    "opmPrev": 36.2,
-   "roe": null,
+   "roe": 23.8,
    "de": 0.02,
    "fcf": 3530,
    "pat": 5515,
@@ -1662,9 +1745,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:18+00:00"
+   "fetched": "2026-08-23T07:23:00+00:00"
   },
   {
+   "v": 2,
    "ticker": "ELGIEQUIP",
    "name": "Elgi Equipments Limited",
    "sector": "Capital Goods",
@@ -1673,7 +1757,7 @@
    "epsG": 22.8,
    "opm": 17.5,
    "opmPrev": 16.9,
-   "roe": null,
+   "roe": 21.0,
    "de": 0.24,
    "fcf": 299,
    "pat": 430,
@@ -1682,9 +1766,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:19+00:00"
+   "fetched": "2026-08-23T07:23:01+00:00"
   },
   {
+   "v": 2,
    "ticker": "EMCURE",
    "name": "EMCURE PHARMACEUTICALS L",
    "sector": "Healthcare",
@@ -1693,7 +1778,7 @@
    "epsG": 33.9,
    "opm": 20.1,
    "opmPrev": 19.4,
-   "roe": null,
+   "roe": 19.7,
    "de": 0.31,
    "fcf": 396,
    "pat": 924,
@@ -1702,9 +1787,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:20+00:00"
+   "fetched": "2026-08-23T07:23:02+00:00"
   },
   {
+   "v": 2,
    "ticker": "ENDURANCE",
    "name": "Endurance Technologies Limited",
    "sector": "Automobile and Auto Components",
@@ -1713,7 +1799,7 @@
    "epsG": null,
    "opm": 14.4,
    "opmPrev": 14.8,
-   "roe": null,
+   "roe": 15.2,
    "de": 0.19,
    "fcf": 555,
    "pat": 952,
@@ -1722,9 +1808,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:22+00:00"
+   "fetched": "2026-08-23T07:23:03+00:00"
   },
   {
+   "v": 2,
    "ticker": "ENGINERSIN",
    "name": "Engineers India Limited",
    "sector": "Construction",
@@ -1733,7 +1820,7 @@
    "epsG": 19.2,
    "opm": 23.9,
    "opmPrev": 25.3,
-   "roe": null,
+   "roe": 23.8,
    "de": 0.01,
    "fcf": 250,
    "pat": 692,
@@ -1742,9 +1829,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:23+00:00"
+   "fetched": "2026-08-23T07:23:04+00:00"
   },
   {
+   "v": 2,
    "ticker": "ESCORTS",
    "name": "Escorts Kubota Limited",
    "sector": "Capital Goods",
@@ -1753,7 +1841,7 @@
    "epsG": 89.2,
    "opm": 18.2,
    "opmPrev": 16.1,
-   "roe": null,
+   "roe": 21.1,
    "de": 0.01,
    "fcf": 1064,
    "pat": 2394,
@@ -1762,9 +1850,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:24+00:00"
+   "fetched": "2026-08-23T07:23:05+00:00"
   },
   {
+   "v": 2,
    "ticker": "ETERNAL",
    "name": "Eternal Limited",
    "sector": "Consumer Services",
@@ -1773,7 +1862,7 @@
    "epsG": -32.8,
    "opm": 4.8,
    "opmPrev": 8.5,
-   "roe": null,
+   "roe": 1.2,
    "de": 0.15,
    "fcf": -1119,
    "pat": 366,
@@ -1782,9 +1871,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:25+00:00"
+   "fetched": "2026-08-23T07:23:06+00:00"
   },
   {
+   "v": 2,
    "ticker": "EXIDEIND",
    "name": "Exide Industries Limited",
    "sector": "Automobile and Auto Components",
@@ -1793,7 +1883,7 @@
    "epsG": 7.5,
    "opm": 10.9,
    "opmPrev": 11.1,
-   "roe": null,
+   "roe": 6.1,
    "de": 0.11,
    "fcf": 1261,
    "pat": 854,
@@ -1802,9 +1892,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:26+00:00"
+   "fetched": "2026-08-23T07:23:07+00:00"
   },
   {
+   "v": 2,
    "ticker": "NYKAA",
    "name": "FSN E-Commerce Ventures Limited",
    "sector": "Consumer Services",
@@ -1813,7 +1904,7 @@
    "epsG": 204.3,
    "opm": 7.7,
    "opmPrev": 6.3,
-   "roe": null,
+   "roe": 14.6,
    "de": 0.86,
    "fcf": 490,
    "pat": 199,
@@ -1822,9 +1913,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:27+00:00"
+   "fetched": "2026-08-23T07:23:08+00:00"
   },
   {
+   "v": 2,
    "ticker": "FEDERALBNK",
    "name": "The Federal Bank Limited",
    "sector": "Financial Services",
@@ -1833,7 +1925,7 @@
    "epsG": 4.0,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 11.7,
    "de": 0.77,
    "fcf": 4041,
    "pat": 4345,
@@ -1842,9 +1934,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:28+00:00"
+   "fetched": "2026-08-23T07:23:09+00:00"
   },
   {
+   "v": 2,
    "ticker": "FINCABLES",
    "name": "Finolex Cables Limited",
    "sector": "Capital Goods",
@@ -1853,7 +1946,7 @@
    "epsG": 1.9,
    "opm": 15.7,
    "opmPrev": 18.3,
-   "roe": null,
+   "roe": 12.3,
    "de": 0.0,
    "fcf": -105,
    "pat": 714,
@@ -1862,9 +1955,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:29+00:00"
+   "fetched": "2026-08-23T07:23:10+00:00"
   },
   {
+   "v": 2,
    "ticker": "FSL",
    "name": "Firstsource Solutions Limited",
    "sector": "Services",
@@ -1873,7 +1967,7 @@
    "epsG": 13.5,
    "opm": 15.6,
    "opmPrev": 15.6,
-   "roe": null,
+   "roe": 15.9,
    "de": 0.67,
    "fcf": 1018,
    "pat": 674,
@@ -1882,9 +1976,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:30+00:00"
+   "fetched": "2026-08-23T07:23:12+00:00"
   },
   {
+   "v": 2,
    "ticker": "GAIL",
    "name": "GAIL (India) Limited",
    "sector": "Oil Gas & Consumable Fuels",
@@ -1893,7 +1988,7 @@
    "epsG": -39.1,
    "opm": 10.3,
    "opmPrev": 14.7,
-   "roe": null,
+   "roe": 8.7,
    "de": 0.28,
    "fcf": 2442,
    "pat": 7582,
@@ -1902,9 +1997,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:32+00:00"
+   "fetched": "2026-08-23T07:23:13+00:00"
   },
   {
+   "v": 2,
    "ticker": "GABRIEL",
    "name": "Gabriel India Limited",
    "sector": "Automobile and Auto Components",
@@ -1913,7 +2009,7 @@
    "epsG": 2.9,
    "opm": 9.7,
    "opmPrev": 10.3,
-   "roe": null,
+   "roe": 19.8,
    "de": 0.11,
    "fcf": 105,
    "pat": 252,
@@ -1922,9 +2018,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:33+00:00"
+   "fetched": "2026-08-23T07:23:14+00:00"
   },
   {
+   "v": 2,
    "ticker": "GLAND",
    "name": "Gland Pharma Limited",
    "sector": "Healthcare",
@@ -1933,7 +2030,7 @@
    "epsG": 46.9,
    "opm": 30.0,
    "opmPrev": 26.5,
-   "roe": null,
+   "roe": 10.5,
    "de": 0.03,
    "fcf": 537,
    "pat": 1027,
@@ -1942,9 +2039,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:34+00:00"
+   "fetched": "2026-08-23T07:23:15+00:00"
   },
   {
+   "v": 2,
    "ticker": "GLAXO",
    "name": "GlaxoSmithKline Pharmaceuticals Limited",
    "sector": "Healthcare",
@@ -1953,7 +2051,7 @@
    "epsG": 11.7,
    "opm": 38.7,
    "opmPrev": 35.6,
-   "roe": null,
+   "roe": 49.1,
    "de": 0.01,
    "fcf": 848,
    "pat": 1036,
@@ -1962,9 +2060,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:35+00:00"
+   "fetched": "2026-08-23T07:23:16+00:00"
   },
   {
+   "v": 2,
    "ticker": "GLENMARK",
    "name": "Glenmark Pharmaceuticals Limited",
    "sector": "Healthcare",
@@ -1973,7 +2072,7 @@
    "epsG": 30.0,
    "opm": 16.6,
    "opmPrev": 15.9,
-   "roe": null,
+   "roe": 14.1,
    "de": 0.06,
    "fcf": 2087,
    "pat": 1362,
@@ -1982,9 +2081,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:36+00:00"
+   "fetched": "2026-08-23T07:23:17+00:00"
   },
   {
+   "v": 2,
    "ticker": "MEDANTA",
    "name": "Global Health Limited",
    "sector": "Healthcare",
@@ -1993,7 +2093,7 @@
    "epsG": 15.3,
    "opm": 23.1,
    "opmPrev": 24.5,
-   "roe": null,
+   "roe": 15.1,
    "de": 0.3,
    "fcf": -264,
    "pat": 556,
@@ -2002,9 +2102,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:37+00:00"
+   "fetched": "2026-08-23T07:23:18+00:00"
   },
   {
+   "v": 2,
    "ticker": "GODFRYPHLP",
    "name": "Godfrey Phillips India Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -2013,7 +2114,7 @@
    "epsG": 41.9,
    "opm": 32.6,
    "opmPrev": 28.9,
-   "roe": null,
+   "roe": 26.6,
    "de": 0.04,
    "fcf": 206,
    "pat": 1526,
@@ -2022,9 +2123,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:38+00:00"
+   "fetched": "2026-08-23T07:23:19+00:00"
   },
   {
+   "v": 2,
    "ticker": "GODREJPROP",
    "name": "Godrej Properties Limited",
    "sector": "Realty",
@@ -2033,7 +2135,7 @@
    "epsG": 25.3,
    "opm": 51.9,
    "opmPrev": 37.3,
-   "roe": null,
+   "roe": 10.1,
    "de": 0.83,
    "fcf": -2409,
    "pat": 1850,
@@ -2042,9 +2144,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:39+00:00"
+   "fetched": "2026-08-23T07:23:20+00:00"
   },
   {
+   "v": 2,
    "ticker": "GRANULES",
    "name": "Granules India Limited",
    "sector": "Healthcare",
@@ -2053,7 +2156,7 @@
    "epsG": 18.3,
    "opm": 21.6,
    "opmPrev": 21.2,
-   "roe": null,
+   "roe": 13.5,
    "de": 0.3,
    "fcf": 235,
    "pat": 595,
@@ -2062,9 +2165,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:40+00:00"
+   "fetched": "2026-08-23T07:23:21+00:00"
   },
   {
+   "v": 2,
    "ticker": "GRAPHITE",
    "name": "Graphite India Limited",
    "sector": "Capital Goods",
@@ -2073,7 +2177,7 @@
    "epsG": -62.1,
    "opm": 12.7,
    "opmPrev": 27.8,
-   "roe": null,
+   "roe": 3.0,
    "de": 0.06,
    "fcf": -170,
    "pat": 175,
@@ -2082,9 +2186,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:42+00:00"
+   "fetched": "2026-08-23T07:23:22+00:00"
   },
   {
+   "v": 2,
    "ticker": "GRASIM",
    "name": "Grasim Industries Limited",
    "sector": "Construction Materials",
@@ -2093,7 +2198,7 @@
    "epsG": null,
    "opm": 14.7,
    "opmPrev": 13.6,
-   "roe": null,
+   "roe": 4.9,
    "de": 2.2,
    "fcf": -33436,
    "pat": 4966,
@@ -2102,9 +2207,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:42+00:00"
+   "fetched": "2026-08-23T07:23:24+00:00"
   },
   {
+   "v": 2,
    "ticker": "GRAVITA",
    "name": "Gravita India Limited",
    "sector": "Metals & Mining",
@@ -2113,7 +2219,7 @@
    "epsG": 15.3,
    "opm": 12.0,
    "opmPrev": 11.3,
-   "roe": null,
+   "roe": 16.8,
    "de": 0.3,
    "fcf": -46,
    "pat": 379,
@@ -2122,9 +2228,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:44+00:00"
+   "fetched": "2026-08-23T07:23:24+00:00"
   },
   {
+   "v": 2,
    "ticker": "FLUOROCHEM",
    "name": "Gujarat Fluorochemicals Limited",
    "sector": "Chemicals",
@@ -2133,7 +2240,7 @@
    "epsG": 5.2,
    "opm": 26.3,
    "opmPrev": 25.6,
-   "roe": null,
+   "roe": 7.6,
    "de": 0.29,
    "fcf": -291,
    "pat": 578,
@@ -2142,9 +2249,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:45+00:00"
+   "fetched": "2026-08-23T07:23:26+00:00"
   },
   {
+   "v": 2,
    "ticker": "HEG",
    "name": "HEG Limited",
    "sector": "Capital Goods",
@@ -2153,7 +2261,7 @@
    "epsG": 196.8,
    "opm": 25.2,
    "opmPrev": 18.6,
-   "roe": null,
+   "roe": 7.4,
    "de": 0.17,
    "fcf": -39,
    "pat": 341,
@@ -2162,9 +2270,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:46+00:00"
+   "fetched": "2026-08-23T07:23:27+00:00"
   },
   {
+   "v": 2,
    "ticker": "HCLTECH",
    "name": "HCL Technologies Limited",
    "sector": "Information Technology",
@@ -2173,7 +2282,7 @@
    "epsG": -4.3,
    "opm": 21.0,
    "opmPrev": 23.9,
-   "roe": 24.1,
+   "roe": 23.0,
    "de": 0.07,
    "fcf": 18553,
    "pat": 16642,
@@ -2182,9 +2291,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:47+00:00"
+   "fetched": "2026-08-23T07:23:28+00:00"
   },
   {
+   "v": 2,
    "ticker": "HFCL",
    "name": "HFCL Limited",
    "sector": "Telecommunication",
@@ -2193,7 +2303,7 @@
    "epsG": 73.2,
    "opm": 16.7,
    "opmPrev": 12.5,
-   "roe": null,
+   "roe": 7.0,
    "de": 0.39,
    "fcf": -723,
    "pat": 312,
@@ -2202,9 +2312,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:48+00:00"
+   "fetched": "2026-08-23T07:23:29+00:00"
   },
   {
+   "v": 2,
    "ticker": "HAVELLS",
    "name": "Havells India Limited",
    "sector": "Consumer Durables",
@@ -2213,7 +2324,7 @@
    "epsG": 14.7,
    "opm": 12.0,
    "opmPrev": 11.3,
-   "roe": null,
+   "roe": 19.0,
    "de": 0.03,
    "fcf": 88,
    "pat": 1691,
@@ -2222,9 +2333,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:49+00:00"
+   "fetched": "2026-08-23T07:23:30+00:00"
   },
   {
+   "v": 2,
    "ticker": "HEROMOTOCO",
    "name": "Hero MotoCorp Limited",
    "sector": "Automobile and Auto Components",
@@ -2233,7 +2345,7 @@
    "epsG": 31.1,
    "opm": 17.8,
    "opmPrev": 16.8,
-   "roe": null,
+   "roe": 28.1,
    "de": 0.04,
    "fcf": 7215,
    "pat": 5742,
@@ -2242,9 +2354,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:50+00:00"
+   "fetched": "2026-08-23T07:23:31+00:00"
   },
   {
+   "v": 2,
    "ticker": "HINDALCO",
    "name": "Hindalco Industries Limited",
    "sector": "Metals & Mining",
@@ -2253,7 +2366,7 @@
    "epsG": -16.3,
    "opm": 11.2,
    "opmPrev": 14.2,
-   "roe": null,
+   "roe": 10.3,
    "de": 0.73,
    "fcf": -19846,
    "pat": 13391,
@@ -2262,9 +2375,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:52+00:00"
+   "fetched": "2026-08-23T07:23:32+00:00"
   },
   {
+   "v": 2,
    "ticker": "HAL",
    "name": "Hindustan Aeronautics Limited",
    "sector": "Capital Goods",
@@ -2273,7 +2387,7 @@
    "epsG": 9.0,
    "opm": 42.5,
    "opmPrev": 40.7,
-   "roe": null,
+   "roe": 24.0,
    "de": 0.0,
    "fcf": 8357,
    "pat": 9116,
@@ -2282,9 +2396,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:53+00:00"
+   "fetched": "2026-08-23T07:23:33+00:00"
   },
   {
+   "v": 2,
    "ticker": "HINDCOPPER",
    "name": "Hindustan Copper Limited",
    "sector": "Metals & Mining",
@@ -2293,7 +2408,7 @@
    "epsG": 97.5,
    "opm": 46.7,
    "opmPrev": 39.3,
-   "roe": null,
+   "roe": 30.6,
    "de": 0.03,
    "fcf": 1017,
    "pat": 919,
@@ -2302,9 +2417,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:54+00:00"
+   "fetched": "2026-08-23T07:23:34+00:00"
   },
   {
+   "v": 2,
    "ticker": "HINDZINC",
    "name": "Hindustan Zinc Limited",
    "sector": "Metals & Mining",
@@ -2313,7 +2429,7 @@
    "epsG": 33.6,
    "opm": 58.8,
    "opmPrev": 55.0,
-   "roe": null,
+   "roe": 76.9,
    "de": 0.39,
    "fcf": 11733,
    "pat": 13832,
@@ -2322,9 +2438,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:55+00:00"
+   "fetched": "2026-08-23T07:23:35+00:00"
   },
   {
+   "v": 2,
    "ticker": "POWERINDIA",
    "name": "Hitachi Energy India Limited",
    "sector": "Capital Goods",
@@ -2333,7 +2450,7 @@
    "epsG": 145.3,
    "opm": 18.2,
    "opmPrev": 10.5,
-   "roe": null,
+   "roe": 21.0,
    "de": 0.02,
    "fcf": 735,
    "pat": 988,
@@ -2342,9 +2459,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:56+00:00"
+   "fetched": "2026-08-23T07:23:36+00:00"
   },
   {
+   "v": 2,
    "ticker": "HOMEFIRST",
    "name": "Home First Finance Company India Limited",
    "sector": "Financial Services",
@@ -2353,7 +2471,7 @@
    "epsG": 22.6,
    "opm": 46.2,
    "opmPrev": 41.4,
-   "roe": null,
+   "roe": 15.7,
    "de": 2.43,
    "fcf": -1949,
    "pat": 540,
@@ -2362,9 +2480,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:57+00:00"
+   "fetched": "2026-08-23T07:23:38+00:00"
   },
   {
+   "v": 2,
    "ticker": "HONASA",
    "name": "Honasa Consumer Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -2373,7 +2492,7 @@
    "epsG": null,
    "opm": 13.2,
    "opmPrev": 7.1,
-   "roe": null,
+   "roe": 15.4,
    "de": 0.1,
    "fcf": 134,
    "pat": 200,
@@ -2382,9 +2501,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:58+00:00"
+   "fetched": "2026-08-23T07:23:39+00:00"
   },
   {
+   "v": 2,
    "ticker": "HYUNDAI",
    "name": "HYUNDAI MOTOR INDIA LTD",
    "sector": "Automobile and Auto Components",
@@ -2393,7 +2513,7 @@
    "epsG": -3.7,
    "opm": 13.8,
    "opmPrev": 14.5,
-   "roe": null,
+   "roe": 29.9,
    "de": 0.05,
    "fcf": 3055,
    "pat": 5432,
@@ -2402,9 +2522,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:12:59+00:00"
+   "fetched": "2026-08-23T07:23:40+00:00"
   },
   {
+   "v": 2,
    "ticker": "ICICIBANK",
    "name": "ICICI Bank Limited",
    "sector": "Financial Services",
@@ -2413,7 +2534,7 @@
    "epsG": 5.1,
    "opm": null,
    "opmPrev": null,
-   "roe": 16.1,
+   "roe": 16.0,
    "de": 0.57,
    "fcf": 63595,
    "pat": 54208,
@@ -2422,9 +2543,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:00+00:00"
+   "fetched": "2026-08-23T07:23:41+00:00"
   },
   {
+   "v": 2,
    "ticker": "ICICIPRULI",
    "name": "ICICI Prudential Life Insurance Company Limited",
    "sector": "Financial Services",
@@ -2442,9 +2564,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:01+00:00"
+   "fetched": "2026-08-23T07:23:42+00:00"
   },
   {
+   "v": 2,
    "ticker": "IDFCFIRSTB",
    "name": "IDFC First Bank Limited",
    "sector": "Financial Services",
@@ -2453,7 +2576,7 @@
    "epsG": -7.4,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 3.8,
    "de": 0.77,
    "fcf": 6039,
    "pat": 1611,
@@ -2462,9 +2585,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:02+00:00"
+   "fetched": "2026-08-23T07:23:43+00:00"
   },
   {
+   "v": 2,
    "ticker": "IFCI",
    "name": "IFCI Limited",
    "sector": "Financial Services",
@@ -2473,7 +2597,7 @@
    "epsG": 6.2,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 2.1,
    "de": 0.39,
    "fcf": 221,
    "pat": 181,
@@ -2482,9 +2606,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:03+00:00"
+   "fetched": "2026-08-23T07:23:44+00:00"
   },
   {
+   "v": 2,
    "ticker": "IIFL",
    "name": "IIFL Finance Limited",
    "sector": "Financial Services",
@@ -2493,7 +2618,7 @@
    "epsG": 343.9,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 12.6,
    "de": 5.0,
    "fcf": -14057,
    "pat": 1661,
@@ -2502,9 +2627,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:04+00:00"
+   "fetched": "2026-08-23T07:23:45+00:00"
   },
   {
+   "v": 2,
    "ticker": "INDGN",
    "name": "INDEGENE LIMITED",
    "sector": "Healthcare",
@@ -2513,7 +2639,7 @@
    "epsG": -2.4,
    "opm": 19.0,
    "opmPrev": 22.5,
-   "roe": null,
+   "roe": 13.9,
    "de": 0.05,
    "fcf": 606,
    "pat": 401,
@@ -2522,9 +2648,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:05+00:00"
+   "fetched": "2026-08-23T07:23:46+00:00"
   },
   {
+   "v": 2,
    "ticker": "INDIANB",
    "name": "Indian Bank",
    "sector": "Financial Services",
@@ -2533,7 +2660,7 @@
    "epsG": 3.9,
    "opm": null,
    "opmPrev": null,
-   "roe": 16.2,
+   "roe": 15.4,
    "de": 0.46,
    "fcf": 18361,
    "pat": 11704,
@@ -2542,9 +2669,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:06+00:00"
+   "fetched": "2026-08-23T07:23:47+00:00"
   },
   {
+   "v": 2,
    "ticker": "INDHOTEL",
    "name": "The Indian Hotels Company Limited",
    "sector": "Consumer Services",
@@ -2553,7 +2681,7 @@
    "epsG": 9.3,
    "opm": 40.3,
    "opmPrev": 41.1,
-   "roe": null,
+   "roe": 17.2,
    "de": 0.22,
    "fcf": 1435,
    "pat": 2084,
@@ -2562,9 +2690,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:07+00:00"
+   "fetched": "2026-08-23T07:23:48+00:00"
   },
   {
+   "v": 2,
    "ticker": "INDUSINDBK",
    "name": "IndusInd Bank Limited",
    "sector": "Financial Services",
@@ -2573,7 +2702,7 @@
    "epsG": -65.5,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 1.4,
    "de": 0.65,
    "fcf": 301,
    "pat": 889,
@@ -2582,9 +2711,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:09+00:00"
+   "fetched": "2026-08-23T07:23:49+00:00"
   },
   {
+   "v": 2,
    "ticker": "NAUKRI",
    "name": "Info Edge (India) Limited",
    "sector": "Consumer Services",
@@ -2593,7 +2723,7 @@
    "epsG": 50.8,
    "opm": 69.1,
    "opmPrev": 73.1,
-   "roe": null,
+   "roe": 4.0,
    "de": 0.01,
    "fcf": 1001,
    "pat": 1450,
@@ -2602,9 +2732,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:10+00:00"
+   "fetched": "2026-08-23T07:23:50+00:00"
   },
   {
+   "v": 2,
    "ticker": "INFY",
    "name": "Infosys Limited",
    "sector": "Information Technology",
@@ -2613,7 +2744,7 @@
    "epsG": 5.3,
    "opm": 25.3,
    "opmPrev": 26.3,
-   "roe": 32.0,
+   "roe": 31.6,
    "de": 0.1,
    "fcf": 373,
    "pat": 331,
@@ -2622,9 +2753,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:11+00:00"
+   "fetched": "2026-08-23T07:23:51+00:00"
   },
   {
+   "v": 2,
    "ticker": "IKS",
    "name": "INVENTURUS KNOWLEDGE SO L",
    "sector": "Information Technology",
@@ -2633,7 +2765,7 @@
    "epsG": 47.7,
    "opm": 34.4,
    "opmPrev": 30.4,
-   "roe": null,
+   "roe": 31.4,
    "de": 0.27,
    "fcf": 613,
    "pat": 722,
@@ -2642,9 +2774,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:12+00:00"
+   "fetched": "2026-08-23T07:23:52+00:00"
   },
   {
+   "v": 2,
    "ticker": "IPCALAB",
    "name": "Ipca Laboratories Limited",
    "sector": "Healthcare",
@@ -2653,7 +2786,7 @@
    "epsG": null,
    "opm": 21.6,
    "opmPrev": 18.2,
-   "roe": null,
+   "roe": 15.2,
    "de": 0.1,
    "fcf": 486,
    "pat": 1141,
@@ -2662,9 +2795,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:13+00:00"
+   "fetched": "2026-08-23T07:23:53+00:00"
   },
   {
+   "v": 2,
    "ticker": "JBMA",
    "name": "JBM Auto Limited",
    "sector": "Automobile and Auto Components",
@@ -2673,7 +2807,7 @@
    "epsG": 8.3,
    "opm": 13.2,
    "opmPrev": 12.7,
-   "roe": null,
+   "roe": 15.1,
    "de": 2.04,
    "fcf": -362,
    "pat": 219,
@@ -2682,9 +2816,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:14+00:00"
+   "fetched": "2026-08-23T07:23:54+00:00"
   },
   {
+   "v": 2,
    "ticker": "JMFINANCIL",
    "name": "JM Financial Limited",
    "sector": "Financial Services",
@@ -2693,7 +2828,7 @@
    "epsG": 46.3,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 11.8,
    "de": 1.09,
    "fcf": 516,
    "pat": 1202,
@@ -2702,9 +2837,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:15+00:00"
+   "fetched": "2026-08-23T07:23:55+00:00"
   },
   {
+   "v": 2,
    "ticker": "JSWDULUX",
    "name": "JSW Dulux Limited",
    "sector": "Consumer Durables",
@@ -2713,7 +2849,7 @@
    "epsG": 359.6,
    "opm": 68.5,
    "opmPrev": 16.5,
-   "roe": null,
+   "roe": 104.4,
    "de": 0.03,
    "fcf": -1106,
    "pat": 1974,
@@ -2722,9 +2858,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:16+00:00"
+   "fetched": "2026-08-23T07:23:56+00:00"
   },
   {
+   "v": 2,
    "ticker": "JSWINFRA",
    "name": "JSW Infrastructure Limited",
    "sector": "Services",
@@ -2733,7 +2870,7 @@
    "epsG": 1.3,
    "opm": 53.1,
    "opmPrev": 59.1,
-   "roe": null,
+   "roe": 14.8,
    "de": 0.63,
    "fcf": -470,
    "pat": 1523,
@@ -2742,9 +2879,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:17+00:00"
+   "fetched": "2026-08-23T07:23:57+00:00"
   },
   {
+   "v": 2,
    "ticker": "JSWSTEEL",
    "name": "JSW STEEL LIMITED",
    "sector": "Metals & Mining",
@@ -2753,7 +2891,7 @@
    "epsG": 537.2,
    "opm": 25.9,
    "opmPrev": 13.4,
-   "roe": null,
+   "roe": 24.9,
    "de": 1.19,
    "fcf": 10498,
    "pat": 22316,
@@ -2762,9 +2900,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:19+00:00"
+   "fetched": "2026-08-23T07:23:58+00:00"
   },
   {
+   "v": 2,
    "ticker": "JPPOWER",
    "name": "Jaiprakash Power Ventures Limited",
    "sector": "Power",
@@ -2773,7 +2912,7 @@
    "epsG": -44.9,
    "opm": 28.4,
    "opmPrev": 38.1,
-   "roe": null,
+   "roe": 3.6,
    "de": 0.27,
    "fcf": 1293,
    "pat": 451,
@@ -2782,9 +2921,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:20+00:00"
+   "fetched": "2026-08-23T07:23:59+00:00"
   },
   {
+   "v": 2,
    "ticker": "JINDALSAW",
    "name": "Jindal Saw Limited",
    "sector": "Capital Goods",
@@ -2793,7 +2933,7 @@
    "epsG": -44.0,
    "opm": 12.3,
    "opmPrev": 17.1,
-   "roe": null,
+   "roe": 8.1,
    "de": 0.37,
    "fcf": 695,
    "pat": 973,
@@ -2802,9 +2942,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:21+00:00"
+   "fetched": "2026-08-23T07:24:00+00:00"
   },
   {
+   "v": 2,
    "ticker": "JINDALSTEL",
    "name": "Jindal Steel Limited",
    "sector": "Metals & Mining",
@@ -2813,7 +2954,7 @@
    "epsG": 19.0,
    "opm": 21.1,
    "opmPrev": 20.6,
-   "roe": null,
+   "roe": 6.9,
    "de": 0.44,
    "fcf": -2370,
    "pat": 3367,
@@ -2822,9 +2963,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:22+00:00"
+   "fetched": "2026-08-23T07:24:01+00:00"
   },
   {
+   "v": 2,
    "ticker": "JIOFIN",
    "name": "Jio Financial Services Limited",
    "sector": "Financial Services",
@@ -2833,7 +2975,7 @@
    "epsG": -3.1,
    "opm": 84.3,
    "opmPrev": 146.7,
-   "roe": null,
+   "roe": 1.2,
    "de": 0.16,
    "fcf": -15544,
    "pat": 1561,
@@ -2842,9 +2984,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:23+00:00"
+   "fetched": "2026-08-23T07:24:03+00:00"
   },
   {
+   "v": 2,
    "ticker": "JUBLFOOD",
    "name": "JUBILANT FOODWORKS LTD",
    "sector": "Consumer Services",
@@ -2853,7 +2996,7 @@
    "epsG": 55.6,
    "opm": 21.8,
    "opmPrev": 21.6,
-   "roe": null,
+   "roe": 19.5,
    "de": 2.14,
    "fcf": 884,
    "pat": 428,
@@ -2862,9 +3005,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:24+00:00"
+   "fetched": "2026-08-23T07:24:04+00:00"
   },
   {
+   "v": 2,
    "ticker": "JUBLINGREA",
    "name": "Jubilant Ingrevia Limited",
    "sector": "Chemicals",
@@ -2873,7 +3017,7 @@
    "epsG": 10.5,
    "opm": 13.7,
    "opmPrev": 13.5,
-   "roe": null,
+   "roe": 9.2,
    "de": 0.25,
    "fcf": 225,
    "pat": 278,
@@ -2882,9 +3026,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:25+00:00"
+   "fetched": "2026-08-23T07:24:05+00:00"
   },
   {
+   "v": 2,
    "ticker": "JYOTICNC",
    "name": "Jyoti CNC Automation Limited",
    "sector": "Capital Goods",
@@ -2893,7 +3038,7 @@
    "epsG": 6.3,
    "opm": 28.1,
    "opmPrev": 27.3,
-   "roe": null,
+   "roe": 18.2,
    "de": 0.43,
    "fcf": -269,
    "pat": 336,
@@ -2902,9 +3047,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:27+00:00"
+   "fetched": "2026-08-23T07:24:06+00:00"
   },
   {
+   "v": 2,
    "ticker": "KPRMILL",
    "name": "K.P.R. Mill Limited",
    "sector": "Textiles",
@@ -2913,7 +3059,7 @@
    "epsG": 6.3,
    "opm": 21.8,
    "opmPrev": 21.4,
-   "roe": null,
+   "roe": 16.2,
    "de": 0.1,
    "fcf": 793,
    "pat": 866,
@@ -2922,9 +3068,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:28+00:00"
+   "fetched": "2026-08-23T07:24:07+00:00"
   },
   {
+   "v": 2,
    "ticker": "KEI",
    "name": "KEI Industries Limited",
    "sector": "Capital Goods",
@@ -2933,7 +3080,7 @@
    "epsG": 27.1,
    "opm": 11.8,
    "opmPrev": 10.9,
-   "roe": null,
+   "roe": 14.8,
    "de": 0.04,
    "fcf": -414,
    "pat": 918,
@@ -2942,9 +3089,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:29+00:00"
+   "fetched": "2026-08-23T07:24:08+00:00"
   },
   {
+   "v": 2,
    "ticker": "KAJARIACER",
    "name": "Kajaria Ceramics Limited",
    "sector": "Consumer Durables",
@@ -2953,7 +3101,7 @@
    "epsG": 64.8,
    "opm": 18.1,
    "opmPrev": 14.4,
-   "roe": null,
+   "roe": 16.7,
    "de": 0.07,
    "fcf": 536,
    "pat": 485,
@@ -2962,9 +3110,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:30+00:00"
+   "fetched": "2026-08-23T07:24:09+00:00"
   },
   {
+   "v": 2,
    "ticker": "KPIL",
    "name": "Kalpataru Projects International Limited",
    "sector": "Construction",
@@ -2973,7 +3122,7 @@
    "epsG": 71.4,
    "opm": 8.7,
    "opmPrev": 8.3,
-   "roe": null,
+   "roe": 14.6,
    "de": 0.46,
    "fcf": 724,
    "pat": 1040,
@@ -2982,9 +3131,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:31+00:00"
+   "fetched": "2026-08-23T07:24:10+00:00"
   },
   {
+   "v": 2,
    "ticker": "KALYANKJIL",
    "name": "Kalyan Jewellers India Limited",
    "sector": "Consumer Durables",
@@ -2993,7 +3143,7 @@
    "epsG": 88.3,
    "opm": 7.3,
    "opmPrev": 6.6,
-   "roe": null,
+   "roe": 24.3,
    "de": 0.97,
    "fcf": 911,
    "pat": 1350,
@@ -3002,9 +3152,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:32+00:00"
+   "fetched": "2026-08-23T07:24:11+00:00"
   },
   {
+   "v": 2,
    "ticker": "KARURVYSYA",
    "name": "The Karur Vysya Bank Limited",
    "sector": "Financial Services",
@@ -3013,7 +3164,7 @@
    "epsG": 29.2,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 19.3,
    "de": 0.19,
    "fcf": -706,
    "pat": 2510,
@@ -3022,9 +3173,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:33+00:00"
+   "fetched": "2026-08-23T07:24:12+00:00"
   },
   {
+   "v": 2,
    "ticker": "KAYNES",
    "name": "Kaynes Technology India Limited",
    "sector": "Capital Goods",
@@ -3033,7 +3185,7 @@
    "epsG": 19.9,
    "opm": 20.0,
    "opmPrev": 18.9,
-   "roe": null,
+   "roe": 9.6,
    "de": 0.19,
    "fcf": -1841,
    "pat": 364,
@@ -3042,9 +3194,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:34+00:00"
+   "fetched": "2026-08-23T07:24:14+00:00"
   },
   {
+   "v": 2,
    "ticker": "KFINTECH",
    "name": "KFin Technologies Limited",
    "sector": "Financial Services",
@@ -3053,7 +3206,7 @@
    "epsG": 2.8,
    "opm": 43.8,
    "opmPrev": 48.4,
-   "roe": null,
+   "roe": 22.3,
    "de": 0.03,
    "fcf": 259,
    "pat": 344,
@@ -3062,9 +3215,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:36+00:00"
+   "fetched": "2026-08-23T07:24:15+00:00"
   },
   {
+   "v": 2,
    "ticker": "KOTAKBANK",
    "name": "Kotak Mahindra Bank Limited",
    "sector": "Financial Services",
@@ -3073,7 +3227,7 @@
    "epsG": -12.9,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 11.4,
    "de": 0.53,
    "fcf": 40669,
    "pat": 19288,
@@ -3082,9 +3236,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:37+00:00"
+   "fetched": "2026-08-23T07:24:16+00:00"
   },
   {
+   "v": 2,
    "ticker": "KIMS",
    "name": "Krishna Institute of Medical Sciences Limited",
    "sector": "Healthcare",
@@ -3093,7 +3248,7 @@
    "epsG": -37.3,
    "opm": 21.0,
    "opmPrev": 27.4,
-   "roe": null,
+   "roe": 11.0,
    "de": 1.89,
    "fcf": -917,
    "pat": 241,
@@ -3102,9 +3257,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:38+00:00"
+   "fetched": "2026-08-23T07:24:17+00:00"
   },
   {
+   "v": 2,
    "ticker": "LTF",
    "name": "L&T Finance Limited",
    "sector": "Financial Services",
@@ -3113,7 +3269,7 @@
    "epsG": 12.4,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 11.1,
    "de": 3.94,
    "fcf": -14429,
    "pat": 2981,
@@ -3122,9 +3278,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:39+00:00"
+   "fetched": "2026-08-23T07:24:18+00:00"
   },
   {
+   "v": 2,
    "ticker": "LTTS",
    "name": "L&T Technology Services Limited",
    "sector": "Information Technology",
@@ -3133,7 +3290,7 @@
    "epsG": 0.9,
    "opm": 19.0,
    "opmPrev": 20.8,
-   "roe": null,
+   "roe": 20.4,
    "de": 0.09,
    "fcf": 1270,
    "pat": 1279,
@@ -3142,9 +3299,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:40+00:00"
+   "fetched": "2026-08-23T07:24:19+00:00"
   },
   {
+   "v": 2,
    "ticker": "LGEINDIA",
    "name": "LG ELECTRONICS INDIA LTD",
    "sector": "Consumer Durables",
@@ -3153,7 +3311,7 @@
    "epsG": null,
    "opm": 11.2,
    "opmPrev": null,
-   "roe": null,
+   "roe": 22.0,
    "de": 0.06,
    "fcf": 549,
    "pat": 1685,
@@ -3162,9 +3320,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:41+00:00"
+   "fetched": "2026-08-23T07:24:20+00:00"
   },
   {
+   "v": 2,
    "ticker": "LTFOODS",
    "name": "LT Foods Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -3173,7 +3332,7 @@
    "epsG": 3.3,
    "opm": 11.3,
    "opmPrev": 12.6,
-   "roe": null,
+   "roe": 14.9,
    "de": 0.36,
    "fcf": 551,
    "pat": 625,
@@ -3182,9 +3341,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:42+00:00"
+   "fetched": "2026-08-23T07:24:21+00:00"
   },
   {
+   "v": 2,
    "ticker": "LTM",
    "name": "LTM Limited",
    "sector": "Information Technology",
@@ -3193,7 +3353,7 @@
    "epsG": 9.1,
    "opm": 18.9,
    "opmPrev": 19.4,
-   "roe": 22.0,
+   "roe": 21.5,
    "de": 0.1,
    "fcf": 3868,
    "pat": 5018,
@@ -3202,9 +3362,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:43+00:00"
+   "fetched": "2026-08-23T07:24:22+00:00"
   },
   {
+   "v": 2,
    "ticker": "LT",
    "name": "Larsen & Toubro Limited",
    "sector": "Construction",
@@ -3213,7 +3374,7 @@
    "epsG": 7.0,
    "opm": 11.7,
    "opmPrev": 12.2,
-   "roe": null,
+   "roe": 15.5,
    "de": 1.15,
    "fcf": 11932,
    "pat": 16084,
@@ -3222,9 +3383,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:44+00:00"
+   "fetched": "2026-08-23T07:24:23+00:00"
   },
   {
+   "v": 2,
    "ticker": "LAURUSLABS",
    "name": "Laurus Labs Limited",
    "sector": "Healthcare",
@@ -3233,7 +3395,7 @@
    "epsG": 147.7,
    "opm": 27.1,
    "opmPrev": 20.4,
-   "roe": null,
+   "roe": 18.2,
    "de": 0.48,
    "fcf": 554,
    "pat": 889,
@@ -3242,9 +3404,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:46+00:00"
+   "fetched": "2026-08-23T07:24:24+00:00"
   },
   {
+   "v": 2,
    "ticker": "THELEELA",
    "name": "Leela Palaces Hotels & Resorts Limited",
    "sector": "Consumer Services",
@@ -3253,7 +3416,7 @@
    "epsG": 767.9,
    "opm": 52.7,
    "opmPrev": 53.8,
-   "roe": null,
+   "roe": 8.1,
    "de": 0.28,
    "fcf": 261,
    "pat": 403,
@@ -3262,9 +3425,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:47+00:00"
+   "fetched": "2026-08-23T07:24:25+00:00"
   },
   {
+   "v": 2,
    "ticker": "LICI",
    "name": "Life Insurance Corporation of India",
    "sector": "Financial Services",
@@ -3273,7 +3437,7 @@
    "epsG": 18.9,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 37.8,
    "de": 0.0,
    "fcf": -27327,
    "pat": 57453,
@@ -3282,9 +3446,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:48+00:00"
+   "fetched": "2026-08-23T07:24:27+00:00"
   },
   {
+   "v": 2,
    "ticker": "LODHA",
    "name": "Lodha Developers Limited",
    "sector": "Realty",
@@ -3293,7 +3458,7 @@
    "epsG": 23.8,
    "opm": 32.5,
    "opmPrev": 31.8,
-   "roe": null,
+   "roe": 15.8,
    "de": 0.42,
    "fcf": 709,
    "pat": 3428,
@@ -3302,9 +3467,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:49+00:00"
+   "fetched": "2026-08-23T07:24:28+00:00"
   },
   {
+   "v": 2,
    "ticker": "MRF",
    "name": "MRF Limited",
    "sector": "Automobile and Auto Components",
@@ -3313,7 +3479,7 @@
    "epsG": 29.5,
    "opm": 17.2,
    "opmPrev": 16.1,
-   "roe": null,
+   "roe": 12.3,
    "de": 0.15,
    "fcf": 3156,
    "pat": 2426,
@@ -3322,9 +3488,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:50+00:00"
+   "fetched": "2026-08-23T07:24:29+00:00"
   },
   {
+   "v": 2,
    "ticker": "M&MFIN",
    "name": "Mahindra & Mahindra Financial Services Limited",
    "sector": "Financial Services",
@@ -3333,7 +3500,7 @@
    "epsG": 17.4,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 11.9,
    "de": 4.31,
    "fcf": -13188,
    "pat": 2855,
@@ -3342,9 +3509,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:51+00:00"
+   "fetched": "2026-08-23T07:24:30+00:00"
   },
   {
+   "v": 2,
    "ticker": "M&M",
    "name": "Mahindra & Mahindra Limited",
    "sector": "Automobile and Auto Components",
@@ -3353,7 +3521,7 @@
    "epsG": 32.3,
    "opm": 21.4,
    "opmPrev": 21.5,
-   "roe": null,
+   "roe": 20.1,
    "de": 1.44,
    "fcf": 2052,
    "pat": 17099,
@@ -3362,9 +3530,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:52+00:00"
+   "fetched": "2026-08-23T07:24:31+00:00"
   },
   {
+   "v": 2,
    "ticker": "MANAPPURAM",
    "name": "Manappuram Finance Limited",
    "sector": "Financial Services",
@@ -3373,7 +3542,7 @@
    "epsG": -17.6,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 7.0,
    "de": 3.6,
    "fcf": -20438,
    "pat": 1003,
@@ -3382,9 +3551,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:53+00:00"
+   "fetched": "2026-08-23T07:24:32+00:00"
   },
   {
+   "v": 2,
    "ticker": "MRPL",
    "name": "Mangalore Refinery and Petrochemicals Limited",
    "sector": "Oil Gas & Consumable Fuels",
@@ -3393,7 +3563,7 @@
    "epsG": 3331.2,
    "opm": 7.2,
    "opmPrev": 2.6,
-   "roe": null,
+   "roe": 14.2,
    "de": 1.08,
    "fcf": 1119,
    "pat": 1925,
@@ -3402,9 +3572,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:54+00:00"
+   "fetched": "2026-08-23T07:24:33+00:00"
   },
   {
+   "v": 2,
    "ticker": "MARICO",
    "name": "Marico Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -3413,7 +3584,7 @@
    "epsG": 8.2,
    "opm": 18.6,
    "opmPrev": 21.7,
-   "roe": null,
+   "roe": 43.1,
    "de": 0.13,
    "fcf": 1765,
    "pat": 1762,
@@ -3422,9 +3593,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:56+00:00"
+   "fetched": "2026-08-23T07:24:34+00:00"
   },
   {
+   "v": 2,
    "ticker": "MFSL",
    "name": "Max Financial Services Limited",
    "sector": "Financial Services",
@@ -3433,7 +3605,7 @@
    "epsG": -74.3,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 1.6,
    "de": 0.44,
    "fcf": 11228,
    "pat": 84,
@@ -3442,9 +3614,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:57+00:00"
+   "fetched": "2026-08-23T07:24:35+00:00"
   },
   {
+   "v": 2,
    "ticker": "MAZDOCK",
    "name": "Mazagon Dock Shipbuilders Limited",
    "sector": "Capital Goods",
@@ -3453,7 +3626,7 @@
    "epsG": 7.0,
    "opm": 26.2,
    "opmPrev": 28.6,
-   "roe": null,
+   "roe": 29.2,
    "de": 0.05,
    "fcf": -2830,
    "pat": 2583,
@@ -3462,9 +3635,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:58+00:00"
+   "fetched": "2026-08-23T07:24:37+00:00"
   },
   {
+   "v": 2,
    "ticker": "MINDACORP",
    "name": "Minda Corporation Limited",
    "sector": "Automobile and Auto Components",
@@ -3473,7 +3647,7 @@
    "epsG": 41.1,
    "opm": 12.0,
    "opmPrev": 12.2,
-   "roe": null,
+   "roe": 14.9,
    "de": 0.56,
    "fcf": 281,
    "pat": 360,
@@ -3482,9 +3656,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:13:58+00:00"
+   "fetched": "2026-08-23T07:24:38+00:00"
   },
   {
+   "v": 2,
    "ticker": "MOTILALOFS",
    "name": "Motilal Oswal Financial Services Limited",
    "sector": "Financial Services",
@@ -3493,7 +3668,7 @@
    "epsG": -25.7,
    "opm": 47.1,
    "opmPrev": 71.2,
-   "roe": null,
+   "roe": 15.6,
    "de": 1.65,
    "fcf": -6160,
    "pat": 1869,
@@ -3502,9 +3677,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:00+00:00"
+   "fetched": "2026-08-23T07:24:39+00:00"
   },
   {
+   "v": 2,
    "ticker": "MPHASIS",
    "name": "Mphasis Limited",
    "sector": "Information Technology",
@@ -3513,7 +3689,7 @@
    "epsG": 9.2,
    "opm": 20.6,
    "opmPrev": 20.4,
-   "roe": 17.7,
+   "roe": 18.3,
    "de": 0.24,
    "fcf": 935,
    "pat": 1863,
@@ -3522,9 +3698,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:01+00:00"
+   "fetched": "2026-08-23T07:24:40+00:00"
   },
   {
+   "v": 2,
    "ticker": "MCX",
    "name": "MULTI COMMODITY EXCHANGE",
    "sector": "Financial Services",
@@ -3533,7 +3710,7 @@
    "epsG": 137.8,
    "opm": 76.8,
    "opmPrev": 68.6,
-   "roe": null,
+   "roe": 56.3,
    "de": 0.0,
    "fcf": 2962,
    "pat": 1332,
@@ -3542,9 +3719,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:02+00:00"
+   "fetched": "2026-08-23T07:24:41+00:00"
   },
   {
+   "v": 2,
    "ticker": "MUTHOOTFIN",
    "name": "Muthoot Finance Limited",
    "sector": "Financial Services",
@@ -3553,7 +3731,7 @@
    "epsG": 98.6,
    "opm": null,
    "opmPrev": null,
-   "roe": 31.7,
+   "roe": 30.9,
    "de": 3.86,
    "fcf": -47545,
    "pat": 10590,
@@ -3562,9 +3740,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:03+00:00"
+   "fetched": "2026-08-23T07:24:42+00:00"
   },
   {
+   "v": 2,
    "ticker": "NCC",
    "name": "NCC Limited",
    "sector": "Construction",
@@ -3573,7 +3752,7 @@
    "epsG": -17.6,
    "opm": 8.2,
    "opmPrev": 8.4,
-   "roe": null,
+   "roe": 8.9,
    "de": 0.43,
    "fcf": -1414,
    "pat": 675,
@@ -3582,9 +3761,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:04+00:00"
+   "fetched": "2026-08-23T07:24:43+00:00"
   },
   {
+   "v": 2,
    "ticker": "NATIONALUM",
    "name": "National Aluminium Company Limited",
    "sector": "Metals & Mining",
@@ -3593,7 +3773,7 @@
    "epsG": 10.0,
    "opm": 48.0,
    "opmPrev": 47.1,
-   "roe": null,
+   "roe": 29.4,
    "de": 0.01,
    "fcf": 4400,
    "pat": 5797,
@@ -3602,9 +3782,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:05+00:00"
+   "fetched": "2026-08-23T07:24:44+00:00"
   },
   {
+   "v": 2,
    "ticker": "NAVINFLUOR",
    "name": "Navin Fluorine International Limited",
    "sector": "Chemicals",
@@ -3613,7 +3794,7 @@
    "epsG": 124.4,
    "opm": 35.0,
    "opmPrev": 24.8,
-   "roe": null,
+   "roe": 20.1,
    "de": 0.32,
    "fcf": 404,
    "pat": 664,
@@ -3622,9 +3803,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:06+00:00"
+   "fetched": "2026-08-23T07:24:45+00:00"
   },
   {
+   "v": 2,
    "ticker": "NESTLEIND",
    "name": "Nestl\u00e9 India Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -3642,9 +3824,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:07+00:00"
+   "fetched": "2026-08-23T07:24:46+00:00"
   },
   {
+   "v": 2,
    "ticker": "NETWEB",
    "name": "Netweb Technologies India Limited",
    "sector": "Information Technology",
@@ -3653,7 +3836,7 @@
    "epsG": 80.5,
    "opm": 13.9,
    "opmPrev": 14.7,
-   "roe": null,
+   "roe": 32.8,
    "de": 0.39,
    "fcf": 160,
    "pat": 206,
@@ -3662,9 +3845,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:08+00:00"
+   "fetched": "2026-08-23T07:24:47+00:00"
   },
   {
+   "v": 2,
    "ticker": "NEULANDLAB",
    "name": "Neuland Laboratories Limited",
    "sector": "Healthcare",
@@ -3673,7 +3857,7 @@
    "epsG": 39.9,
    "opm": 31.0,
    "opmPrev": 29.1,
-   "roe": null,
+   "roe": 21.4,
    "de": 0.16,
    "fcf": -50,
    "pat": 364,
@@ -3682,9 +3866,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:09+00:00"
+   "fetched": "2026-08-23T07:24:48+00:00"
   },
   {
+   "v": 2,
    "ticker": "NEWGEN",
    "name": "Newgen Software Technologies Limited",
    "sector": "Information Technology",
@@ -3693,7 +3878,7 @@
    "epsG": -3.0,
    "opm": 27.2,
    "opmPrev": 29.6,
-   "roe": null,
+   "roe": 18.3,
    "de": 0.02,
    "fcf": 222,
    "pat": 301,
@@ -3702,9 +3887,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:11+00:00"
+   "fetched": "2026-08-23T07:24:49+00:00"
   },
   {
+   "v": 2,
    "ticker": "NAM-INDIA",
    "name": "Nippon Life India Asset Management Limited",
    "sector": "Financial Services",
@@ -3713,7 +3899,7 @@
    "epsG": 18.0,
    "opm": 74.5,
    "opmPrev": 77.6,
-   "roe": null,
+   "roe": 34.5,
    "de": 0.02,
    "fcf": 1387,
    "pat": 1529,
@@ -3722,9 +3908,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:12+00:00"
+   "fetched": "2026-08-23T07:24:51+00:00"
   },
   {
+   "v": 2,
    "ticker": "NIVABUPA",
    "name": "Niva Bupa Health Insurance Company Limited",
    "sector": "Financial Services",
@@ -3733,7 +3920,7 @@
    "epsG": -40.8,
    "opm": null,
    "opmPrev": null,
-   "roe": 12.1,
+   "roe": 4.2,
    "de": 0.08,
    "fcf": 856,
    "pat": 131,
@@ -3742,9 +3929,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:13+00:00"
+   "fetched": "2026-08-23T07:24:52+00:00"
   },
   {
+   "v": 2,
    "ticker": "OBEROIRLTY",
    "name": "Oberoi Realty Limited",
    "sector": "Realty",
@@ -3753,7 +3941,7 @@
    "epsG": 12.7,
    "opm": 60.6,
    "opmPrev": 62.3,
-   "roe": null,
+   "roe": 14.9,
    "de": 0.16,
    "fcf": 743,
    "pat": 2507,
@@ -3762,9 +3950,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:14+00:00"
+   "fetched": "2026-08-23T07:24:53+00:00"
   },
   {
+   "v": 2,
    "ticker": "OIL",
    "name": "Oil India Limited",
    "sector": "Oil Gas & Consumable Fuels",
@@ -3773,7 +3962,7 @@
    "epsG": 1.1,
    "opm": 39.8,
    "opmPrev": 39.4,
-   "roe": null,
+   "roe": 12.3,
    "de": 0.65,
    "fcf": -2487,
    "pat": 6620,
@@ -3782,9 +3971,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:15+00:00"
+   "fetched": "2026-08-23T07:24:54+00:00"
   },
   {
+   "v": 2,
    "ticker": "PAYTM",
    "name": "One97 Communications Limited",
    "sector": "Financial Services",
@@ -3793,7 +3983,7 @@
    "epsG": null,
    "opm": 13.8,
    "opmPrev": 0.6,
-   "roe": null,
+   "roe": 3.6,
    "de": 0.01,
    "fcf": -1222,
    "pat": 553,
@@ -3802,9 +3992,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:16+00:00"
+   "fetched": "2026-08-23T07:24:55+00:00"
   },
   {
+   "v": 2,
    "ticker": "OFSS",
    "name": "Oracle Financial Services Software Limited",
    "sector": "Information Technology",
@@ -3813,7 +4004,7 @@
    "epsG": 10.9,
    "opm": 48.9,
    "opmPrev": 49.4,
-   "roe": 49.9,
+   "roe": 32.6,
    "de": 0.0,
    "fcf": 2587,
    "pat": 2639,
@@ -3822,9 +4013,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:17+00:00"
+   "fetched": "2026-08-23T07:24:56+00:00"
   },
   {
+   "v": 2,
    "ticker": "POLICYBZR",
    "name": "PB Fintech Limited",
    "sector": "Financial Services",
@@ -3833,7 +4025,7 @@
    "epsG": 89.5,
    "opm": 13.0,
    "opmPrev": 10.9,
-   "roe": null,
+   "roe": 9.7,
    "de": 0.05,
    "fcf": -38,
    "pat": 670,
@@ -3842,9 +4034,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:18+00:00"
+   "fetched": "2026-08-23T07:24:57+00:00"
   },
   {
+   "v": 2,
    "ticker": "PGEL",
    "name": "PG Electroplast Limited",
    "sector": "Consumer Durables",
@@ -3853,7 +4046,7 @@
    "epsG": -35.7,
    "opm": 8.4,
    "opmPrev": 10.7,
-   "roe": null,
+   "roe": 6.7,
    "de": 0.2,
    "fcf": -719,
    "pat": 197,
@@ -3862,9 +4055,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:19+00:00"
+   "fetched": "2026-08-23T07:24:58+00:00"
   },
   {
+   "v": 2,
    "ticker": "PNBHOUSING",
    "name": "PNB Housing Finance Limited",
    "sector": "Financial Services",
@@ -3873,7 +4067,7 @@
    "epsG": 18.2,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 12.7,
    "de": 2.77,
    "fcf": -9017,
    "pat": 2291,
@@ -3882,9 +4076,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:20+00:00"
+   "fetched": "2026-08-23T07:24:59+00:00"
   },
   {
+   "v": 2,
    "ticker": "PTCIL",
    "name": "PTC Industries Limited",
    "sector": "Capital Goods",
@@ -3893,7 +4088,7 @@
    "epsG": 63.9,
    "opm": 28.6,
    "opmPrev": 35.2,
-   "roe": null,
+   "roe": 7.0,
    "de": 0.17,
    "fcf": -386,
    "pat": 102,
@@ -3902,9 +4097,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:22+00:00"
+   "fetched": "2026-08-23T07:25:00+00:00"
   },
   {
+   "v": 2,
    "ticker": "PVRINOX",
    "name": "PVR INOX Limited",
    "sector": "Media Entertainment & Publication",
@@ -3913,7 +4109,7 @@
    "epsG": null,
    "opm": 33.4,
    "opmPrev": 30.2,
-   "roe": null,
+   "roe": 4.6,
    "de": 0.92,
    "fcf": 1902,
    "pat": 334,
@@ -3922,9 +4118,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:23+00:00"
+   "fetched": "2026-08-23T07:25:01+00:00"
   },
   {
+   "v": 2,
    "ticker": "PARADEEP",
    "name": "Paradeep Phosphates Limited",
    "sector": "Chemicals",
@@ -3933,7 +4130,7 @@
    "epsG": 50.3,
    "opm": 10.3,
    "opmPrev": 10.2,
-   "roe": null,
+   "roe": 18.3,
    "de": 1.02,
    "fcf": -1880,
    "pat": 996,
@@ -3942,9 +4139,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:24+00:00"
+   "fetched": "2026-08-23T07:25:02+00:00"
   },
   {
+   "v": 2,
    "ticker": "PERSISTENT",
    "name": "Persistent Systems Limited",
    "sector": "Information Technology",
@@ -3953,7 +4151,7 @@
    "epsG": 31.7,
    "opm": 19.6,
    "opmPrev": 18.4,
-   "roe": 25.2,
+   "roe": 26.3,
    "de": 0.06,
    "fcf": 1559,
    "pat": 1865,
@@ -3962,9 +4160,10 @@
    "moat": 4,
    "leader": true,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:25+00:00"
+   "fetched": "2026-08-23T07:25:03+00:00"
   },
   {
+   "v": 2,
    "ticker": "PETRONET",
    "name": "Petronet LNG Limited",
    "sector": "Oil Gas & Consumable Fuels",
@@ -3973,7 +4172,7 @@
    "epsG": -1.5,
    "opm": 14.3,
    "opmPrev": 12.4,
-   "roe": null,
+   "roe": 18.6,
    "de": 0.11,
    "fcf": 2231,
    "pat": 3913,
@@ -3982,9 +4181,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:26+00:00"
+   "fetched": "2026-08-23T07:25:04+00:00"
   },
   {
+   "v": 2,
    "ticker": "PFIZER",
    "name": "Pfizer Limited",
    "sector": "Healthcare",
@@ -3993,7 +4193,7 @@
    "epsG": -5.9,
    "opm": 41.4,
    "opmPrev": 47.6,
-   "roe": null,
+   "roe": 17.2,
    "de": 0.02,
    "fcf": 942,
    "pat": 722,
@@ -4002,9 +4202,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:27+00:00"
+   "fetched": "2026-08-23T07:25:05+00:00"
   },
   {
+   "v": 2,
    "ticker": "PIDILITIND",
    "name": "Pidilite Industries Limited",
    "sector": "Chemicals",
@@ -4013,7 +4214,7 @@
    "epsG": 17.9,
    "opm": 25.9,
    "opmPrev": 24.6,
-   "roe": null,
+   "roe": 23.8,
    "de": 0.04,
    "fcf": 2236,
    "pat": 2449,
@@ -4022,9 +4223,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:28+00:00"
+   "fetched": "2026-08-23T07:25:07+00:00"
   },
   {
+   "v": 2,
    "ticker": "PPLPHARMA",
    "name": "Piramal Pharma Limited",
    "sector": "Healthcare",
@@ -4033,7 +4235,7 @@
    "epsG": -456.5,
    "opm": 11.3,
    "opmPrev": 18.2,
-   "roe": null,
+   "roe": -4.0,
    "de": 0.7,
    "fcf": 763,
    "pat": -326,
@@ -4042,9 +4244,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:29+00:00"
+   "fetched": "2026-08-23T07:25:08+00:00"
   },
   {
+   "v": 2,
    "ticker": "POLYMED",
    "name": "Poly Medicure Limited",
    "sector": "Healthcare",
@@ -4053,7 +4256,7 @@
    "epsG": -6.9,
    "opm": 29.9,
    "opmPrev": 32.8,
-   "roe": null,
+   "roe": 11.3,
    "de": 0.11,
    "fcf": -62,
    "pat": 331,
@@ -4062,9 +4265,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:30+00:00"
+   "fetched": "2026-08-23T07:25:09+00:00"
   },
   {
+   "v": 2,
    "ticker": "POONAWALLA",
    "name": "Poonawalla Fincorp Limited",
    "sector": "Financial Services",
@@ -4073,7 +4277,7 @@
    "epsG": null,
    "opm": 13.1,
    "opmPrev": -1.4,
-   "roe": null,
+   "roe": 5.9,
    "de": 4.68,
    "fcf": -21893,
    "pat": 542,
@@ -4082,9 +4286,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:31+00:00"
+   "fetched": "2026-08-23T07:25:10+00:00"
   },
   {
+   "v": 2,
    "ticker": "PREMIERENE",
    "name": "PREMIER ENERGIES LIMITED",
    "sector": "Capital Goods",
@@ -4093,7 +4298,7 @@
    "epsG": 57.5,
    "opm": 33.0,
    "opmPrev": 29.4,
-   "roe": null,
+   "roe": 42.4,
    "de": 0.86,
    "fcf": -1737,
    "pat": 1510,
@@ -4102,9 +4307,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:32+00:00"
+   "fetched": "2026-08-23T07:25:11+00:00"
   },
   {
+   "v": 2,
    "ticker": "PRESTIGE",
    "name": "Prestige Estates Projects Limited",
    "sector": "Realty",
@@ -4113,7 +4319,7 @@
    "epsG": 148.1,
    "opm": 32.6,
    "opmPrev": 39.0,
-   "roe": 7.8,
+   "roe": 7.5,
    "de": 1.09,
    "fcf": 340,
    "pat": 1196,
@@ -4122,9 +4328,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:33+00:00"
+   "fetched": "2026-08-23T07:25:12+00:00"
   },
   {
+   "v": 2,
    "ticker": "PFOCUS",
    "name": "Prime Focus Limited",
    "sector": "Media Entertainment & Publication",
@@ -4133,7 +4340,7 @@
    "epsG": null,
    "opm": 32.8,
    "opmPrev": 17.9,
-   "roe": null,
+   "roe": 15.4,
    "de": 2.74,
    "fcf": 492,
    "pat": 219,
@@ -4142,9 +4349,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:35+00:00"
+   "fetched": "2026-08-23T07:25:14+00:00"
   },
   {
+   "v": 2,
    "ticker": "PNB",
    "name": "Punjab National Bank",
    "sector": "Financial Services",
@@ -4153,7 +4361,7 @@
    "epsG": -2.6,
    "opm": null,
    "opmPrev": null,
-   "roe": 15.0,
+   "roe": 13.0,
    "de": 0.58,
    "fcf": 24011,
    "pat": 18393,
@@ -4162,9 +4370,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:36+00:00"
+   "fetched": "2026-08-23T07:25:15+00:00"
   },
   {
+   "v": 2,
    "ticker": "RRKABEL",
    "name": "R R Kabel Limited",
    "sector": "Capital Goods",
@@ -4173,7 +4382,7 @@
    "epsG": 57.9,
    "opm": 8.5,
    "opmPrev": 7.1,
-   "roe": null,
+   "roe": 20.8,
    "de": 0.13,
    "fcf": 4,
    "pat": 492,
@@ -4182,9 +4391,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:37+00:00"
+   "fetched": "2026-08-23T07:25:16+00:00"
   },
   {
+   "v": 2,
    "ticker": "RBLBANK",
    "name": "RBL Bank Limited",
    "sector": "Financial Services",
@@ -4193,7 +4403,7 @@
    "epsG": 19.8,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 5.4,
    "de": 1.06,
    "fcf": 7344,
    "pat": 879,
@@ -4202,9 +4412,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:38+00:00"
+   "fetched": "2026-08-23T07:25:17+00:00"
   },
   {
+   "v": 2,
    "ticker": "RADICO",
    "name": "Radico Khaitan Limited",
    "sector": "Fast Moving Consumer Goods",
@@ -4213,7 +4424,7 @@
    "epsG": 74.7,
    "opm": 17.0,
    "opmPrev": 14.1,
-   "roe": null,
+   "roe": 19.9,
    "de": 0.24,
    "fcf": 498,
    "pat": 604,
@@ -4222,9 +4433,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:39+00:00"
+   "fetched": "2026-08-23T07:25:18+00:00"
   },
   {
+   "v": 2,
    "ticker": "RKFORGE",
    "name": "Ramkrishna Forgings Limited",
    "sector": "Automobile and Auto Components",
@@ -4233,7 +4445,7 @@
    "epsG": -82.8,
    "opm": 14.7,
    "opmPrev": 14.5,
-   "roe": null,
+   "roe": 2.3,
    "de": 0.74,
    "fcf": -85,
    "pat": 72,
@@ -4242,9 +4454,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:40+00:00"
+   "fetched": "2026-08-23T07:25:19+00:00"
   },
   {
+   "v": 2,
    "ticker": "REDINGTON",
    "name": "Redington Limited",
    "sector": "Services",
@@ -4253,7 +4466,7 @@
    "epsG": -7.2,
    "opm": 1.9,
    "opmPrev": 2.9,
-   "roe": null,
+   "roe": 15.8,
    "de": 0.28,
    "fcf": 49,
    "pat": 1490,
@@ -4262,9 +4475,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:41+00:00"
+   "fetched": "2026-08-23T07:25:20+00:00"
   },
   {
+   "v": 2,
    "ticker": "RELIANCE",
    "name": "RELIANCE INDUSTRIES LTD",
    "sector": "Oil Gas & Consumable Fuels",
@@ -4273,7 +4487,7 @@
    "epsG": 16.0,
    "opm": 19.4,
    "opmPrev": 18.8,
-   "roe": null,
+   "roe": 9.2,
    "de": 0.44,
    "fcf": 69197,
    "pat": 80775,
@@ -4282,9 +4496,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:42+00:00"
+   "fetched": "2026-08-23T07:25:21+00:00"
   },
   {
+   "v": 2,
    "ticker": "SBFC",
    "name": "SBFC Finance Limited",
    "sector": "Financial Services",
@@ -4293,7 +4508,7 @@
    "epsG": 30.2,
    "opm": 43.9,
    "opmPrev": 44.1,
-   "roe": null,
+   "roe": 13.0,
    "de": 1.92,
    "fcf": -1907,
    "pat": 451,
@@ -4302,9 +4517,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:43+00:00"
+   "fetched": "2026-08-23T07:25:23+00:00"
   },
   {
+   "v": 2,
    "ticker": "SBICARD",
    "name": "SBI Cards and Payment Services Limited",
    "sector": "Financial Services",
@@ -4313,7 +4529,7 @@
    "epsG": 13.1,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 14.7,
    "de": 2.81,
    "fcf": 459,
    "pat": 2167,
@@ -4322,9 +4538,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:44+00:00"
+   "fetched": "2026-08-23T07:25:23+00:00"
   },
   {
+   "v": 2,
    "ticker": "SAGILITY",
    "name": "Sagility Limited",
    "sector": "Information Technology",
@@ -4333,7 +4550,7 @@
    "epsG": 69.2,
    "opm": 25.4,
    "opmPrev": 24.3,
-   "roe": null,
+   "roe": 10.3,
    "de": 0.11,
    "fcf": 1011,
    "pat": 925,
@@ -4342,9 +4559,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:45+00:00"
+   "fetched": "2026-08-23T07:25:25+00:00"
   },
   {
+   "v": 2,
    "ticker": "SAILIFE",
    "name": "SAI LIFE SCIENCES LIMITED",
    "sector": "Healthcare",
@@ -4353,7 +4571,7 @@
    "epsG": 90.8,
    "opm": 30.7,
    "opmPrev": 26.1,
-   "roe": null,
+   "roe": 15.1,
    "de": 0.12,
    "fcf": -84,
    "pat": 349,
@@ -4362,9 +4580,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:47+00:00"
+   "fetched": "2026-08-23T07:25:26+00:00"
   },
   {
+   "v": 2,
    "ticker": "MOTHERSON",
    "name": "Samvardhana Motherson International Limited",
    "sector": "Automobile and Auto Components",
@@ -4373,7 +4592,7 @@
    "epsG": -0.3,
    "opm": 9.7,
    "opmPrev": 10.1,
-   "roe": null,
+   "roe": 10.2,
    "de": 0.47,
    "fcf": 5230,
    "pat": 3860,
@@ -4382,9 +4601,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:48+00:00"
+   "fetched": "2026-08-23T07:25:27+00:00"
   },
   {
+   "v": 2,
    "ticker": "SAPPHIRE",
    "name": "Sapphire Foods India Limited",
    "sector": "Consumer Services",
@@ -4393,7 +4613,7 @@
    "epsG": -265.0,
    "opm": 15.3,
    "opmPrev": 17.3,
-   "roe": null,
+   "roe": -2.3,
    "de": 1.02,
    "fcf": 187,
    "pat": -32,
@@ -4402,9 +4622,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:49+00:00"
+   "fetched": "2026-08-23T07:25:28+00:00"
   },
   {
+   "v": 2,
    "ticker": "SARDAEN",
    "name": "Sarda Energy & Minerals Limited",
    "sector": "Metals & Mining",
@@ -4413,7 +4634,7 @@
    "epsG": 58.0,
    "opm": 36.1,
    "opmPrev": 30.6,
-   "roe": null,
+   "roe": 16.2,
    "de": 0.36,
    "fcf": 1397,
    "pat": 1106,
@@ -4422,9 +4643,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:50+00:00"
+   "fetched": "2026-08-23T07:25:29+00:00"
   },
   {
+   "v": 2,
    "ticker": "SAREGAMA",
    "name": "Saregama India Limited",
    "sector": "Media Entertainment & Publication",
@@ -4433,7 +4655,7 @@
    "epsG": 1.1,
    "opm": 37.7,
    "opmPrev": 29.0,
-   "roe": null,
+   "roe": 12.6,
    "de": 0.04,
    "fcf": -114,
    "pat": 207,
@@ -4442,9 +4664,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:51+00:00"
+   "fetched": "2026-08-23T07:25:30+00:00"
   },
   {
+   "v": 2,
    "ticker": "SHRIRAMFIN",
    "name": "Shriram Finance Limited",
    "sector": "Financial Services",
@@ -4453,7 +4676,7 @@
    "epsG": 4.9,
    "opm": null,
    "opmPrev": null,
-   "roe": 18.5,
+   "roe": 16.4,
    "de": 2.76,
    "fcf": -13478,
    "pat": 10024,
@@ -4462,9 +4685,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:52+00:00"
+   "fetched": "2026-08-23T07:25:31+00:00"
   },
   {
+   "v": 2,
    "ticker": "SHYAMMETL",
    "name": "Shyam Metalics and Energy Limited",
    "sector": "Capital Goods",
@@ -4473,18 +4697,19 @@
    "epsG": 17.8,
    "opm": 13.4,
    "opmPrev": 13.5,
-   "roe": null,
+   "roe": 9.7,
    "de": 0.09,
    "fcf": -614,
    "pat": 1070,
-   "pe": 24.0,
-   "peg": 1.35,
+   "pe": 24.3,
+   "peg": 1.37,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:53+00:00"
+   "fetched": "2026-08-23T07:25:32+00:00"
   },
   {
+   "v": 2,
    "ticker": "SIEMENS",
    "name": "Siemens Limited",
    "sector": "Capital Goods",
@@ -4493,7 +4718,7 @@
    "epsG": -22.5,
    "opm": 14.9,
    "opmPrev": 20.0,
-   "roe": null,
+   "roe": 14.7,
    "de": 0.01,
    "fcf": -6,
    "pat": 2104,
@@ -4502,9 +4727,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2025-09-30",
-   "fetched": "2026-08-23T06:14:55+00:00"
+   "fetched": "2026-08-23T07:25:33+00:00"
   },
   {
+   "v": 2,
    "ticker": "SOLARINDS",
    "name": "Solar Industries India Limited",
    "sector": "Chemicals",
@@ -4513,7 +4739,7 @@
    "epsG": 38.7,
    "opm": 28.6,
    "opmPrev": 27.7,
-   "roe": null,
+   "roe": 31.4,
    "de": 0.29,
    "fcf": -1118,
    "pat": 1678,
@@ -4522,9 +4748,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:56+00:00"
+   "fetched": "2026-08-23T07:25:34+00:00"
   },
   {
+   "v": 2,
    "ticker": "SONACOMS",
    "name": "Sona BLW Precision Forgings Limited",
    "sector": "Automobile and Auto Components",
@@ -4533,7 +4760,7 @@
    "epsG": 3.8,
    "opm": 26.6,
    "opmPrev": 31.6,
-   "roe": null,
+   "roe": 11.2,
    "de": 0.07,
    "fcf": 167,
    "pat": 640,
@@ -4542,9 +4769,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:57+00:00"
+   "fetched": "2026-08-23T07:25:35+00:00"
   },
   {
+   "v": 2,
    "ticker": "SONATSOFTW",
    "name": "Sonata Software Limited",
    "sector": "Information Technology",
@@ -4553,7 +4781,7 @@
    "epsG": 9.6,
    "opm": 7.3,
    "opmPrev": 7.5,
-   "roe": null,
+   "roe": 25.7,
    "de": 0.38,
    "fcf": 424,
    "pat": 464,
@@ -4562,9 +4790,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:58+00:00"
+   "fetched": "2026-08-23T07:25:36+00:00"
   },
   {
+   "v": 2,
    "ticker": "STARHEALTH",
    "name": "Star Health and Allied Insurance Company Limited",
    "sector": "Financial Services",
@@ -4573,7 +4802,7 @@
    "epsG": -12.8,
    "opm": null,
    "opmPrev": null,
-   "roe": 7.5,
+   "roe": 7.6,
    "de": 0.06,
    "fcf": 1795,
    "pat": 557,
@@ -4582,9 +4811,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:14:59+00:00"
+   "fetched": "2026-08-23T07:25:37+00:00"
   },
   {
+   "v": 2,
    "ticker": "SBIN",
    "name": "State Bank of India",
    "sector": "Financial Services",
@@ -4593,7 +4823,7 @@
    "epsG": 4.9,
    "opm": null,
    "opmPrev": null,
-   "roe": 15.2,
+   "roe": 15.4,
    "de": 1.22,
    "fcf": 29734,
    "pat": 83299,
@@ -4602,9 +4832,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:01+00:00"
+   "fetched": "2026-08-23T07:25:38+00:00"
   },
   {
+   "v": 2,
    "ticker": "SAIL",
    "name": "Steel Authority of India Limited",
    "sector": "Metals & Mining",
@@ -4613,7 +4844,7 @@
    "epsG": 42.3,
    "opm": 11.4,
    "opmPrev": 11.4,
-   "roe": null,
+   "roe": 5.7,
    "de": 0.53,
    "fcf": 10281,
    "pat": 3373,
@@ -4622,9 +4853,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:02+00:00"
+   "fetched": "2026-08-23T07:25:39+00:00"
   },
   {
+   "v": 2,
    "ticker": "SUMICHEM",
    "name": "Sumitomo Chemical India Limited",
    "sector": "Chemicals",
@@ -4633,7 +4865,7 @@
    "epsG": 7.4,
    "opm": 24.9,
    "opmPrev": 24.1,
-   "roe": null,
+   "roe": 17.3,
    "de": 0.02,
    "fcf": 401,
    "pat": 543,
@@ -4642,9 +4874,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:03+00:00"
+   "fetched": "2026-08-23T07:25:41+00:00"
   },
   {
+   "v": 2,
    "ticker": "SUNPHARMA",
    "name": "Sun Pharmaceutical Industries Limited",
    "sector": "Healthcare",
@@ -4653,7 +4886,7 @@
    "epsG": 4.8,
    "opm": 31.6,
    "opmPrev": 31.8,
-   "roe": null,
+   "roe": 14.7,
    "de": 0.06,
    "fcf": 8810,
    "pat": 11479,
@@ -4662,9 +4895,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:04+00:00"
+   "fetched": "2026-08-23T07:25:42+00:00"
   },
   {
+   "v": 2,
    "ticker": "SUPREMEIND",
    "name": "The Supreme Industries Limited",
    "sector": "Capital Goods",
@@ -4673,7 +4907,7 @@
    "epsG": -0.7,
    "opm": 15.1,
    "opmPrev": 15.5,
-   "roe": null,
+   "roe": 16.1,
    "de": 0.01,
    "fcf": 410,
    "pat": 954,
@@ -4682,9 +4916,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:05+00:00"
+   "fetched": "2026-08-23T07:25:43+00:00"
   },
   {
+   "v": 2,
    "ticker": "SWIGGY",
    "name": "SWIGGY LIMITED",
    "sector": "Consumer Services",
@@ -4693,7 +4928,7 @@
    "epsG": null,
    "opm": -12.0,
    "opmPrev": -16.0,
-   "roe": null,
+   "roe": -29.1,
    "de": 0.14,
    "fcf": -3817,
    "pat": -4154,
@@ -4702,9 +4937,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:06+00:00"
+   "fetched": "2026-08-23T07:25:44+00:00"
   },
   {
+   "v": 2,
    "ticker": "SYRMA",
    "name": "Syrma SGS Technology Limited",
    "sector": "Capital Goods",
@@ -4713,7 +4949,7 @@
    "epsG": 77.7,
    "opm": 12.2,
    "opmPrev": 9.9,
-   "roe": null,
+   "roe": 13.8,
    "de": 0.14,
    "fcf": 98,
    "pat": 318,
@@ -4722,9 +4958,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:07+00:00"
+   "fetched": "2026-08-23T07:25:45+00:00"
   },
   {
+   "v": 2,
    "ticker": "TBOTEK",
    "name": "TBO TEK LIMITED",
    "sector": "Consumer Services",
@@ -4733,7 +4970,7 @@
    "epsG": 6.0,
    "opm": 16.9,
    "opmPrev": 21.7,
-   "roe": null,
+   "roe": 17.8,
    "de": 0.49,
    "fcf": -88,
    "pat": 244,
@@ -4742,9 +4979,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:08+00:00"
+   "fetched": "2026-08-23T07:25:46+00:00"
   },
   {
+   "v": 2,
    "ticker": "TVSMOTOR",
    "name": "TVS MOTOR COMPANY  LTD",
    "sector": "Automobile and Auto Components",
@@ -4753,7 +4991,7 @@
    "epsG": 35.0,
    "opm": 17.4,
    "opmPrev": 18.0,
-   "roe": null,
+   "roe": 33.4,
    "de": 3.43,
    "fcf": -1368,
    "pat": 3018,
@@ -4762,9 +5000,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:09+00:00"
+   "fetched": "2026-08-23T07:25:47+00:00"
   },
   {
+   "v": 2,
    "ticker": "TATACAP",
    "name": "TATA CAPITAL LIMITED",
    "sector": "Financial Services",
@@ -4773,7 +5012,7 @@
    "epsG": null,
    "opm": 26.6,
    "opmPrev": 22.7,
-   "roe": null,
+   "roe": 12.3,
    "de": 4.97,
    "fcf": -38960,
    "pat": 4846,
@@ -4782,9 +5021,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:10+00:00"
+   "fetched": "2026-08-23T07:25:48+00:00"
   },
   {
+   "v": 2,
    "ticker": "TCS",
    "name": "TATA CONSULTANCY SERV LT",
    "sector": "Information Technology",
@@ -4793,7 +5033,7 @@
    "epsG": 1.4,
    "opm": 27.1,
    "opmPrev": 28.0,
-   "roe": 47.7,
+   "roe": 48.7,
    "de": 0.11,
    "fcf": 47948,
    "pat": 49210,
@@ -4802,9 +5042,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:11+00:00"
+   "fetched": "2026-08-23T07:25:50+00:00"
   },
   {
+   "v": 2,
    "ticker": "TATATECH",
    "name": "Tata Technologies Limited",
    "sector": "Information Technology",
@@ -4813,7 +5054,7 @@
    "epsG": -19.1,
    "opm": 17.1,
    "opmPrev": 20.6,
-   "roe": null,
+   "roe": 14.6,
    "de": 0.24,
    "fcf": 742,
    "pat": 547,
@@ -4822,9 +5063,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:12+00:00"
+   "fetched": "2026-08-23T07:25:51+00:00"
   },
   {
+   "v": 2,
    "ticker": "TECHM",
    "name": "Tech Mahindra Limited",
    "sector": "Information Technology",
@@ -4833,7 +5075,7 @@
    "epsG": 13.1,
    "opm": 15.5,
    "opmPrev": 14.8,
-   "roe": null,
+   "roe": 16.9,
    "de": 0.07,
    "fcf": 5476,
    "pat": 4811,
@@ -4842,9 +5084,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:14+00:00"
+   "fetched": "2026-08-23T07:25:52+00:00"
   },
   {
+   "v": 2,
    "ticker": "TEGA",
    "name": "Tega Industries Limited",
    "sector": "Capital Goods",
@@ -4853,7 +5096,7 @@
    "epsG": null,
    "opm": 18.8,
    "opmPrev": 23.6,
-   "roe": null,
+   "roe": 5.9,
    "de": 0.12,
    "fcf": 214,
    "pat": 143,
@@ -4862,9 +5105,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:14+00:00"
+   "fetched": "2026-08-23T07:25:53+00:00"
   },
   {
+   "v": 2,
    "ticker": "NIACL",
    "name": "The New India Assurance Company Limited",
    "sector": "Financial Services",
@@ -4873,7 +5117,7 @@
    "epsG": 36.2,
    "opm": null,
    "opmPrev": null,
-   "roe": null,
+   "roe": 4.9,
    "de": null,
    "fcf": -4612,
    "pat": 1412,
@@ -4882,9 +5126,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:15+00:00"
+   "fetched": "2026-08-23T07:25:54+00:00"
   },
   {
+   "v": 2,
    "ticker": "TITAN",
    "name": "Titan Company Limited",
    "sector": "Consumer Durables",
@@ -4893,7 +5138,7 @@
    "epsG": 52.0,
    "opm": 10.1,
    "opmPrev": 10.3,
-   "roe": null,
+   "roe": 37.1,
    "de": 1.95,
    "fcf": 4688,
    "pat": 5073,
@@ -4902,9 +5147,10 @@
    "moat": 5,
    "leader": true,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:16+00:00"
+   "fetched": "2026-08-23T07:25:55+00:00"
   },
   {
+   "v": 2,
    "ticker": "TORNTPHARM",
    "name": "Torrent Pharmaceuticals Limited",
    "sector": "Healthcare",
@@ -4913,7 +5159,7 @@
    "epsG": 13.2,
    "opm": 31.8,
    "opmPrev": 32.9,
-   "roe": null,
+   "roe": 27.1,
    "de": 1.79,
    "fcf": 2345,
    "pat": 2163,
@@ -4922,9 +5168,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:17+00:00"
+   "fetched": "2026-08-23T07:25:56+00:00"
   },
   {
+   "v": 2,
    "ticker": "UNOMINDA",
    "name": "Uno Minda Limited",
    "sector": "Automobile and Auto Components",
@@ -4933,7 +5180,7 @@
    "epsG": 26.8,
    "opm": 12.8,
    "opmPrev": 12.6,
-   "roe": null,
+   "roe": 19.1,
    "de": 0.4,
    "fcf": 148,
    "pat": 1197,
@@ -4942,9 +5189,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:19+00:00"
+   "fetched": "2026-08-23T07:25:57+00:00"
   },
   {
+   "v": 2,
    "ticker": "UNIONBANK",
    "name": "Union Bank of India",
    "sector": "Financial Services",
@@ -4953,7 +5201,7 @@
    "epsG": 7.7,
    "opm": null,
    "opmPrev": null,
-   "roe": 15.8,
+   "roe": 15.7,
    "de": 0.55,
    "fcf": -39022,
    "pat": 19430,
@@ -4962,9 +5210,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:20+00:00"
+   "fetched": "2026-08-23T07:25:58+00:00"
   },
   {
+   "v": 2,
    "ticker": "UNITDSPR",
    "name": "UNITED SPIRITS LIMITED",
    "sector": "Fast Moving Consumer Goods",
@@ -4973,7 +5222,7 @@
    "epsG": 16.2,
    "opm": 21.5,
    "opmPrev": 21.7,
-   "roe": null,
+   "roe": 21.6,
    "de": 0.05,
    "fcf": 1278,
    "pat": 1838,
@@ -4982,9 +5231,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:21+00:00"
+   "fetched": "2026-08-23T07:25:59+00:00"
   },
   {
+   "v": 2,
    "ticker": "URBANCO",
    "name": "Urban Company Limited",
    "sector": "Consumer Services",
@@ -4993,7 +5243,7 @@
    "epsG": -194.0,
    "opm": -7.5,
    "opmPrev": 6.6,
-   "roe": null,
+   "roe": -11.9,
    "de": 0.06,
    "fcf": -139,
    "pat": -235,
@@ -5002,9 +5252,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:22+00:00"
+   "fetched": "2026-08-23T07:26:00+00:00"
   },
   {
+   "v": 2,
    "ticker": "USHAMART",
    "name": "Usha Martin Limited",
    "sector": "Capital Goods",
@@ -5013,7 +5264,7 @@
    "epsG": 14.4,
    "opm": 21.5,
    "opmPrev": 19.3,
-   "roe": null,
+   "roe": 15.4,
    "de": 0.07,
    "fcf": 457,
    "pat": 466,
@@ -5022,9 +5273,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:23+00:00"
+   "fetched": "2026-08-23T07:26:02+00:00"
   },
   {
+   "v": 2,
    "ticker": "VEDL",
    "name": "Vedanta Limited",
    "sector": "Metals & Mining",
@@ -5033,7 +5285,7 @@
    "epsG": 14.4,
    "opm": 38.4,
    "opmPrev": 42.8,
-   "roe": null,
+   "roe": 44.0,
    "de": 0.68,
    "fcf": 18623,
    "pat": 17391,
@@ -5042,9 +5294,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:24+00:00"
+   "fetched": "2026-08-23T07:26:03+00:00"
   },
   {
+   "v": 2,
    "ticker": "VIJAYA",
    "name": "Vijaya Diagnostic Centre Limited",
    "sector": "Healthcare",
@@ -5053,7 +5306,7 @@
    "epsG": 20.2,
    "opm": 43.9,
    "opmPrev": 42.6,
-   "roe": null,
+   "roe": 19.7,
    "de": 0.44,
    "fcf": 88,
    "pat": 173,
@@ -5062,9 +5315,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:26+00:00"
+   "fetched": "2026-08-23T07:26:04+00:00"
   },
   {
+   "v": 2,
    "ticker": "IDEA",
    "name": "Vodafone Idea Limited",
    "sector": "Telecommunication",
@@ -5082,9 +5336,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:27+00:00"
+   "fetched": "2026-08-23T07:26:05+00:00"
   },
   {
+   "v": 2,
    "ticker": "WELCORP",
    "name": "Welspun Corp Limited",
    "sector": "Capital Goods",
@@ -5093,7 +5348,7 @@
    "epsG": -15.5,
    "opm": 16.7,
    "opmPrev": 21.9,
-   "roe": null,
+   "roe": 19.4,
    "de": 0.26,
    "fcf": 672,
    "pat": 1613,
@@ -5102,9 +5357,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:28+00:00"
+   "fetched": "2026-08-23T07:26:06+00:00"
   },
   {
+   "v": 2,
    "ticker": "WELSPUNLIV",
    "name": "Welspun Living Limited",
    "sector": "Textiles",
@@ -5113,7 +5369,7 @@
    "epsG": null,
    "opm": 9.0,
    "opmPrev": 13.8,
-   "roe": null,
+   "roe": 4.2,
    "de": 0.47,
    "fcf": 724,
    "pat": 204,
@@ -5122,9 +5378,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:29+00:00"
+   "fetched": "2026-08-23T07:26:07+00:00"
   },
   {
+   "v": 2,
    "ticker": "WIPRO",
    "name": "Wipro Limited",
    "sector": "Information Technology",
@@ -5133,7 +5390,7 @@
    "epsG": 0.3,
    "opm": 22.7,
    "opmPrev": 24.0,
-   "roe": 16.1,
+   "roe": 15.4,
    "de": 0.23,
    "fcf": 13371,
    "pat": 13197,
@@ -5142,9 +5399,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:30+00:00"
+   "fetched": "2026-08-23T07:26:09+00:00"
   },
   {
+   "v": 2,
    "ticker": "ZFCVINDIA",
    "name": "ZF Commercial Vehicle Control Systems India Limited",
    "sector": "Automobile and Auto Components",
@@ -5153,7 +5411,7 @@
    "epsG": 12.2,
    "opm": 20.3,
    "opmPrev": 19.5,
-   "roe": null,
+   "roe": 15.0,
    "de": 0.01,
    "fcf": 664,
    "pat": 517,
@@ -5162,9 +5420,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:31+00:00"
+   "fetched": "2026-08-23T07:26:10+00:00"
   },
   {
+   "v": 2,
    "ticker": "ZEEL",
    "name": "Zee Entertainment Enterprises Limited",
    "sector": "Media Entertainment & Publication",
@@ -5173,7 +5432,7 @@
    "epsG": -60.2,
    "opm": 6.6,
    "opmPrev": 14.9,
-   "roe": null,
+   "roe": 2.3,
    "de": 0.02,
    "fcf": 548,
    "pat": 273,
@@ -5182,9 +5441,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:32+00:00"
+   "fetched": "2026-08-23T07:26:11+00:00"
   },
   {
+   "v": 2,
    "ticker": "ZENTEC",
    "name": "Zen Technologies Limited",
    "sector": "Capital Goods",
@@ -5193,7 +5453,7 @@
    "epsG": -32.9,
    "opm": 47.9,
    "opmPrev": 45.1,
-   "roe": null,
+   "roe": 10.8,
    "de": 0.01,
    "fcf": 183,
    "pat": 193,
@@ -5202,9 +5462,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:34+00:00"
+   "fetched": "2026-08-23T07:26:12+00:00"
   },
   {
+   "v": 2,
    "ticker": "ZYDUSLIFE",
    "name": "Zydus Lifesciences Limited",
    "sector": "Healthcare",
@@ -5213,7 +5474,7 @@
    "epsG": 11.4,
    "opm": 31.4,
    "opmPrev": 31.2,
-   "roe": null,
+   "roe": 19.7,
    "de": 0.46,
    "fcf": -555,
    "pat": 5040,
@@ -5222,9 +5483,10 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:35+00:00"
+   "fetched": "2026-08-23T07:26:13+00:00"
   },
   {
+   "v": 2,
    "ticker": "ECLERX",
    "name": "eClerx Services Limited",
    "sector": "Services",
@@ -5233,7 +5495,7 @@
    "epsG": 32.8,
    "opm": 28.0,
    "opmPrev": 26.6,
-   "roe": null,
+   "roe": 29.0,
    "de": 0.15,
    "fcf": 754,
    "pat": 706,
@@ -5242,7 +5504,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-08-23T06:15:36+00:00"
+   "fetched": "2026-08-23T07:26:14+00:00"
   }
  ]
 }

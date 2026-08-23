@@ -128,6 +128,7 @@
 </div>
 <script>
 /* ============== CONFIG ============== */
+const BUILD='2026.08.23-4';
 const PRICES_URL = './prices.json';
 const FUNDAMENTALS_URL = './fundamentals.json';
 const RISK = {
@@ -227,7 +228,7 @@ let state={risk:'moderate',src:'repo',sectors:new Set(),results:[]};
 let meta={fetched:null};
 function buildSectors(){const box=$('sectors');box.innerHTML='';[...new Set(UNIVERSE.map(s=>s.sector))].sort().forEach(sec=>{const c=document.createElement('span');c.className='chip';c.textContent=sec;c.onclick=()=>{c.classList.toggle('on');state.sectors.has(sec)?state.sectors.delete(sec):state.sectors.add(sec)};box.appendChild(c)})}
 buildSectors();
-(async()=>{try{const j=await(await fetch(FUNDAMENTALS_URL,{cache:'no-store'})).json();UNIVERSE=j.stocks||j;meta.fetched=j.fetched||null;buildSectors();buildSectorPE();const age=meta.fetched?(Date.now()-new Date(meta.fetched))/864e5:null;$('status').textContent=`Loaded ${UNIVERSE.length} stocks (${j.universe||'custom'}, pre-filtered by price). Data refreshed ${meta.fetched?new Date(meta.fetched).toLocaleString('en-IN'):'(unknown)'}`+(age>4?'\nWARNING: data is over 4 days old — check the Refresh Conviction data workflow in GitHub Actions.':'')}catch(e){$('status').textContent='fundamentals.json not found. Run update_data.py and commit fundamentals.json + prices.json next to this page, or paste fundamentals below.'}})();
+(async()=>{try{const j=await(await fetch(FUNDAMENTALS_URL+'?v='+Date.now(),{cache:'no-store'})).json();UNIVERSE=j.stocks||j;meta.fetched=j.fetched||null;buildSectors();buildSectorPE();const age=meta.fetched?(Date.now()-new Date(meta.fetched))/864e5:null;$('status').textContent=`build ${BUILD}\nLoaded ${UNIVERSE.length} stocks (${j.universe||'custom'}, pre-filtered by price). Data refreshed ${meta.fetched?new Date(meta.fetched).toLocaleString('en-IN'):'(unknown)'}`+(age>4?'\nWARNING: data is over 4 days old — check the Refresh Conviction data workflow in GitHub Actions.':'')}catch(e){$('status').textContent='fundamentals.json not found. Run update_data.py and commit fundamentals.json + prices.json next to this page, or paste fundamentals below.'}})();
 $('risk').onclick=e=>{if(e.target.dataset.v){state.risk=e.target.dataset.v;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));$('riskHint').textContent=RISK[state.risk].label}};$('riskHint').textContent=RISK.moderate.label;
 $('src').onclick=e=>{if(e.target.dataset.v){state.src=e.target.dataset.v;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));$('proxyRow').style.display=state.src==='live'?'':'none'}};
 $('weight').oninput=e=>{$('wT').textContent=e.target.value;$('wF').textContent=100-e.target.value};
@@ -240,9 +241,11 @@ function spark(c,s50){const n=120,a=c.slice(-n),mn=Math.min(...a),mx=Math.max(..
 async function run(){
   const btn=$('run');btn.disabled=true;const minCap=+$('minCap').value||0,maxPE=+$('maxPE').value,w=+$('weight').value/100,R=RISK[state.risk],proxy=$('proxy').value;
   if(!UNIVERSE.length){$('status').textContent='No fundamentals loaded — nothing to screen.';btn.disabled=false;return}
-  let priceStore=null;if(state.src==='repo'){try{priceStore=await(await fetch(PRICES_URL,{cache:'no-store'})).json()}catch(e){$('status').textContent='prices.json not reachable — switch to Yahoo live or run update_data.py.';btn.disabled=false;return}}
-  const rows=[],skipped=[];let i=0;
-  for(const s of UNIVERSE){i++;$('status').textContent=`Scanning ${i}/${UNIVERSE.length} · ${s.ticker}`;
+  let priceStore=null;if(state.src==='repo'){try{priceStore=await(await fetch(PRICES_URL+'?v='+Date.now(),{cache:'no-store'})).json()}catch(e){$('status').textContent='prices.json not reachable — switch to Yahoo live or run update_data.py.';btn.disabled=false;return}}
+  const rows=[],skipped=[],errors=[];let i=0;
+  for(const s of UNIVERSE){i++;
+   if(i%10===1){$('status').textContent=`Scanning ${i}/${UNIVERSE.length} · ${s.ticker}`;await new Promise(r=>setTimeout(r))}
+   try{
     // gates apply only when the metric is known; unknowns get neutral scoring + a "verify" flag instead
     if(s.mcap!=null&&s.mcap<minCap*R.capMult){skipped.push(s.ticker+' (mcap)');continue}
     if(state.sectors.size&&!state.sectors.has(s.sector))continue;
@@ -253,14 +256,15 @@ async function run(){
       let weekly=[];if(priceStore&&priceStore[s.ticker]){const e=priceStore[s.ticker],dd=Array.isArray(e)?e:e.d;weekly=(Array.isArray(e)?[]:e.w||[]).map(b=>({d:b[0],h:b[2],l:b[3]}));bars=dd.map(b=>({d:b[0],o:b[1],h:b[2],l:b[3],c:b[4],v:b[5]}));}
       else if(state.src==='live')bars=await liveSeries(s.ticker,proxy);else{skipped.push(s.ticker+' (no prices in prices.json)');continue}
     }catch(e){skipped.push(s.ticker+' (price fetch failed: '+e.message+')');continue}
-    if(bars.length<210){skipped.push(s.ticker+' (too few bars)');continue}
+    if(!bars||bars.length<210){skipped.push(s.ticker+' (too few bars)');continue}
     const T=techScore(bars,weekly),F=fundScore(s),comp=Math.round(T.score*w+F.score*(1-w));
     if(T.score<25){skipped.push(s.ticker+' (no signal)');continue}
     if(comp<R.minComp){skipped.push(s.ticker+` (composite ${comp})`);continue}
     rows.push({s,T,F,comp});
+   }catch(err){errors.push(s.ticker+': '+err.message)}
   }
   rows.sort((a,b)=>b.comp-a.comp);state.results=rows.slice(0,+$('topN').value);
-  render(R,w);$('status').textContent=`${rows.length} passed, ${skipped.length} filtered.\n`+skipped.join(', ');btn.disabled=false;
+  render(R,w);$('status').textContent=`build ${BUILD} · ${rows.length} passed, ${skipped.length} filtered`+(errors.length?`, ${errors.length} errors:\n`+errors.slice(0,8).join('\n'):'')+`\n`+skipped.slice(0,120).join(', ');btn.disabled=false;
 }
 
 function render(R,w){

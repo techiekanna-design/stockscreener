@@ -137,7 +137,13 @@ const RISK = {
 };
 
 let UNIVERSE = []; // loaded from fundamentals.json
-const SECTOR_PE = {IT:32,'Capital Goods':45,'Building Materials':55,Pharma:40,Financials:25,Consumer:60,Metals:25,Auto:35};
+let SECTOR_PE = {};  // median trailing P/E per sector, computed from the loaded universe
+const isFin = sec => /financ|bank|nbfc|insurance/i.test(sec||'');
+function buildSectorPE(){
+  const by={};UNIVERSE.forEach(s=>{if(s.pe>0&&s.pe<150)(by[s.sector]=by[s.sector]||[]).push(s.pe)});
+  SECTOR_PE={};for(const k in by){const a=by[k].sort((x,y)=>x-y);SECTOR_PE[k]=a[Math.floor(a.length/2)]}
+}
+
 
 async function liveSeries(tk,proxy){
   const url=`https://query1.finance.yahoo.com/v8/finance/chart/${tk}.NS?range=1y&interval=1d`;
@@ -206,7 +212,7 @@ function fundScore(raw){
   add(clamp((s.opm-8)/20,0,1)*10,`Operating margin ${s.opm}%`);
   add(s.opm>=s.opmPrev?5:0,s.opm>=s.opmPrev?`Margin improving (${s.opmPrev}→${s.opm}%)`:`Margin slipping (${s.opmPrev}→${s.opm}%)`);
   add(clamp((s.roe-8)/22,0,1)*15,`ROE ${s.roe}%`);
-  const fin=s.sector==='Financials';
+  const fin=isFin(s.sector);
   add(fin?8:clamp(1-s.de/1.5,0,1)*10,fin?'Leverage judged on NIM/NPA, not D/E':`Debt/equity ${s.de}`);
   add(fin?5:(s.fcf>0?(s.fcf/s.pat>0.6?10:6):0),fin?'FCF not meaningful for lenders':(s.fcf>0?`FCF ₹${s.fcf} Cr (${(s.fcf/s.pat*100).toFixed(0)}% of PAT)`:'Negative free cash flow'));
   const sp=SECTOR_PE[s.sector]||35,rel=s.pe/sp;
@@ -221,11 +227,11 @@ let state={risk:'moderate',src:'repo',sectors:new Set(),results:[]};
 let meta={fetched:null};
 function buildSectors(){const box=$('sectors');box.innerHTML='';[...new Set(UNIVERSE.map(s=>s.sector))].sort().forEach(sec=>{const c=document.createElement('span');c.className='chip';c.textContent=sec;c.onclick=()=>{c.classList.toggle('on');state.sectors.has(sec)?state.sectors.delete(sec):state.sectors.add(sec)};box.appendChild(c)})}
 buildSectors();
-(async()=>{try{const j=await(await fetch(FUNDAMENTALS_URL,{cache:'no-store'})).json();UNIVERSE=j.stocks||j;meta.fetched=j.fetched||null;buildSectors();const age=meta.fetched?(Date.now()-new Date(meta.fetched))/864e5:null;$('status').textContent=`Loaded ${UNIVERSE.length} stocks (${j.universe||'custom'}, pre-filtered by price). Data refreshed ${meta.fetched?new Date(meta.fetched).toLocaleString('en-IN'):'(unknown)'}`+(age>4?'\nWARNING: data is over 4 days old — check the Refresh Conviction data workflow in GitHub Actions.':'')}catch(e){$('status').textContent='fundamentals.json not found. Run update_data.py and commit fundamentals.json + prices.json next to this page, or paste fundamentals below.'}})();
+(async()=>{try{const j=await(await fetch(FUNDAMENTALS_URL,{cache:'no-store'})).json();UNIVERSE=j.stocks||j;meta.fetched=j.fetched||null;buildSectors();buildSectorPE();const age=meta.fetched?(Date.now()-new Date(meta.fetched))/864e5:null;$('status').textContent=`Loaded ${UNIVERSE.length} stocks (${j.universe||'custom'}, pre-filtered by price). Data refreshed ${meta.fetched?new Date(meta.fetched).toLocaleString('en-IN'):'(unknown)'}`+(age>4?'\nWARNING: data is over 4 days old — check the Refresh Conviction data workflow in GitHub Actions.':'')}catch(e){$('status').textContent='fundamentals.json not found. Run update_data.py and commit fundamentals.json + prices.json next to this page, or paste fundamentals below.'}})();
 $('risk').onclick=e=>{if(e.target.dataset.v){state.risk=e.target.dataset.v;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));$('riskHint').textContent=RISK[state.risk].label}};$('riskHint').textContent=RISK.moderate.label;
 $('src').onclick=e=>{if(e.target.dataset.v){state.src=e.target.dataset.v;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));$('proxyRow').style.display=state.src==='live'?'':'none'}};
 $('weight').oninput=e=>{$('wT').textContent=e.target.value;$('wF').textContent=100-e.target.value};
-$('load').onclick=()=>{try{const a=JSON.parse($('paste').value);if(!Array.isArray(a))throw 0;UNIVERSE=a;meta.fetched=null;state.sectors.clear();buildSectors();$('status').textContent=`Loaded ${a.length} stocks from pasted JSON.`}catch{ $('status').textContent='Could not parse JSON — expected an array of stock objects.'}};
+$('load').onclick=()=>{try{const a=JSON.parse($('paste').value);if(!Array.isArray(a))throw 0;UNIVERSE=a;meta.fetched=null;state.sectors.clear();buildSectors();buildSectorPE();$('status').textContent=`Loaded ${a.length} stocks from pasted JSON.`}catch{ $('status').textContent='Could not parse JSON — expected an array of stock objects.'}};
 
 const fmt=(v,d=1)=>v==null?'—':(+v).toFixed(d);
 const cls=(v,good,bad,inv)=>inv?(v<=good?'good':v>=bad?'bad':'mid'):(v>=good?'good':v<=bad?'bad':'mid');
@@ -237,11 +243,12 @@ async function run(){
   let priceStore=null;if(state.src==='repo'){try{priceStore=await(await fetch(PRICES_URL,{cache:'no-store'})).json()}catch(e){$('status').textContent='prices.json not reachable — switch to Yahoo live or run update_data.py.';btn.disabled=false;return}}
   const rows=[],skipped=[];let i=0;
   for(const s of UNIVERSE){i++;$('status').textContent=`Scanning ${i}/${UNIVERSE.length} · ${s.ticker}`;
-    if(s.mcap<minCap*R.capMult){skipped.push(s.ticker+' (mcap)');continue}
+    // gates apply only when the metric is known; unknowns get neutral scoring + a "verify" flag instead
+    if(s.mcap!=null&&s.mcap<minCap*R.capMult){skipped.push(s.ticker+' (mcap)');continue}
     if(state.sectors.size&&!state.sectors.has(s.sector))continue;
-    if(maxPE>0&&s.pe>maxPE){skipped.push(s.ticker+' (P/E)');continue}
-    if(s.sector!=='Financials'&&s.de>R.maxDE){skipped.push(s.ticker+' (D/E)');continue}
-    if(s.roe<R.minROE){skipped.push(s.ticker+' (ROE)');continue}
+    if(maxPE>0&&s.pe!=null&&s.pe>maxPE){skipped.push(s.ticker+' (P/E)');continue}
+    if(!isFin(s.sector)&&s.de!=null&&s.de>R.maxDE){skipped.push(s.ticker+' (D/E)');continue}
+    if(s.roe!=null&&s.roe<R.minROE){skipped.push(s.ticker+' (ROE)');continue}
     let bars;try{
       let weekly=[];if(priceStore&&priceStore[s.ticker]){const e=priceStore[s.ticker],dd=Array.isArray(e)?e:e.d;weekly=(Array.isArray(e)?[]:e.w||[]).map(b=>({d:b[0],h:b[2],l:b[3]}));bars=dd.map(b=>({d:b[0],o:b[1],h:b[2],l:b[3],c:b[4],v:b[5]}));}
       else if(state.src==='live')bars=await liveSeries(s.ticker,proxy);else{skipped.push(s.ticker+' (no prices in prices.json)');continue}
@@ -261,9 +268,9 @@ function render(R,w){
   if(!state.results.length){$('out').innerHTML='<div class="empty">No stock cleared the gates. Loosen risk tolerance, lower min market cap, or raise the P/E ceiling.</div>';return}
   $('out').innerHTML=state.results.map((r,i)=>{const {s,T,F,comp}=r,I=T.ind,atrPct=I.atr/I.close*100;
     const entLo=Math.max(I.s20||0,I.close-1.5*I.atr),entHi=I.close+0.5*I.atr,stop=I.close-3*I.atr,target=I.close*(1+clamp(s.epsG,8,30)/100*3);
-    const risks=[];if(s.pe>(SECTOR_PE[s.sector]||35)*1.3)risks.push('Valuation is rich vs sector — multiple compression risk if growth slows');if(s.opm<s.opmPrev)risks.push('Margins slipped YoY — watch next quarter');if(s.epsG<10)risks.push('Earnings growth is modest; thesis depends on re-acceleration');if(s.sector==='Financials')risks.push('Lender: credit cycle and NPA risk dominate');if(atrPct>3)risks.push(`High volatility (ATR ${atrPct.toFixed(1)}%/day) — size down`);if(I.pctFromHigh<3)risks.push('At highs — failed-breakout risk on weak markets');risks.push('Market regime risk: broad corrections override stock-level signals');risks.push(`Fundamentals as of ${s.asOf}${s.fetched?' (fetched '+s.fetched.slice(0,10)+')':''} · price ${I.date}`);if(s.stale)risks.push('Some fundamentals missing from Yahoo — scored with neutral values; verify on Screener.in');
+    const risks=[];if(s.pe!=null&&s.pe>(SECTOR_PE[s.sector]||35)*1.3)risks.push('Valuation is rich vs sector — multiple compression risk if growth slows');if(s.opm<s.opmPrev)risks.push('Margins slipped YoY — watch next quarter');if(s.epsG<10)risks.push('Earnings growth is modest; thesis depends on re-acceleration');if(isFin(s.sector))risks.push('Lender: credit cycle and NPA risk dominate');if(atrPct>3)risks.push(`High volatility (ATR ${atrPct.toFixed(1)}%/day) — size down`);if(I.pctFromHigh<3)risks.push('At highs — failed-breakout risk on weak markets');risks.push('Market regime risk: broad corrections override stock-level signals');risks.push(`Fundamentals as of ${s.asOf}${s.fetched?' (fetched '+s.fetched.slice(0,10)+')':''} · price ${I.date}`);if(s.stale)risks.push('Some fundamentals missing from Yahoo — scored with neutral values; verify on Screener.in');
     const tagCls=T.type.startsWith('Break')?'brk':'rev';
-    return`<details class="card"><summary><span class="rank">${i+1}</span><div><div class="tk">${s.ticker}<small>${s.name}</small> <a class="tv" href="https://www.tradingview.com/chart/?symbol=NSE%3A${encodeURIComponent(s.ticker)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Open candlestick chart on TradingView">chart ↗</a></div><div class="tags"><span class="tag ${tagCls}">${T.type}</span><span class="tag">${s.sector}</span><span class="tag">₹${(s.mcap/1000).toFixed(0)}k Cr</span>${s.pe>(SECTOR_PE[s.sector]||35)*1.3?'<span class="tag warn">rich P/E</span>':''}</div></div><div class="spark">${spark(T.closes,I.s50)}</div><div class="score"><b>${comp}</b><div>T ${T.score} · F ${F.score}</div></div></summary>
+    return`<details class="card"><summary><span class="rank">${i+1}</span><div><div class="tk">${s.ticker}<small>${s.name}</small> <a class="tv" href="https://www.tradingview.com/chart/?symbol=NSE%3A${encodeURIComponent(s.ticker)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Open candlestick chart on TradingView">chart ↗</a></div><div class="tags"><span class="tag ${tagCls}">${T.type}</span><span class="tag">${s.sector}</span><span class="tag">₹${(s.mcap/1000).toFixed(0)}k Cr</span>${s.pe!=null&&s.pe>(SECTOR_PE[s.sector]||35)*1.3?'<span class="tag warn">rich P/E</span>':''}</div></div><div class="spark">${spark(T.closes,I.s50)}</div><div class="score"><b>${comp}</b><div>T ${T.score} · F ${F.score}</div></div></summary>
     <div class="body"><div>
       <h4>Why it qualifies — technical</h4><div class="bar"><i style="width:${T.score}%"></i></div><ul>${T.signals.map(x=>`<li>${x}</li>`).join('')}</ul>
       <h4>Indicators · ${I.date}</h4><table>

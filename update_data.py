@@ -178,9 +178,16 @@ def fundamentals(sym, sector_hint, overrides):
     eps_g = growth(eps[0], eps[1]) if len(eps) > 1 else None
     pe = num(info.get('trailingPE'))
     de = round(debt[0]/eq[0], 2) if debt and eq and debt[0] is not None and eq[0] else (round(info['debtToEquity']/100, 2) if num(info.get('debtToEquity')) is not None else None)
-    roe = num(info.get('returnOnEquity'))
+    # Yahoo's returnOnEquity is missing for most NSE listings — compute from statements instead
+    roe = None
+    if ni and eq and ni[0] is not None and eq[0]:
+        avg_eq = (eq[0] + eq[1])/2 if len(eq) > 1 and eq[1] else eq[0]
+        if avg_eq > 0:
+            roe = ni[0]/avg_eq
+    if roe is None:
+        roe = num(info.get('returnOnEquity'))
     o = overrides.get(sym, {})
-    return {'ticker': sym, 'name': info.get('longName') or info.get('shortName') or sym,
+    return {'v': 2, 'ticker': sym, 'name': info.get('longName') or info.get('shortName') or sym,
             'sector': o.get('sector') or sector_hint or info.get('sector') or 'Unknown',
             'mcap': round(info['marketCap']/CR) if num(info.get('marketCap')) else None,
             'revG3y': cagr(rev, 3) if len(rev) >= 4 else (cagr(rev, 2) if len(rev) >= 3 else None),
@@ -207,7 +214,7 @@ def main():
     fp = HERE/'fundamentals.json'
     if fp.exists():
         for s in json.loads(fp.read_text()).get('stocks', []):
-            if s.get('fetched') and (dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(s['fetched'])).days < 7:
+            if s.get('v') == 2 and s.get('fetched') and (dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(s['fetched'])).days < 7:
                 old[s['ticker']] = s
     stocks, failed = [], []
     for i, s in enumerate(cand, 1):

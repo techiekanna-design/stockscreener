@@ -50,6 +50,8 @@
   .rank{font:600 18px var(--mono);color:var(--muted)}
   .tk{font:600 16px var(--sans)}
   .tk small{font-weight:400;color:var(--muted);margin-left:8px}
+  .tk .tv{font:12px var(--mono);color:var(--sky);text-decoration:none;margin-left:8px;white-space:nowrap}
+  .tk .tv:hover{text-decoration:underline}
   .tags{margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}
   .tag{font:11px var(--mono);padding:2px 7px;border-radius:5px;background:var(--panel2);color:var(--muted)}
   .tag.rev{color:var(--sky)} .tag.brk{color:var(--teal)} .tag.warn{color:var(--amber)}
@@ -102,7 +104,7 @@
   <div class="status" id="status"></div>
   <details class="how"><summary>Where the data comes from</summary>
     <div class="hint" style="margin-top:8px">
-      Universe is the Nifty 500, pulled from NSE each run. <b>prices.json</b> holds exchange-official NSE bhavcopy bars, appended daily (Yahoo only bootstraps history). <b>fundamentals.json</b> comes from Yahoo Finance statements via yfinance for the names that pass a price pre-filter. <code>overrides.json</code> is the only manual input (moat / leader). A GitHub Action runs <code>update_data.py</code> every weekday evening and commits the files; nothing else to do.
+      Universe is the Nifty 500, pulled from NSE each run. <b>prices.json</b> holds 10 years per stock — recent ~2y as daily bars (NSE bhavcopy, appended each evening), older years compressed to weekly bars to keep the file loadable (Yahoo only bootstraps history). <b>fundamentals.json</b> comes from Yahoo Finance statements via yfinance for the names that pass a price pre-filter. <code>overrides.json</code> is the only manual input (moat / leader). A GitHub Action runs <code>update_data.py</code> every weekday evening and commits the files; nothing else to do.
     </div>
     <div class="f" style="margin-top:8px"><textarea id="paste" placeholder='[{"ticker":"ABC","name":"…","sector":"IT","mcap":1200, …}]'></textarea><button class="btn ghost" id="load" style="margin-top:6px">Load pasted fundamentals</button></div>
   </details>
@@ -118,7 +120,7 @@
     <b>Fundamental (0–100)</b> — revenue growth (3y CAGR), EPS growth, EBITDA/operating margin level and trend, ROE, debt/equity, FCF positivity and FCF/net profit, plus a valuation component (P/E vs. sector median, PEG). Qualitative leadership and moat are a manual 0–5 field in the data.<br>
     <b>Blend</b> — Composite = T×w + F×(1−w). Risk tolerance changes the hard gates (min composite, max D/E, min ROE, min market cap multiplier), not the weights.
     <h3 style="margin-top:14px">Data & freshness</h3>
-    Fundamentals are pulled from Yahoo Finance statements via yfinance: TTM where available, otherwise last fiscal year; each stock carries an <code>asOf</code> date and <code>fetched</code> timestamp, shown on the card. Prices are end-of-day daily bars. Nothing here is real-time, and Yahoo data for Indian small caps can be stale or wrong — cross-check on Screener.in before acting.
+    Fundamentals are pulled from Yahoo Finance statements via yfinance: TTM where available, otherwise last fiscal year; each stock carries an <code>asOf</code> date and <code>fetched</code> timestamp, shown on the card. Prices cover 10 years per stock (~2y daily + 8y weekly) — daily bars drive the indicators, the weekly history sets multi-year highs and base length. Nothing here is real-time, and Yahoo data for Indian small caps can be stale or wrong — cross-check on Screener.in before acting.
     <h3 style="margin-top:14px">Disclaimer</h3>
     This page is for information and education only and is not investment advice or a recommendation to buy or sell any security. Scores are mechanical and can be wrong. Do your own due diligence, check the latest filings, and consider consulting a SEBI-registered investment adviser for guidance on your situation. Past patterns do not predict future returns.
   </div>
@@ -157,11 +159,16 @@ function candle(b){for(let i=b.length-1;i>=b.length-10;i--){const x=b[i],p=b[i-1
   if(lw>2*body&&uw<body&&x.c>=x.o)return{name:'Hammer',d:x.d}}return null}
 
 /* ============== TECHNICAL SCORE ============== */
-function techScore(b){
+function techScore(b,weekly=[]){
   const c=b.map(x=>x.c),n=c.length-1,last=b[n];
   const s20=sma(c,20),s50=sma(c,50),s200=sma(c,200),s20p=sma(c,20,n-5),s50p=sma(c,50,n-5);
   const R=rsi(c),r=R[n],r10=R[n-10]||r,M=macd(c),mh=M.h[n],mhp=M.h[n-3];
   const hi20=Math.max(...b.slice(n-20,n).map(x=>x.h)),hi50=Math.max(...b.slice(n-50,n).map(x=>x.h)),hi252=Math.max(...b.slice(Math.max(0,n-251)).map(x=>x.h)),lo252=Math.min(...b.slice(Math.max(0,n-251)).map(x=>x.l));
+  const hiDaily=Math.max(...b.slice(0,n).map(x=>x.h));
+  const hiWeek=weekly.length?Math.max(...weekly.map(x=>x.h)):0;
+  const hiAll=Math.max(hiDaily,hiWeek);
+  const firstDate=weekly.length?weekly[0].d:b[0].d;
+  const yrs=((new Date(b[n].d)-new Date(firstDate))/3.156e10).toFixed(1);
   const rng20=Math.max(...b.slice(n-19).map(x=>x.h))-Math.min(...b.slice(n-19).map(x=>x.l)),rng40=Math.max(...b.slice(n-59,n-19).map(x=>x.h))-Math.min(...b.slice(n-59,n-19).map(x=>x.l));
   const vAvg=sma(b.map(x=>x.v),20,n-1),vRatio=last.v/vAvg,A=atr(b),cdl=candle(b),sl=swingLows(b);
   const hl=sl.length>=2&&b[sl[sl.length-1]].l>b[sl[sl.length-2]].l;
@@ -175,6 +182,7 @@ function techScore(b){
   if(hl){rs+=15;rev.push('Higher swing low formed')}
   if(cdl){rs+=10;rev.push(`${cdl.name} on ${cdl.d}`)}
   if(pctFromHigh<25&&pctFromLow>10&&last.c>s50&&rs<30){rs+=10;rev.push('Early uptrend after drawdown')}
+  if(s200&&last.c>s200&&b[Math.max(0,n-252)].c<(sma(c,200,Math.max(200,n-252))||Infinity)){rs+=8;rev.push('Back above 200-DMA after a year below it')}
   // Breakout track
   const brk=[];let bs=0;
   if(last.c>hi50){bs+=25;brk.push('Closed above 50-day high')}else if(last.c>hi20){bs+=12;brk.push('Closed above 20-day high')}
@@ -182,9 +190,10 @@ function techScore(b){
   if(vRatio>=1.5){bs+=20;brk.push(`Volume ${vRatio.toFixed(1)}× 20-day avg`)}
   if(pctFromHigh<10){bs+=15;brk.push(`Within ${pctFromHigh.toFixed(1)}% of 52-wk high`)}
   if(s50>s200){bs+=10;brk.push('50-DMA above 200-DMA')}
+  if(last.c>hiAll){bs+=15;brk.push(`New ${yrs}-year high — multi-year breakout`)}else if(last.c>0.95*hiAll&&(hiWeek>=hiDaily||b.findIndex(x=>x.h===hiAll)<n-252)){bs+=8;brk.push(`Approaching its ${yrs}-year high after a long base`)}
   if(r>55&&r<75){bs+=10;brk.push(`RSI ${r.toFixed(0)} — strong, not stretched`)}
   const type=bs>rs?'Breakout / continuation':'Reversal from downtrend',score=Math.min(100,Math.max(bs,rs)),signals=bs>rs?brk:rev;
-  return{score,type,signals,ind:{date:last.d,close:last.c,s20,s50,s200,rsi:r,macdH:mh,atr:A,hi52:hi252,lo52:lo252,vRatio,pctFromHigh},closes:c};
+  return{score:Math.min(100,score),type,signals,ind:{date:last.d,close:last.c,s20,s50,s200,rsi:r,macdH:mh,atr:A,hi52:hi252,lo52:lo252,hiAll,yrs,vRatio,pctFromHigh},closes:c};
 }
 /* ============== FUNDAMENTAL SCORE ============== */
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -234,11 +243,11 @@ async function run(){
     if(s.sector!=='Financials'&&s.de>R.maxDE){skipped.push(s.ticker+' (D/E)');continue}
     if(s.roe<R.minROE){skipped.push(s.ticker+' (ROE)');continue}
     let bars;try{
-      if(priceStore&&priceStore[s.ticker])bars=priceStore[s.ticker].map(b=>({d:b[0],o:b[1],h:b[2],l:b[3],c:b[4],v:b[5]}));
+      let weekly=[];if(priceStore&&priceStore[s.ticker]){const e=priceStore[s.ticker],dd=Array.isArray(e)?e:e.d;weekly=(Array.isArray(e)?[]:e.w||[]).map(b=>({d:b[0],h:b[2],l:b[3]}));bars=dd.map(b=>({d:b[0],o:b[1],h:b[2],l:b[3],c:b[4],v:b[5]}));}
       else if(state.src==='live')bars=await liveSeries(s.ticker,proxy);else{skipped.push(s.ticker+' (no prices in prices.json)');continue}
     }catch(e){skipped.push(s.ticker+' (price fetch failed: '+e.message+')');continue}
     if(bars.length<210){skipped.push(s.ticker+' (too few bars)');continue}
-    const T=techScore(bars),F=fundScore(s),comp=Math.round(T.score*w+F.score*(1-w));
+    const T=techScore(bars,weekly),F=fundScore(s),comp=Math.round(T.score*w+F.score*(1-w));
     if(T.score<25){skipped.push(s.ticker+' (no signal)');continue}
     if(comp<R.minComp){skipped.push(s.ticker+` (composite ${comp})`);continue}
     rows.push({s,T,F,comp});
@@ -254,14 +263,15 @@ function render(R,w){
     const entLo=Math.max(I.s20||0,I.close-1.5*I.atr),entHi=I.close+0.5*I.atr,stop=I.close-3*I.atr,target=I.close*(1+clamp(s.epsG,8,30)/100*3);
     const risks=[];if(s.pe>(SECTOR_PE[s.sector]||35)*1.3)risks.push('Valuation is rich vs sector — multiple compression risk if growth slows');if(s.opm<s.opmPrev)risks.push('Margins slipped YoY — watch next quarter');if(s.epsG<10)risks.push('Earnings growth is modest; thesis depends on re-acceleration');if(s.sector==='Financials')risks.push('Lender: credit cycle and NPA risk dominate');if(atrPct>3)risks.push(`High volatility (ATR ${atrPct.toFixed(1)}%/day) — size down`);if(I.pctFromHigh<3)risks.push('At highs — failed-breakout risk on weak markets');risks.push('Market regime risk: broad corrections override stock-level signals');risks.push(`Fundamentals as of ${s.asOf}${s.fetched?' (fetched '+s.fetched.slice(0,10)+')':''} · price ${I.date}`);if(s.stale)risks.push('Some fundamentals missing from Yahoo — scored with neutral values; verify on Screener.in');
     const tagCls=T.type.startsWith('Break')?'brk':'rev';
-    return`<details class="card"><summary><span class="rank">${i+1}</span><div><div class="tk">${s.ticker}<small>${s.name}</small></div><div class="tags"><span class="tag ${tagCls}">${T.type}</span><span class="tag">${s.sector}</span><span class="tag">₹${(s.mcap/1000).toFixed(0)}k Cr</span>${s.pe>(SECTOR_PE[s.sector]||35)*1.3?'<span class="tag warn">rich P/E</span>':''}</div></div><div class="spark">${spark(T.closes,I.s50)}</div><div class="score"><b>${comp}</b><div>T ${T.score} · F ${F.score}</div></div></summary>
+    return`<details class="card"><summary><span class="rank">${i+1}</span><div><div class="tk">${s.ticker}<small>${s.name}</small> <a class="tv" href="https://www.tradingview.com/chart/?symbol=NSE%3A${encodeURIComponent(s.ticker)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Open candlestick chart on TradingView">chart ↗</a></div><div class="tags"><span class="tag ${tagCls}">${T.type}</span><span class="tag">${s.sector}</span><span class="tag">₹${(s.mcap/1000).toFixed(0)}k Cr</span>${s.pe>(SECTOR_PE[s.sector]||35)*1.3?'<span class="tag warn">rich P/E</span>':''}</div></div><div class="spark">${spark(T.closes,I.s50)}</div><div class="score"><b>${comp}</b><div>T ${T.score} · F ${F.score}</div></div></summary>
     <div class="body"><div>
       <h4>Why it qualifies — technical</h4><div class="bar"><i style="width:${T.score}%"></i></div><ul>${T.signals.map(x=>`<li>${x}</li>`).join('')}</ul>
       <h4>Indicators · ${I.date}</h4><table>
         <tr><td>Close</td><td>₹${fmt(I.close,0)}</td></tr><tr><td>20 / 50 / 200 DMA</td><td>${fmt(I.s20,0)} / ${fmt(I.s50,0)} / ${fmt(I.s200,0)}</td></tr>
         <tr><td>RSI (14)</td><td class="${cls(I.rsi,55,40)}">${fmt(I.rsi,0)}</td></tr><tr><td>MACD histogram</td><td class="${I.macdH>0?'good':'bad'}">${fmt(I.macdH,2)}</td></tr>
         <tr><td>ATR (14)</td><td>₹${fmt(I.atr,1)} (${fmt(atrPct)}%)</td></tr><tr><td>Volume vs 20-d avg</td><td class="${cls(I.vRatio,1.5,0.7)}">${fmt(I.vRatio)}×</td></tr>
-        <tr><td>52-wk range</td><td>₹${fmt(I.lo52,0)} – ₹${fmt(I.hi52,0)}</td></tr></table>
+        <tr><td>52-wk range</td><td>₹${fmt(I.lo52,0)} – ₹${fmt(I.hi52,0)}</td></tr>
+        <tr><td>${I.yrs}-yr high</td><td class="${I.close>=I.hiAll?'good':''}">₹${fmt(I.hiAll,0)}${I.close>=I.hiAll?' · at high':''}</td></tr></table>
       <h4>Entry idea (long-term)</h4><div class="entry">Accumulate <b>₹${fmt(entLo,0)}–₹${fmt(entHi,0)}</b> (20-DMA to +0.5 ATR). Thesis invalid below <b>₹${fmt(stop,0)}</b> (3 ATR). Indicative 3-yr value zone <b>₹${fmt(target,0)}</b> if EPS compounds ~${clamp(s.epsG,8,30)}%. Stagger entries; this is discretionary, not a target price.</div>
     </div><div>
       <h4>Why it qualifies — fundamental</h4><div class="bar"><i style="width:${F.score}%"></i></div><ul>${F.parts.filter(p=>p.pts>=4).map(p=>`<li>${p.why}</li>`).join('')}</ul>
@@ -274,10 +284,10 @@ function render(R,w){
     </div></div></details>`}).join('');
 }
 function download(name,text,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click()}
-$('csv').onclick=()=>{if(!state.results.length)return;const h=['rank','ticker','name','sector','composite','tech','fund','signal','close','rsi','mcap_cr','pe','roe','de','revG3y','epsG','opm','fcf','asOf','signals'];
-  const lines=[h.join(',')].concat(state.results.map((r,i)=>[i+1,r.s.ticker,`"${r.s.name}"`,r.s.sector,r.comp,r.T.score,r.F.score,`"${r.T.type}"`,r.T.ind.close.toFixed(2),r.T.ind.rsi.toFixed(1),r.s.mcap,r.s.pe,r.s.roe,r.s.de,r.s.revG3y,r.s.epsG,r.s.opm,r.s.fcf,r.s.asOf,`"${r.T.signals.join('; ')}"`].join(',')));
+$('csv').onclick=()=>{if(!state.results.length)return;const h=['rank','ticker','name','sector','composite','tech','fund','signal','close','rsi','mcap_cr','pe','roe','de','revG3y','epsG','opm','fcf','asOf','tradingview','signals'];
+  const lines=[h.join(',')].concat(state.results.map((r,i)=>[i+1,r.s.ticker,`"${r.s.name}"`,r.s.sector,r.comp,r.T.score,r.F.score,`"${r.T.type}"`,r.T.ind.close.toFixed(2),r.T.ind.rsi.toFixed(1),r.s.mcap,r.s.pe,r.s.roe,r.s.de,r.s.revG3y,r.s.epsG,r.s.opm,r.s.fcf,r.s.asOf,`https://www.tradingview.com/chart/?symbol=NSE:${r.s.ticker}`,`"${r.T.signals.join('; ')}"`].join(',')));
   download('conviction-ideas.csv',lines.join('\n'),'text/csv')};
-$('json').onclick=()=>{if(!state.results.length)return;download('conviction-ideas.json',JSON.stringify(state.results.map((r,i)=>({rank:i+1,ticker:r.s.ticker,name:r.s.name,sector:r.s.sector,composite:r.comp,technical:{score:r.T.score,type:r.T.type,signals:r.T.signals,indicators:r.T.ind},fundamental:{score:r.F.score,metrics:r.s,breakdown:r.F.parts},generated:new Date().toISOString()})),null,2),'application/json')};
+$('json').onclick=()=>{if(!state.results.length)return;download('conviction-ideas.json',JSON.stringify(state.results.map((r,i)=>({rank:i+1,ticker:r.s.ticker,name:r.s.name,sector:r.s.sector,composite:r.comp,tradingview:`https://www.tradingview.com/chart/?symbol=NSE:${r.s.ticker}`,technical:{score:r.T.score,type:r.T.type,signals:r.T.signals,indicators:r.T.ind},fundamental:{score:r.F.score,metrics:r.s,breakdown:r.F.parts},generated:new Date().toISOString()})),null,2),'application/json')};
 $('run').onclick=run;
 </script>
 </body>

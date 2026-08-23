@@ -5,7 +5,7 @@ What it does on every run (GitHub Actions, nightly):
   1. Universe  : Nifty 500 constituents from NSE (falls back to tickers.txt if NSE is unreachable).
   2. Prices    : incremental. Existing prices.json is extended with NSE bhavcopy files for every
                  trading day since the last stored date (exchange-official bars). First run, or any
-                 symbol with <260 bars, is bootstrapped from Yahoo 1y daily. Bhavcopy failure falls
+                 symbol with <260 bars, is . Bhavcopy failure falls
                  back to Yahoo for that day.
   3. Pre-filter: cheap price tests (above 50-DMA, or near 52w high, or 20>50 DMA cross) so we only
                  spend Yahoo fundamentals calls on names that could possibly score.
@@ -25,7 +25,8 @@ UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
       'Accept': '*/*', 'Referer': 'https://www.nseindia.com/'}
 NIFTY500 = 'https://archives.nseindia.com/content/indices/ind_nifty500list.csv'
 BHAV = 'https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_{d}_F_0000.csv.zip'
-MIN_BARS = 260
+DAILY_KEEP = 500      # ~2y of daily bars kept as-is (enough for 200-DMA a year ago)
+WEEKLY_YEARS = 10     # total history target; older than DAILY_KEEP is weekly
 status = {'run': dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'), 'notes': []}
 def note(m): print(m); status['notes'].append(m)
 
@@ -45,13 +46,44 @@ def universe():
 # ---------------- prices ----------------
 def load_prices():
     p = HERE/'prices.json'
-    return json.loads(p.read_text()) if p.exists() else {}
+    if not p.exists(): return {}
+    raw = json.loads(p.read_text())
+    # migrate old flat-array format to {d: daily, w: weekly}
+    return {s: (v if isinstance(v, dict) else {'d': v, 'w': []}) for s, v in raw.items()}
+
+def to_weekly(rows):
+    """Collapse daily rows [date,o,h,l,c,v] into ISO-week rows (last date of week kept)."""
+    out, cur, key = [], None, None
+    for r in rows:
+        k = dt.date.fromisoformat(r[0]).isocalendar()[:2]
+        if k != key:
+            if cur: out.append(cur)
+            key, cur = k, list(r)
+        else:
+            cur[2] = max(cur[2], r[2]); cur[3] = min(cur[3], r[3])
+            cur[4] = r[4]; cur[5] += r[5]; cur[0] = r[0]
+    if cur: out.append(cur)
+    return out
+
+def compact(entry):
+    """Enforce the two-tier shape: DAILY_KEEP daily bars, everything older rolled to weekly, 10y cap."""
+    d = entry['d']
+    if len(d) > DAILY_KEEP + 30:
+        spill, d = d[:-DAILY_KEEP], d[-DAILY_KEEP:]
+        entry['w'] = to_weekly((entry.get('w') or []) + spill)
+    entry['d'] = d
+    cutoff = (dt.date.today() - dt.timedelta(days=365*WEEKLY_YEARS)).isoformat()
+    entry['w'] = [r for r in entry.get('w', []) if r[0] >= cutoff]
+    # dedupe weekly vs daily overlap
+    first_d = d[0][0] if d else '9999'
+    entry['w'] = [r for r in entry['w'] if r[0] < first_d]
+    return entry
 
 def yahoo_bootstrap(symbols):
     out = {}
     for i in range(0, len(symbols), 100):
         chunk = symbols[i:i+100]
-        df = yf.download([s+'.NS' for s in chunk], period='1y', interval='1d', group_by='ticker',
+        df = yf.download([s+'.NS' for s in chunk], period='10y', interval='1d', group_by='ticker',
                          auto_adjust=False, progress=False, threads=True)
         for s in chunk:
             try: d = df[s+'.NS'].dropna(subset=['Close'])
@@ -70,13 +102,16 @@ def bhavcopy(day):
     return {str(t).strip(): [day.strftime('%Y-%m-%d'), float(o), float(h), float(l), float(c), int(v)]
             for t, o, h, l, c, v in zip(df['TckrSymb'], df['OpnPric'], df['HghPric'], df['LwPric'], df['ClsPric'], df['TtlTradgVol'])}
 
+def total_bars(e): return len(e.get('d', [])) + len(e.get('w', []))*5
+
 def update_prices(symbols):
     prices = {s: v for s, v in load_prices().items() if s in symbols}
-    need_boot = [s for s in symbols if len(prices.get(s, [])) < MIN_BARS - 30]
+    need_boot = [s for s in symbols if total_bars(prices.get(s, {})) < 2000]  # <~8y -> refetch 10y
     if need_boot:
-        note(f'prices: bootstrapping {len(need_boot)} symbols from Yahoo (1y)')
-        prices.update(yahoo_bootstrap(need_boot))
-    last = max((v[-1][0] for v in prices.values() if v), default=None)
+        note(f'prices: bootstrapping {len(need_boot)} symbols from Yahoo (10y)')
+        for s, rows in yahoo_bootstrap(need_boot).items():
+            prices[s] = {'d': rows, 'w': []}
+    last = max((v['d'][-1][0] for v in prices.values() if v.get('d')), default=None)
     if last is None: return prices
     day = dt.date.fromisoformat(last) + dt.timedelta(days=1)
     today = dt.date.today()
@@ -88,25 +123,26 @@ def update_prices(symbols):
                 if bars:
                     for s in symbols:
                         if s in bars:
-                            prices.setdefault(s, []).append(bars[s])
+                            prices.setdefault(s, {'d': [], 'w': []})['d'].append(bars[s])
                     added += 1
             except Exception as e:
                 note(f'prices: bhavcopy {day} failed ({e}); Yahoo will backfill next run')
                 break
         day += dt.timedelta(days=1)
     note(f'prices: appended {added} bhavcopy sessions after {last}')
-    # keep ~1.2y, dedupe by date
     for s in prices:
         seen, out = set(), []
-        for b in prices[s]:
+        for b in prices[s]['d']:
             if b[0] not in seen: seen.add(b[0]); out.append(b)
-        prices[s] = out[-320:]
+        prices[s]['d'] = out
+        prices[s] = compact(prices[s])
     return prices
 
 def prefilter(prices):
     keep = []
-    for s, bars in prices.items():
-        if len(bars) < 210: continue
+    for s, entry in prices.items():
+        bars = entry['d']
+        if len(bars) < 210: continue  # pre-filter only needs ~1y of daily
         c = [b[4] for b in bars]
         s20, s50 = sum(c[-20:])/20, sum(c[-50:])/50
         s20p, s50p = sum(c[-25:-5])/20, sum(c[-55:-5])/50

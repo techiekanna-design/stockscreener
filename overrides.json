@@ -1,0 +1,9 @@
+{
+  "_comment": "Manual qualitative inputs the data feed cannot supply. moat: 0-5, leader: true/false, sector: optional override of Yahoo's sector label.",
+  "DIVISLAB": {"moat": 5, "leader": true},
+  "BAJFINANCE": {"moat": 5, "leader": true},
+  "TITAN": {"moat": 5, "leader": true},
+  "POLYCAB": {"moat": 4, "leader": true},
+  "CUMMINSIND": {"moat": 4, "leader": true},
+  "PERSISTENT": {"moat": 4, "leader": true}
+}

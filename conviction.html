@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conviction — fundamentally strong NSE stocks with live technical signals</title>
+<style>
+  :root{
+    --bg:#0D1420; --panel:#141E2D; --panel2:#1B2839; --line:#25334A;
+    --ink:#E7EDF5; --muted:#8C9BB0; --teal:#2ED3B7; --amber:#F2B441; --rose:#F26D7D; --sky:#6CB4FF;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
+    --serif:Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--sans)}
+  a{color:var(--sky)}
+  header{padding:28px 20px 14px;max-width:1180px;margin:0 auto}
+  header h1{font:600 30px/1.1 var(--serif);margin:0 0 6px;letter-spacing:-.01em}
+  header h1 span{color:var(--teal)}
+  header p{color:var(--muted);margin:0;max-width:720px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px 60px;display:grid;grid-template-columns:300px 1fr;gap:22px}
+  @media(max-width:860px){.wrap{grid-template-columns:1fr}}
+  aside{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;align-self:start;position:sticky;top:12px}
+  @media(max-width:860px){aside{position:static}}
+  .f{margin-bottom:14px}
+  .f label{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+  .f input[type=number],.f select,.f input[type=text],.f textarea{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:14px var(--sans)}
+  .f textarea{font:12px var(--mono);min-height:70px}
+  .f input[type=range]{width:100%;accent-color:var(--teal)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;color:var(--muted);user-select:none}
+  .chip.on{border-color:var(--teal);color:var(--teal);background:rgba(46,211,183,.08)}
+  .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{flex:1;background:none;border:0;color:var(--muted);padding:7px 4px;font-size:13px;cursor:pointer}
+  .seg button.on{background:var(--panel2);color:var(--ink)}
+  .btn{background:var(--teal);color:#06241F;border:0;border-radius:8px;padding:10px 14px;font:600 14px var(--sans);cursor:pointer;width:100%}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:500}
+  .btn:disabled{opacity:.5;cursor:wait}
+  .row{display:flex;gap:8px}
+  .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .status{font:12px var(--mono);color:var(--muted);margin-top:10px;min-height:18px;white-space:pre-wrap}
+  .top{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .top h2{font:600 20px var(--serif);margin:0}
+  .top .sub{color:var(--muted);font-size:13px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .card summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:38px 1fr 140px 92px;gap:14px;align-items:center}
+  .card summary::-webkit-details-marker{display:none}
+  @media(max-width:640px){.card summary{grid-template-columns:32px 1fr 80px}.spark{display:none}}
+  .rank{font:600 18px var(--mono);color:var(--muted)}
+  .tk{font:600 16px var(--sans)}
+  .tk small{font-weight:400;color:var(--muted);margin-left:8px}
+  .tags{margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font:11px var(--mono);padding:2px 7px;border-radius:5px;background:var(--panel2);color:var(--muted)}
+  .tag.rev{color:var(--sky)} .tag.brk{color:var(--teal)} .tag.warn{color:var(--amber)}
+  .spark svg{width:140px;height:40px;display:block}
+  .score{text-align:right}
+  .score b{font:700 22px var(--mono);color:var(--teal)}
+  .score div{font:11px var(--mono);color:var(--muted)}
+  .body{border-top:1px solid var(--line);padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.body{grid-template-columns:1fr}}
+  .body h4{margin:0 0 6px;font:600 12px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .body ul{margin:0 0 12px;padding-left:18px;font-size:14px}
+  .body li{margin:3px 0}
+  table{width:100%;border-collapse:collapse;font:13px var(--mono);margin-bottom:12px}
+  td{padding:4px 0;border-bottom:1px dashed var(--line)} td:last-child{text-align:right}
+  .good{color:var(--teal)} .bad{color:var(--rose)} .mid{color:var(--amber)}
+  .entry{background:var(--panel2);border-radius:8px;padding:10px 12px;font-size:13px}
+  .entry b{font-family:var(--mono)}
+  .bar{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin:6px 0 10px}
+  .bar i{display:block;height:100%;background:var(--teal)}
+  .empty{padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+  .disc{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12px}
+  .disc h3{font:600 14px var(--serif);color:var(--ink);margin:0 0 6px}
+  details.how{margin-top:12px} details.how summary{cursor:pointer;color:var(--sky);font-size:13px}
+  code{font:12px var(--mono);background:var(--panel2);padding:1px 5px;border-radius:4px}
+  button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Conviction <span>·</span> NSE quality + momentum finder</h1>
+  <p>Fundamentally strong companies that are, right now, either reversing out of a downtrend or breaking out of a base. Built for buy-and-hold entries, not trades. Companion to DualEdge.</p>
+</header>
+
+<div class="wrap">
+<aside>
+  <div class="f"><label>Min market cap (₹ Cr)</label><input type="number" id="minCap" value="1000" step="500"></div>
+  <div class="f"><label>Max P/E (trailing)</label><input type="number" id="maxPE" value="45" step="5"><div class="hint">Set 0 to ignore valuation cut-off</div></div>
+  <div class="f"><label>Sectors</label><div class="chips" id="sectors"></div><div class="hint">None selected = all sectors</div></div>
+  <div class="f"><label>Risk tolerance</label>
+    <div class="seg" id="risk"><button data-v="conservative">Conservative</button><button data-v="moderate" class="on">Moderate</button><button data-v="aggressive">Aggressive</button></div>
+    <div class="hint" id="riskHint"></div></div>
+  <div class="f"><label>Weight · technical <b id="wT">40</b>% / fundamental <b id="wF">60</b>%</label><input type="range" id="weight" min="20" max="80" value="40" step="5"></div>
+  <div class="f"><label>Show top</label><select id="topN"><option>5</option><option>8</option><option selected>10</option><option>15</option></select></div>
+  <div class="f"><label>Price data</label>
+    <div class="seg" id="src"><button data-v="repo" class="on">Repo files</button><button data-v="live">Yahoo live</button></div>
+    <div class="hint">Repo files = prices.json / fundamentals.json written by update_data.py. Yahoo live pulls prices in-browser via a CORS proxy.</div></div>
+  <div class="f" id="proxyRow" style="display:none"><label>CORS proxy prefix</label><input type="text" id="proxy" value="https://corsproxy.io/?"></div>
+  <button class="btn" id="run">Run screen</button>
+  <div class="row" style="margin-top:8px"><button class="btn ghost" id="csv">Export CSV</button><button class="btn ghost" id="json">Export JSON</button></div>
+  <div class="status" id="status"></div>
+  <details class="how"><summary>Where the data comes from</summary>
+    <div class="hint" style="margin-top:8px">
+      Universe is the Nifty 500, pulled from NSE each run. <b>prices.json</b> holds exchange-official NSE bhavcopy bars, appended daily (Yahoo only bootstraps history). <b>fundamentals.json</b> comes from Yahoo Finance statements via yfinance for the names that pass a price pre-filter. <code>overrides.json</code> is the only manual input (moat / leader). A GitHub Action runs <code>update_data.py</code> every weekday evening and commits the files; nothing else to do.
+    </div>
+    <div class="f" style="margin-top:8px"><textarea id="paste" placeholder='[{"ticker":"ABC","name":"…","sector":"IT","mcap":1200, …}]'></textarea><button class="btn ghost" id="load" style="margin-top:6px">Load pasted fundamentals</button></div>
+  </details>
+</aside>
+
+<main>
+  <div class="top"><div><h2 id="title">Top ideas</h2><div class="sub" id="meta">Set filters and run the screen.</div></div></div>
+  <div id="out"><div class="empty">Nothing yet. Run the screen to rank the universe.</div></div>
+
+  <div class="disc">
+    <h3>How the score is built</h3>
+    <b>Technical (0–100)</b> — Reversal track: price back above 50-DMA, 20-DMA crossing above 50-DMA, RSI recovering through 50 from &lt;40, MACD histogram turning positive, higher swing lows, bullish engulfing/hammer in last 10 bars. Breakout track: close above 20- and 50-day high, range contraction (last 20-bar range &lt; 60% of prior 40), volume ≥1.5× 20-day average, price within 10% of 52-week high, 50-DMA above 200-DMA. Whichever track scores higher is the stock's signal.<br>
+    <b>Fundamental (0–100)</b> — revenue growth (3y CAGR), EPS growth, EBITDA/operating margin level and trend, ROE, debt/equity, FCF positivity and FCF/net profit, plus a valuation component (P/E vs. sector median, PEG). Qualitative leadership and moat are a manual 0–5 field in the data.<br>
+    <b>Blend</b> — Composite = T×w + F×(1−w). Risk tolerance changes the hard gates (min composite, max D/E, min ROE, min market cap multiplier), not the weights.
+    <h3 style="margin-top:14px">Data & freshness</h3>
+    Fundamentals are pulled from Yahoo Finance statements via yfinance: TTM where available, otherwise last fiscal year; each stock carries an <code>asOf</code> date and <code>fetched</code> timestamp, shown on the card. Prices are end-of-day daily bars. Nothing here is real-time, and Yahoo data for Indian small caps can be stale or wrong — cross-check on Screener.in before acting.
+    <h3 style="margin-top:14px">Disclaimer</h3>
+    This page is for information and education only and is not investment advice or a recommendation to buy or sell any security. Scores are mechanical and can be wrong. Do your own due diligence, check the latest filings, and consider consulting a SEBI-registered investment adviser for guidance on your situation. Past patterns do not predict future returns.
+  </div>
+</main>
+</div>
+<script>
+/* ============== CONFIG ============== */
+const PRICES_URL = './prices.json';
+const FUNDAMENTALS_URL = './fundamentals.json';
+const RISK = {
+  conservative:{minComp:65,maxDE:0.5,minROE:15,capMult:5,label:'Large, low-debt, high-ROE only. Composite ≥65.'},
+  moderate:    {minComp:55,maxDE:1.0,minROE:12,capMult:1,label:'Balanced gates. Composite ≥55, D/E ≤1.'},
+  aggressive:  {minComp:45,maxDE:1.5,minROE:8, capMult:1,label:'Loose gates, smaller names allowed. Composite ≥45.'}
+};
+
+let UNIVERSE = []; // loaded from fundamentals.json
+const SECTOR_PE = {IT:32,'Capital Goods':45,'Building Materials':55,Pharma:40,Financials:25,Consumer:60,Metals:25,Auto:35};
+
+async function liveSeries(tk,proxy){
+  const url=`https://query1.finance.yahoo.com/v8/finance/chart/${tk}.NS?range=1y&interval=1d`;
+  const res=await fetch(proxy+encodeURIComponent(url)); if(!res.ok)throw new Error('HTTP '+res.status);
+  const j=await res.json(),r=j.chart.result[0],q=r.indicators.quote[0];
+  return r.timestamp.map((t,i)=>({d:new Date(t*1000).toISOString().slice(0,10),o:q.open[i],h:q.high[i],l:q.low[i],c:q.close[i],v:q.volume[i]})).filter(b=>b.c!=null);
+}
+
+/* ============== INDICATORS ============== */
+const sma=(a,n,i=a.length-1)=>i+1<n?null:a.slice(i-n+1,i+1).reduce((x,y)=>x+y,0)/n;
+function ema(a,n){const k=2/(n+1),o=[];a.forEach((v,i)=>o.push(i?v*k+o[i-1]*(1-k):v));return o}
+function rsi(c,n=14){const o=[];let g=0,l=0;for(let i=1;i<c.length;i++){const d=c[i]-c[i-1];if(i<=n){g+=Math.max(d,0);l+=Math.max(-d,0);if(i===n){o[i]=100-100/(1+(g/n)/((l/n)||1e-9))}}else{g=(g*(n-1)+Math.max(d,0))/n;l=(l*(n-1)+Math.max(-d,0))/n;o[i]=100-100/(1+g/(l||1e-9))}}return o}
+function macd(c){const f=ema(c,12),s=ema(c,26),m=f.map((v,i)=>v-s[i]),sig=ema(m,9);return{m,sig,h:m.map((v,i)=>v-sig[i])}}
+function atr(b,n=14){const tr=b.map((x,i)=>i?Math.max(x.h-x.l,Math.abs(x.h-b[i-1].c),Math.abs(x.l-b[i-1].c)):x.h-x.l);return sma(tr,n)}
+function swingLows(b,k=5){const r=[];for(let i=k;i<b.length-k;i++){let ok=true;for(let j=1;j<=k;j++)if(b[i-j].l<=b[i].l||b[i+j].l<=b[i].l){ok=false;break}if(ok)r.push(i)}return r}
+function candle(b){for(let i=b.length-1;i>=b.length-10;i--){const x=b[i],p=b[i-1];
+  if(x.c>x.o&&p.c<p.o&&x.c>p.o&&x.o<p.c)return{name:'Bullish engulfing',d:x.d};
+  const body=Math.abs(x.c-x.o),lw=Math.min(x.o,x.c)-x.l,uw=x.h-Math.max(x.o,x.c);
+  if(lw>2*body&&uw<body&&x.c>=x.o)return{name:'Hammer',d:x.d}}return null}
+
+/* ============== TECHNICAL SCORE ============== */
+function techScore(b){
+  const c=b.map(x=>x.c),n=c.length-1,last=b[n];
+  const s20=sma(c,20),s50=sma(c,50),s200=sma(c,200),s20p=sma(c,20,n-5),s50p=sma(c,50,n-5);
+  const R=rsi(c),r=R[n],r10=R[n-10]||r,M=macd(c),mh=M.h[n],mhp=M.h[n-3];
+  const hi20=Math.max(...b.slice(n-20,n).map(x=>x.h)),hi50=Math.max(...b.slice(n-50,n).map(x=>x.h)),hi252=Math.max(...b.slice(Math.max(0,n-251)).map(x=>x.h)),lo252=Math.min(...b.slice(Math.max(0,n-251)).map(x=>x.l));
+  const rng20=Math.max(...b.slice(n-19).map(x=>x.h))-Math.min(...b.slice(n-19).map(x=>x.l)),rng40=Math.max(...b.slice(n-59,n-19).map(x=>x.h))-Math.min(...b.slice(n-59,n-19).map(x=>x.l));
+  const vAvg=sma(b.map(x=>x.v),20,n-1),vRatio=last.v/vAvg,A=atr(b),cdl=candle(b),sl=swingLows(b);
+  const hl=sl.length>=2&&b[sl[sl.length-1]].l>b[sl[sl.length-2]].l;
+  const pctFromLow=(last.c/lo252-1)*100,pctFromHigh=(1-last.c/hi252)*100;
+  // Reversal track
+  const rev=[];let rs=0;
+  if(last.c>s50&&b[n-15].c<s50p){rs+=20;rev.push('Reclaimed 50-DMA in last 15 sessions')}
+  if(s20>s50&&s20p<=s50p){rs+=20;rev.push('20-DMA crossed above 50-DMA')}
+  if(r>50&&r10<40){rs+=20;rev.push(`RSI recovered ${r10.toFixed(0)} → ${r.toFixed(0)}`)}
+  if(mh>0&&mhp<=0){rs+=15;rev.push('MACD histogram turned positive')}
+  if(hl){rs+=15;rev.push('Higher swing low formed')}
+  if(cdl){rs+=10;rev.push(`${cdl.name} on ${cdl.d}`)}
+  if(pctFromHigh<25&&pctFromLow>10&&last.c>s50&&rs<30){rs+=10;rev.push('Early uptrend after drawdown')}
+  // Breakout track
+  const brk=[];let bs=0;
+  if(last.c>hi50){bs+=25;brk.push('Closed above 50-day high')}else if(last.c>hi20){bs+=12;brk.push('Closed above 20-day high')}
+  if(rng20<0.6*rng40){bs+=20;brk.push(`Range contraction (${(rng20/rng40*100).toFixed(0)}% of prior)`)}
+  if(vRatio>=1.5){bs+=20;brk.push(`Volume ${vRatio.toFixed(1)}× 20-day avg`)}
+  if(pctFromHigh<10){bs+=15;brk.push(`Within ${pctFromHigh.toFixed(1)}% of 52-wk high`)}
+  if(s50>s200){bs+=10;brk.push('50-DMA above 200-DMA')}
+  if(r>55&&r<75){bs+=10;brk.push(`RSI ${r.toFixed(0)} — strong, not stretched`)}
+  const type=bs>rs?'Breakout / continuation':'Reversal from downtrend',score=Math.min(100,Math.max(bs,rs)),signals=bs>rs?brk:rev;
+  return{score,type,signals,ind:{date:last.d,close:last.c,s20,s50,s200,rsi:r,macdH:mh,atr:A,hi52:hi252,lo52:lo252,vRatio,pctFromHigh},closes:c};
+}
+/* ============== FUNDAMENTAL SCORE ============== */
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function fundScore(raw){
+  const s={...raw};const nul=['revG3y','epsG','opm','opmPrev','roe','de','fcf','pat','pe','peg'];const dflt={revG3y:10,epsG:10,opm:15,opmPrev:15,roe:14,de:0.5,fcf:0,pat:1,pe:35,peg:2.5};
+  s.stale=false;for(const k of nul)if(s[k]==null||Number.isNaN(s[k])){s[k]=dflt[k];s.stale=true}raw.stale=s.stale;s.moat=s.moat??2;
+  const p=[];const add=(pts,why)=>{p.push({pts,why})};
+  add(clamp(s.revG3y/25,0,1)*15,`Revenue 3y CAGR ${s.revG3y}%`);
+  add(clamp(s.epsG/25,0,1)*15,`EPS growth ${s.epsG}% (TTM)`);
+  add(clamp((s.opm-8)/20,0,1)*10,`Operating margin ${s.opm}%`);
+  add(s.opm>=s.opmPrev?5:0,s.opm>=s.opmPrev?`Margin improving (${s.opmPrev}→${s.opm}%)`:`Margin slipping (${s.opmPrev}→${s.opm}%)`);
+  add(clamp((s.roe-8)/22,0,1)*15,`ROE ${s.roe}%`);
+  const fin=s.sector==='Financials';
+  add(fin?8:clamp(1-s.de/1.5,0,1)*10,fin?'Leverage judged on NIM/NPA, not D/E':`Debt/equity ${s.de}`);
+  add(fin?5:(s.fcf>0?(s.fcf/s.pat>0.6?10:6):0),fin?'FCF not meaningful for lenders':(s.fcf>0?`FCF ₹${s.fcf} Cr (${(s.fcf/s.pat*100).toFixed(0)}% of PAT)`:'Negative free cash flow'));
+  const sp=SECTOR_PE[s.sector]||35,rel=s.pe/sp;
+  add(clamp(1.6-rel,0,1)*10,`P/E ${s.pe} vs sector ~${sp} (${rel.toFixed(2)}×)`);
+  add(s.peg>0?clamp((3-s.peg)/2,0,1)*5:0,s.peg>0?`PEG ${s.peg}`:'PEG n/a (earnings fell)');
+  add(s.moat,`Moat/leadership ${s.moat}/5${s.leader?' · market leader':''}`);
+  return{score:Math.round(p.reduce((a,x)=>a+x.pts,0)),parts:p};
+}
+/* ============== UI ============== */
+const $=id=>document.getElementById(id);
+let state={risk:'moderate',src:'repo',sectors:new Set(),results:[]};
+let meta={fetched:null};
+function buildSectors(){const box=$('sectors');box.innerHTML='';[...new Set(UNIVERSE.map(s=>s.sector))].sort().forEach(sec=>{const c=document.createElement('span');c.className='chip';c.textContent=sec;c.onclick=()=>{c.classList.toggle('on');state.sectors.has(sec)?state.sectors.delete(sec):state.sectors.add(sec)};box.appendChild(c)})}
+buildSectors();
+(async()=>{try{const j=await(await fetch(FUNDAMENTALS_URL,{cache:'no-store'})).json();UNIVERSE=j.stocks||j;meta.fetched=j.fetched||null;buildSectors();const age=meta.fetched?(Date.now()-new Date(meta.fetched))/864e5:null;$('status').textContent=`Loaded ${UNIVERSE.length} stocks (${j.universe||'custom'}, pre-filtered by price). Data refreshed ${meta.fetched?new Date(meta.fetched).toLocaleString('en-IN'):'(unknown)'}`+(age>4?'\nWARNING: data is over 4 days old — check the Refresh Conviction data workflow in GitHub Actions.':'')}catch(e){$('status').textContent='fundamentals.json not found. Run update_data.py and commit fundamentals.json + prices.json next to this page, or paste fundamentals below.'}})();
+$('risk').onclick=e=>{if(e.target.dataset.v){state.risk=e.target.dataset.v;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));$('riskHint').textContent=RISK[state.risk].label}};$('riskHint').textContent=RISK.moderate.label;
+$('src').onclick=e=>{if(e.target.dataset.v){state.src=e.target.dataset.v;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));$('proxyRow').style.display=state.src==='live'?'':'none'}};
+$('weight').oninput=e=>{$('wT').textContent=e.target.value;$('wF').textContent=100-e.target.value};
+$('load').onclick=()=>{try{const a=JSON.parse($('paste').value);if(!Array.isArray(a))throw 0;UNIVERSE=a;meta.fetched=null;state.sectors.clear();buildSectors();$('status').textContent=`Loaded ${a.length} stocks from pasted JSON.`}catch{ $('status').textContent='Could not parse JSON — expected an array of stock objects.'}};
+
+const fmt=(v,d=1)=>v==null?'—':(+v).toFixed(d);
+const cls=(v,good,bad,inv)=>inv?(v<=good?'good':v>=bad?'bad':'mid'):(v>=good?'good':v<=bad?'bad':'mid');
+function spark(c,s50){const n=120,a=c.slice(-n),mn=Math.min(...a),mx=Math.max(...a),w=140,h=40,pt=a.map((v,i)=>`${(i/(n-1)*w).toFixed(1)},${(h-(v-mn)/(mx-mn||1)*h).toFixed(1)}`).join(' ');return`<svg viewBox="0 0 ${w} ${h}"><polyline fill="none" stroke="#2ED3B7" stroke-width="1.5" points="${pt}"/><line x1="0" x2="${w}" y1="${(h-(s50-mn)/(mx-mn||1)*h).toFixed(1)}" y2="${(h-(s50-mn)/(mx-mn||1)*h).toFixed(1)}" stroke="#8C9BB0" stroke-dasharray="3 3"/></svg>`}
+
+async function run(){
+  const btn=$('run');btn.disabled=true;const minCap=+$('minCap').value||0,maxPE=+$('maxPE').value,w=+$('weight').value/100,R=RISK[state.risk],proxy=$('proxy').value;
+  if(!UNIVERSE.length){$('status').textContent='No fundamentals loaded — nothing to screen.';btn.disabled=false;return}
+  let priceStore=null;if(state.src==='repo'){try{priceStore=await(await fetch(PRICES_URL,{cache:'no-store'})).json()}catch(e){$('status').textContent='prices.json not reachable — switch to Yahoo live or run update_data.py.';btn.disabled=false;return}}
+  const rows=[],skipped=[];let i=0;
+  for(const s of UNIVERSE){i++;$('status').textContent=`Scanning ${i}/${UNIVERSE.length} · ${s.ticker}`;
+    if(s.mcap<minCap*R.capMult){skipped.push(s.ticker+' (mcap)');continue}
+    if(state.sectors.size&&!state.sectors.has(s.sector))continue;
+    if(maxPE>0&&s.pe>maxPE){skipped.push(s.ticker+' (P/E)');continue}
+    if(s.sector!=='Financials'&&s.de>R.maxDE){skipped.push(s.ticker+' (D/E)');continue}
+    if(s.roe<R.minROE){skipped.push(s.ticker+' (ROE)');continue}
+    let bars;try{
+      if(priceStore&&priceStore[s.ticker])bars=priceStore[s.ticker].map(b=>({d:b[0],o:b[1],h:b[2],l:b[3],c:b[4],v:b[5]}));
+      else if(state.src==='live')bars=await liveSeries(s.ticker,proxy);else{skipped.push(s.ticker+' (no prices in prices.json)');continue}
+    }catch(e){skipped.push(s.ticker+' (price fetch failed: '+e.message+')');continue}
+    if(bars.length<210){skipped.push(s.ticker+' (too few bars)');continue}
+    const T=techScore(bars),F=fundScore(s),comp=Math.round(T.score*w+F.score*(1-w));
+    if(T.score<25){skipped.push(s.ticker+' (no signal)');continue}
+    if(comp<R.minComp){skipped.push(s.ticker+` (composite ${comp})`);continue}
+    rows.push({s,T,F,comp});
+  }
+  rows.sort((a,b)=>b.comp-a.comp);state.results=rows.slice(0,+$('topN').value);
+  render(R,w);$('status').textContent=`${rows.length} passed, ${skipped.length} filtered.\n`+skipped.join(', ');btn.disabled=false;
+}
+
+function render(R,w){
+  $('meta').textContent=`${state.results.length} ideas · ${state.risk} · T ${Math.round(w*100)}% / F ${Math.round((1-w)*100)}% · ${new Date().toLocaleDateString('en-IN')}`;
+  if(!state.results.length){$('out').innerHTML='<div class="empty">No stock cleared the gates. Loosen risk tolerance, lower min market cap, or raise the P/E ceiling.</div>';return}
+  $('out').innerHTML=state.results.map((r,i)=>{const {s,T,F,comp}=r,I=T.ind,atrPct=I.atr/I.close*100;
+    const entLo=Math.max(I.s20||0,I.close-1.5*I.atr),entHi=I.close+0.5*I.atr,stop=I.close-3*I.atr,target=I.close*(1+clamp(s.epsG,8,30)/100*3);
+    const risks=[];if(s.pe>(SECTOR_PE[s.sector]||35)*1.3)risks.push('Valuation is rich vs sector — multiple compression risk if growth slows');if(s.opm<s.opmPrev)risks.push('Margins slipped YoY — watch next quarter');if(s.epsG<10)risks.push('Earnings growth is modest; thesis depends on re-acceleration');if(s.sector==='Financials')risks.push('Lender: credit cycle and NPA risk dominate');if(atrPct>3)risks.push(`High volatility (ATR ${atrPct.toFixed(1)}%/day) — size down`);if(I.pctFromHigh<3)risks.push('At highs — failed-breakout risk on weak markets');risks.push('Market regime risk: broad corrections override stock-level signals');risks.push(`Fundamentals as of ${s.asOf}${s.fetched?' (fetched '+s.fetched.slice(0,10)+')':''} · price ${I.date}`);if(s.stale)risks.push('Some fundamentals missing from Yahoo — scored with neutral values; verify on Screener.in');
+    const tagCls=T.type.startsWith('Break')?'brk':'rev';
+    return`<details class="card"><summary><span class="rank">${i+1}</span><div><div class="tk">${s.ticker}<small>${s.name}</small></div><div class="tags"><span class="tag ${tagCls}">${T.type}</span><span class="tag">${s.sector}</span><span class="tag">₹${(s.mcap/1000).toFixed(0)}k Cr</span>${s.pe>(SECTOR_PE[s.sector]||35)*1.3?'<span class="tag warn">rich P/E</span>':''}</div></div><div class="spark">${spark(T.closes,I.s50)}</div><div class="score"><b>${comp}</b><div>T ${T.score} · F ${F.score}</div></div></summary>
+    <div class="body"><div>
+      <h4>Why it qualifies — technical</h4><div class="bar"><i style="width:${T.score}%"></i></div><ul>${T.signals.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <h4>Indicators · ${I.date}</h4><table>
+        <tr><td>Close</td><td>₹${fmt(I.close,0)}</td></tr><tr><td>20 / 50 / 200 DMA</td><td>${fmt(I.s20,0)} / ${fmt(I.s50,0)} / ${fmt(I.s200,0)}</td></tr>
+        <tr><td>RSI (14)</td><td class="${cls(I.rsi,55,40)}">${fmt(I.rsi,0)}</td></tr><tr><td>MACD histogram</td><td class="${I.macdH>0?'good':'bad'}">${fmt(I.macdH,2)}</td></tr>
+        <tr><td>ATR (14)</td><td>₹${fmt(I.atr,1)} (${fmt(atrPct)}%)</td></tr><tr><td>Volume vs 20-d avg</td><td class="${cls(I.vRatio,1.5,0.7)}">${fmt(I.vRatio)}×</td></tr>
+        <tr><td>52-wk range</td><td>₹${fmt(I.lo52,0)} – ₹${fmt(I.hi52,0)}</td></tr></table>
+      <h4>Entry idea (long-term)</h4><div class="entry">Accumulate <b>₹${fmt(entLo,0)}–₹${fmt(entHi,0)}</b> (20-DMA to +0.5 ATR). Thesis invalid below <b>₹${fmt(stop,0)}</b> (3 ATR). Indicative 3-yr value zone <b>₹${fmt(target,0)}</b> if EPS compounds ~${clamp(s.epsG,8,30)}%. Stagger entries; this is discretionary, not a target price.</div>
+    </div><div>
+      <h4>Why it qualifies — fundamental</h4><div class="bar"><i style="width:${F.score}%"></i></div><ul>${F.parts.filter(p=>p.pts>=4).map(p=>`<li>${p.why}</li>`).join('')}</ul>
+      <h4>Key metrics · ${s.asOf}</h4><table>
+        <tr><td>Revenue 3y CAGR</td><td class="${cls(s.revG3y,15,8)}">${s.revG3y}%</td></tr><tr><td>EPS growth (TTM)</td><td class="${cls(s.epsG,15,5)}">${s.epsG}%</td></tr>
+        <tr><td>Operating margin</td><td class="${cls(s.opm,18,10)}">${s.opm}% <span style="color:var(--muted)">(prev ${s.opmPrev}%)</span></td></tr><tr><td>ROE</td><td class="${cls(s.roe,18,12)}">${s.roe}%</td></tr>
+        <tr><td>Debt / equity</td><td class="${cls(s.de,0.3,1,true)}">${s.de}</td></tr><tr><td>FCF (TTM)</td><td class="${s.fcf>0?'good':'bad'}">₹${s.fcf} Cr</td></tr>
+        <tr><td>P/E · PEG</td><td class="${cls(s.pe,25,60,true)}">${s.pe} · ${s.peg>0?s.peg:'n/a'}</td></tr></table>
+      <h4>Risks & caveats</h4><ul>${risks.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div></div></details>`}).join('');
+}
+function download(name,text,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click()}
+$('csv').onclick=()=>{if(!state.results.length)return;const h=['rank','ticker','name','sector','composite','tech','fund','signal','close','rsi','mcap_cr','pe','roe','de','revG3y','epsG','opm','fcf','asOf','signals'];
+  const lines=[h.join(',')].concat(state.results.map((r,i)=>[i+1,r.s.ticker,`"${r.s.name}"`,r.s.sector,r.comp,r.T.score,r.F.score,`"${r.T.type}"`,r.T.ind.close.toFixed(2),r.T.ind.rsi.toFixed(1),r.s.mcap,r.s.pe,r.s.roe,r.s.de,r.s.revG3y,r.s.epsG,r.s.opm,r.s.fcf,r.s.asOf,`"${r.T.signals.join('; ')}"`].join(',')));
+  download('conviction-ideas.csv',lines.join('\n'),'text/csv')};
+$('json').onclick=()=>{if(!state.results.length)return;download('conviction-ideas.json',JSON.stringify(state.results.map((r,i)=>({rank:i+1,ticker:r.s.ticker,name:r.s.name,sector:r.s.sector,composite:r.comp,technical:{score:r.T.score,type:r.T.type,signals:r.T.signals,indicators:r.T.ind},fundamental:{score:r.F.score,metrics:r.s,breakdown:r.F.parts},generated:new Date().toISOString()})),null,2),'application/json')};
+$('run').onclick=run;
+</script>
+</body>
+</html>

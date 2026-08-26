@@ -1,12 +1,12 @@
 {
- "run": "2026-08-25T14:11:28+00:00",
+ "run": "2026-08-26T14:09:55+00:00",
  "notes": [
   "universe: Nifty 500 from NSE (500)",
   "prices: bootstrapping 136 symbols from Yahoo (10y)",
-  "prices: appended 0 bhavcopy sessions after 2026-08-25",
-  "fundamentals: 266 of 500 passed the price pre-filter"
+  "prices: appended 0 bhavcopy sessions after 2026-08-26",
+  "fundamentals: 259 of 500 passed the price pre-filter"
  ],
- "fundamentals": 266,
+ "fundamentals": 259,
  "failed": [],
  "prices": 500
 }

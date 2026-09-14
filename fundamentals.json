@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-11T17:03:40+00:00",
+ "fetched": "2026-09-14T18:45:34+00:00",
  "source": "NSE bhavcopy (prices) + Yahoo Finance via yfinance (fundamentals)",
  "universe": "Nifty 500",
  "failed": [],
@@ -1290,7 +1290,7 @@
    "ticker": "CONCOR",
    "name": "Container Corporation of India Limited",
    "sector": "Services",
-   "mcap": 38378,
+   "mcap": 38024,
    "revG3y": 4.1,
    "epsG": -3.7,
    "opm": 27.9,
@@ -1299,12 +1299,12 @@
    "de": 0.07,
    "fcf": 333,
    "pat": 1242,
-   "pe": 30.9,
+   "pe": 30.6,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:13+00:00"
+   "fetched": "2026-09-14T18:45:52+00:00"
   },
   {
    "v": 2,
@@ -1626,7 +1626,7 @@
    "ticker": "ESCORTS",
    "name": "Escorts Kubota Limited",
    "sector": "Capital Goods",
-   "mcap": 32539,
+   "mcap": 31853,
    "revG3y": 11.3,
    "epsG": 89.2,
    "opm": 18.2,
@@ -1635,12 +1635,12 @@
    "de": 0.01,
    "fcf": 1064,
    "pat": 2394,
-   "pe": 23.5,
+   "pe": 23.1,
    "peg": 0.26,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:14+00:00"
+   "fetched": "2026-09-14T18:45:53+00:00"
   },
   {
    "v": 2,
@@ -3201,7 +3201,7 @@
    "ticker": "MINDACORP",
    "name": "Minda Corporation Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 16371,
+   "mcap": 16640,
    "revG3y": 12.8,
    "epsG": 41.1,
    "opm": 12.0,
@@ -3210,12 +3210,12 @@
    "de": 0.56,
    "fcf": 281,
    "pat": 360,
-   "pe": 33.2,
-   "peg": 0.81,
+   "pe": 33.7,
+   "peg": 0.82,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:15+00:00"
+   "fetched": "2026-09-14T18:45:54+00:00"
   },
   {
    "v": 2,
@@ -3789,7 +3789,7 @@
    "ticker": "PIRAMALFIN",
    "name": "Piramal Finance Limited",
    "sector": "Financial Services",
-   "mcap": 53392,
+   "mcap": 53275,
    "revG3y": 16.9,
    "epsG": 206.8,
    "opm": 22.6,
@@ -3798,12 +3798,12 @@
    "de": 2.84,
    "fcf": -16009,
    "pat": 1504,
-   "pe": 30.3,
+   "pe": 30.2,
    "peg": 0.15,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:16+00:00"
+   "fetched": "2026-09-14T18:45:56+00:00"
   },
   {
    "v": 2,
@@ -4146,7 +4146,7 @@
    "ticker": "SCI",
    "name": "The Shipping Corporation of India Limited",
    "sector": "Services",
-   "mcap": 13683,
+   "mcap": 13087,
    "revG3y": -0.1,
    "epsG": 60.4,
    "opm": 46.0,
@@ -4155,12 +4155,12 @@
    "de": 0.29,
    "fcf": -207,
    "pat": 1353,
-   "pe": 8.5,
-   "peg": 0.14,
+   "pe": 8.1,
+   "peg": 0.13,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:18+00:00"
+   "fetched": "2026-09-14T18:45:57+00:00"
   },
   {
    "v": 2,
@@ -4272,7 +4272,7 @@
    "ticker": "STARHEALTH",
    "name": "Star Health and Allied Insurance Company Limited",
    "sector": "Financial Services",
-   "mcap": 33301,
+   "mcap": 33124,
    "revG3y": 14.0,
    "epsG": -12.8,
    "opm": null,
@@ -4281,12 +4281,12 @@
    "de": 0.06,
    "fcf": 1795,
    "pat": 557,
-   "pe": 49.8,
+   "pe": 49.5,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:19+00:00"
+   "fetched": "2026-09-14T18:45:58+00:00"
   },
   {
    "v": 2,
@@ -4881,7 +4881,7 @@
    "ticker": "WIPRO",
    "name": "Wipro Limited",
    "sector": "Information Technology",
-   "mcap": 170947,
+   "mcap": 165609,
    "revG3y": 0.8,
    "epsG": 0.3,
    "opm": 22.7,
@@ -4890,12 +4890,12 @@
    "de": 0.23,
    "fcf": 13371,
    "pat": 13197,
-   "pe": 13.7,
-   "peg": 45.75,
+   "pe": 13.3,
+   "peg": 44.32,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-07T18:18:20+00:00"
+   "fetched": "2026-09-14T18:45:59+00:00"
   },
   {
    "v": 2,

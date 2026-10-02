@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-01T18:56:59+00:00",
+ "fetched": "2026-10-02T18:33:42+00:00",
  "source": "NSE bhavcopy (prices) + Yahoo Finance via yfinance (fundamentals)",
  "universe": "Nifty 500",
  "failed": [],
@@ -198,7 +198,7 @@
    "ticker": "ABDL",
    "name": "Allied Blenders and Distillers Limited",
    "sector": "Fast Moving Consumer Goods",
-   "mcap": 20001,
+   "mcap": 19020,
    "revG3y": 7.4,
    "epsG": 13.6,
    "opm": 15.2,
@@ -207,12 +207,12 @@
    "de": 0.69,
    "fcf": 13,
    "pat": 228,
-   "pe": 90.7,
-   "peg": 6.67,
+   "pe": 91.0,
+   "peg": 6.69,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-25T18:00:23+00:00"
+   "fetched": "2026-10-02T18:34:02+00:00"
   },
   {
    "v": 2,
@@ -345,7 +345,7 @@
    "ticker": "BELRISE",
    "name": "Belrise Industries Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 23978,
+   "mcap": 22844,
    "revG3y": 13.5,
    "epsG": 45.7,
    "opm": 13.3,
@@ -354,12 +354,12 @@
    "de": 0.29,
    "fcf": 258,
    "pat": 497,
-   "pe": 43.5,
-   "peg": 0.95,
+   "pe": 41.4,
+   "peg": 0.91,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-25T18:00:24+00:00"
+   "fetched": "2026-10-02T18:34:03+00:00"
   },
   {
    "v": 2,
@@ -471,7 +471,7 @@
    "ticker": "CGCL",
    "name": "Capri Global Capital Limited",
    "sector": "Financial Services",
-   "mcap": 24410,
+   "mcap": 24056,
    "revG3y": 49.7,
    "epsG": 75.4,
    "opm": 29.8,
@@ -480,12 +480,12 @@
    "de": 3.35,
    "fcf": -8787,
    "pat": 949,
-   "pe": 21.6,
-   "peg": 0.29,
+   "pe": 21.3,
+   "peg": 0.28,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-25T18:00:26+00:00"
+   "fetched": "2026-10-02T18:34:04+00:00"
   },
   {
    "v": 2,
@@ -2235,7 +2235,7 @@
    "ticker": "WOCKPHARMA",
    "name": "Wockhardt Limited",
    "sector": "Healthcare",
-   "mcap": 36814,
+   "mcap": 33753,
    "revG3y": 7.8,
    "epsG": null,
    "opm": 20.3,
@@ -2244,12 +2244,12 @@
    "de": 0.45,
    "fcf": 26,
    "pat": 213,
-   "pe": 84.6,
+   "pe": 82.4,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-09-25T18:00:37+00:00"
+   "fetched": "2026-10-02T18:34:05+00:00"
   },
   {
    "v": 2,

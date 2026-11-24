@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-24T01:03:14+00:00",
+ "fetched": "2026-11-24T23:08:28+00:00",
  "source": "NSE bhavcopy (prices) + Yahoo Finance via yfinance (fundamentals)",
  "universe": "Nifty 500",
  "failed": [],
@@ -72,7 +72,7 @@
    "ticker": "ACUTAAS",
    "name": "Acutaas Chemicals Limited",
    "sector": "Healthcare",
-   "mcap": 32281,
+   "mcap": 31725,
    "revG3y": 29.4,
    "epsG": 118.9,
    "opm": 39.2,
@@ -81,19 +81,19 @@
    "de": 0.02,
    "fcf": -36,
    "pat": 356,
-   "pe": 73.8,
-   "peg": 0.62,
+   "pe": 72.5,
+   "peg": 0.61,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:11+00:00"
+   "fetched": "2026-11-24T23:08:39+00:00"
   },
   {
    "v": 2,
    "ticker": "ADANIENSOL",
    "name": "Adani Energy Solutions Limited",
    "sector": "Power",
-   "mcap": 182673,
+   "mcap": 179774,
    "revG3y": 27.7,
    "epsG": 109.9,
    "opm": 31.3,
@@ -102,12 +102,12 @@
    "de": 1.93,
    "fcf": -3435,
    "pat": 2283,
-   "pe": 48.4,
-   "peg": 0.44,
+   "pe": 47.6,
+   "peg": 0.43,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:13+00:00"
+   "fetched": "2026-11-24T23:08:40+00:00"
   },
   {
    "v": 2,
@@ -135,7 +135,7 @@
    "ticker": "ADANIPORTS",
    "name": "Adani Ports and Special Economic Zone Limited",
    "sector": "Services",
-   "mcap": 441669,
+   "mcap": 442130,
    "revG3y": 22.9,
    "epsG": 13.4,
    "opm": 62.3,
@@ -149,7 +149,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:14+00:00"
+   "fetched": "2026-11-24T23:08:41+00:00"
   },
   {
    "v": 2,
@@ -261,7 +261,7 @@
    "ticker": "AFFLE",
    "name": "Affle 3i Limited",
    "sector": "Information Technology",
-   "mcap": 22712,
+   "mcap": 23226,
    "revG3y": 23.6,
    "epsG": 18.9,
    "opm": 25.3,
@@ -270,19 +270,19 @@
    "de": 0.0,
    "fcf": 291,
    "pat": 455,
-   "pe": 45.1,
-   "peg": 2.39,
+   "pe": 46.1,
+   "peg": 2.44,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:16+00:00"
+   "fetched": "2026-11-24T23:08:42+00:00"
   },
   {
    "v": 2,
    "ticker": "ABDL",
    "name": "Allied Blenders and Distillers Limited",
    "sector": "Fast Moving Consumer Goods",
-   "mcap": 22143,
+   "mcap": 22457,
    "revG3y": 7.4,
    "epsG": 13.6,
    "opm": 15.2,
@@ -291,12 +291,12 @@
    "de": 0.69,
    "fcf": 13,
    "pat": 228,
-   "pe": 97.0,
-   "peg": 7.13,
+   "pe": 99.2,
+   "peg": 7.3,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:17+00:00"
+   "fetched": "2026-11-24T23:08:43+00:00"
   },
   {
    "v": 2,
@@ -345,7 +345,7 @@
    "ticker": "ANANDRATHI",
    "name": "Anand Rathi Wealth Limited",
    "sector": "Financial Services",
-   "mcap": 39440,
+   "mcap": 39118,
    "revG3y": 27.9,
    "epsG": 30.4,
    "opm": 51.0,
@@ -354,12 +354,12 @@
    "de": 0.08,
    "fcf": 268,
    "pat": 396,
-   "pe": 87.5,
-   "peg": 2.88,
+   "pe": 86.8,
+   "peg": 2.86,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:18+00:00"
+   "fetched": "2026-11-24T23:08:44+00:00"
   },
   {
    "v": 2,
@@ -408,7 +408,7 @@
    "ticker": "ANURAS",
    "name": "Anupam Rasayan India Ltd",
    "sector": "Chemicals",
-   "mcap": 15000,
+   "mcap": 14955,
    "revG3y": 14.1,
    "epsG": 77.5,
    "opm": 23.1,
@@ -417,12 +417,12 @@
    "de": 0.57,
    "fcf": -221,
    "pat": 170,
-   "pe": 72.1,
+   "pe": 72.0,
    "peg": 0.93,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:20+00:00"
+   "fetched": "2026-11-24T23:08:45+00:00"
   },
   {
    "v": 2,
@@ -471,7 +471,7 @@
    "ticker": "ASAHIINDIA",
    "name": "Asahi India Glass Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 29737,
+   "mcap": 30042,
    "revG3y": 7.0,
    "epsG": -9.5,
    "opm": 19.1,
@@ -480,12 +480,12 @@
    "de": 0.56,
    "fcf": -165,
    "pat": 345,
-   "pe": 54.2,
+   "pe": 54.8,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:21+00:00"
+   "fetched": "2026-11-24T23:08:46+00:00"
   },
   {
    "v": 2,
@@ -534,7 +534,7 @@
    "ticker": "ATHERENERG",
    "name": "Ather Energy Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 75750,
+   "mcap": 78597,
    "revG3y": 27.2,
    "epsG": null,
    "opm": -7.5,
@@ -548,7 +548,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:22+00:00"
+   "fetched": "2026-11-24T23:08:47+00:00"
   },
   {
    "v": 2,
@@ -618,7 +618,7 @@
    "ticker": "BEML",
    "name": "BEML Limited",
    "sector": "Capital Goods",
-   "mcap": 17178,
+   "mcap": 16725,
    "revG3y": 3.0,
    "epsG": -51.6,
    "opm": 7.9,
@@ -627,12 +627,12 @@
    "de": 0.24,
    "fcf": -263,
    "pat": 142,
-   "pe": 29.1,
+   "pe": 28.8,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:23+00:00"
+   "fetched": "2026-11-24T23:08:48+00:00"
   },
   {
    "v": 2,
@@ -765,7 +765,7 @@
    "ticker": "BANKBARODA",
    "name": "Bank of Baroda Limited",
    "sector": "Financial Services",
-   "mcap": 142156,
+   "mcap": 142512,
    "revG3y": 10.3,
    "epsG": -4.2,
    "opm": null,
@@ -779,7 +779,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:26+00:00"
+   "fetched": "2026-11-24T23:08:49+00:00"
   },
   {
    "v": 2,
@@ -891,7 +891,7 @@
    "ticker": "BHARTIARTL",
    "name": "Bharti Airtel Limited",
    "sector": "Telecommunication",
-   "mcap": 1334181,
+   "mcap": 1328066,
    "revG3y": 14.9,
    "epsG": -20.8,
    "opm": 54.9,
@@ -900,12 +900,12 @@
    "de": 1.31,
    "fcf": 75515,
    "pat": 26695,
-   "pe": 42.1,
+   "pe": 41.9,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:27+00:00"
+   "fetched": "2026-11-24T23:08:49+00:00"
   },
   {
    "v": 2,
@@ -933,7 +933,7 @@
    "ticker": "GROWW",
    "name": "Billionbrains Garage Ventures Limited",
    "sector": "Financial Services",
-   "mcap": 141318,
+   "mcap": 134443,
    "revG3y": null,
    "epsG": 6.6,
    "opm": 68.2,
@@ -942,12 +942,12 @@
    "de": 0.03,
    "fcf": -33,
    "pat": 2083,
-   "pe": 53.2,
-   "peg": 8.05,
+   "pe": 50.6,
+   "peg": 7.66,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:28+00:00"
+   "fetched": "2026-11-24T23:08:51+00:00"
   },
   {
    "v": 2,
@@ -975,7 +975,7 @@
    "ticker": "BOSCHLTD",
    "name": "Bosch Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": null,
+   "mcap": 143941,
    "revG3y": 10.3,
    "epsG": 37.6,
    "opm": 20.7,
@@ -984,12 +984,12 @@
    "de": 0.01,
    "fcf": 1859,
    "pat": 2773,
-   "pe": 52.5,
-   "peg": 1.4,
+   "pe": 52.2,
+   "peg": 1.39,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:29+00:00"
+   "fetched": "2026-11-24T23:08:52+00:00"
   },
   {
    "v": 2,
@@ -1458,7 +1458,7 @@
    "ticker": "DEEPAKFERT",
    "name": "Deepak Fertilisers And Petrochemicals Corporation Limited",
    "sector": "Chemicals",
-   "mcap": 18243,
+   "mcap": 17900,
    "revG3y": 2.6,
    "epsG": -21.0,
    "opm": 18.9,
@@ -1467,12 +1467,12 @@
    "de": 0.83,
    "fcf": -1364,
    "pat": 737,
-   "pe": 15.6,
+   "pe": 15.4,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:33+00:00"
+   "fetched": "2026-11-24T23:08:52+00:00"
   },
   {
    "v": 2,
@@ -1563,7 +1563,7 @@
    "ticker": "DRREDDY",
    "name": "Dr. Reddy's Laboratories Limited",
    "sector": "Healthcare",
-   "mcap": 115713,
+   "mcap": 115054,
    "revG3y": 11.0,
    "epsG": -24.1,
    "opm": 23.6,
@@ -1572,12 +1572,12 @@
    "de": 0.21,
    "fcf": 1833,
    "pat": 4285,
-   "pe": 41.3,
+   "pe": 41.1,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:35+00:00"
+   "fetched": "2026-11-24T23:08:53+00:00"
   },
   {
    "v": 2,
@@ -1605,7 +1605,7 @@
    "ticker": "EICHERMOT",
    "name": "Eicher Motors Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 214916,
+   "mcap": 224374,
    "revG3y": 17.5,
    "epsG": 16.5,
    "opm": 34.9,
@@ -1614,12 +1614,12 @@
    "de": 0.02,
    "fcf": 3530,
    "pat": 5515,
-   "pe": 36.0,
-   "peg": 2.18,
+   "pe": 37.6,
+   "peg": 2.28,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:36+00:00"
+   "fetched": "2026-11-24T23:08:54+00:00"
   },
   {
    "v": 2,
@@ -1668,7 +1668,7 @@
    "ticker": "EMCURE",
    "name": "Emcure Pharmaceuticals Limited",
    "sector": "Healthcare",
-   "mcap": 44381,
+   "mcap": 43821,
    "revG3y": 15.4,
    "epsG": 33.9,
    "opm": 20.0,
@@ -1677,19 +1677,19 @@
    "de": 0.31,
    "fcf": 396,
    "pat": 924,
-   "pe": 40.6,
-   "peg": 1.2,
+   "pe": 40.1,
+   "peg": 1.18,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:37+00:00"
+   "fetched": "2026-11-24T23:08:55+00:00"
   },
   {
    "v": 2,
    "ticker": "ENGINERSIN",
    "name": "Engineers India Limited",
    "sector": "Construction",
-   "mcap": 17586,
+   "mcap": 16771,
    "revG3y": 5.7,
    "epsG": 19.2,
    "opm": 23.9,
@@ -1698,19 +1698,19 @@
    "de": 0.01,
    "fcf": 250,
    "pat": 692,
-   "pe": 19.6,
-   "peg": 1.02,
+   "pe": 18.7,
+   "peg": 0.97,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:38+00:00"
+   "fetched": "2026-11-24T23:08:56+00:00"
   },
   {
    "v": 2,
    "ticker": "ETERNAL",
    "name": "Eternal Limited",
    "sector": "Consumer Services",
-   "mcap": 345525,
+   "mcap": 333595,
    "revG3y": 97.7,
    "epsG": -32.8,
    "opm": 4.8,
@@ -1719,12 +1719,12 @@
    "de": 0.15,
    "fcf": -1119,
    "pat": 366,
-   "pe": 707.6,
+   "pe": 683.2,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:39+00:00"
+   "fetched": "2026-11-24T23:08:57+00:00"
   },
   {
    "v": 2,
@@ -1815,7 +1815,7 @@
    "ticker": "GAIL",
    "name": "GAIL (India) Limited",
    "sector": "Oil Gas & Consumable Fuels",
-   "mcap": 122954,
+   "mcap": 122033,
    "revG3y": -0.9,
    "epsG": -39.1,
    "opm": 10.3,
@@ -1829,7 +1829,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:41+00:00"
+   "fetched": "2026-11-24T23:08:58+00:00"
   },
   {
    "v": 2,
@@ -1878,7 +1878,7 @@
    "ticker": "GLAND",
    "name": "Gland Pharma Limited",
    "sector": "Healthcare",
-   "mcap": 53603,
+   "mcap": 54412,
    "revG3y": 21.3,
    "epsG": 46.9,
    "opm": 30.0,
@@ -1887,12 +1887,12 @@
    "de": 0.03,
    "fcf": 537,
    "pat": 1027,
-   "pe": 43.3,
-   "peg": 0.92,
+   "pe": 44.0,
+   "peg": 0.94,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:42+00:00"
+   "fetched": "2026-11-24T23:08:59+00:00"
   },
   {
    "v": 2,
@@ -1983,7 +1983,7 @@
    "ticker": "GODREJPROP",
    "name": "Godrej Properties Limited",
    "sector": "Realty",
-   "mcap": 57004,
+   "mcap": 57926,
    "revG3y": 32.4,
    "epsG": 25.3,
    "opm": 51.9,
@@ -1992,12 +1992,12 @@
    "de": 0.83,
    "fcf": -2409,
    "pat": 1850,
-   "pe": 42.2,
-   "peg": 1.67,
+   "pe": 42.9,
+   "peg": 1.7,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:44+00:00"
+   "fetched": "2026-11-24T23:09:00+00:00"
   },
   {
    "v": 2,
@@ -2088,7 +2088,7 @@
    "ticker": "FLUOROCHEM",
    "name": "Gujarat Fluorochemicals Limited",
    "sector": "Chemicals",
-   "mcap": 52201,
+   "mcap": 53772,
    "revG3y": -4.5,
    "epsG": 5.7,
    "opm": 26.0,
@@ -2097,19 +2097,19 @@
    "de": 0.29,
    "fcf": -292,
    "pat": 577,
-   "pe": 77.3,
-   "peg": 13.56,
+   "pe": 79.6,
+   "peg": 13.97,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:46+00:00"
+   "fetched": "2026-11-24T23:09:01+00:00"
   },
   {
    "v": 2,
    "ticker": "HBLENGINE",
    "name": "HBL Engineering Limited",
    "sector": "Capital Goods",
-   "mcap": 21783,
+   "mcap": 21344,
    "revG3y": 34.2,
    "epsG": 194.3,
    "opm": 35.1,
@@ -2118,12 +2118,12 @@
    "de": 0.03,
    "fcf": 588,
    "pat": 815,
-   "pe": 37.1,
+   "pe": 36.4,
    "peg": 0.19,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:47+00:00"
+   "fetched": "2026-11-24T23:09:02+00:00"
   },
   {
    "v": 2,
@@ -2277,7 +2277,7 @@
    "ticker": "HAL",
    "name": "Hindustan Aeronautics Limited",
    "sector": "Capital Goods",
-   "mcap": 316130,
+   "mcap": 319674,
    "revG3y": 6.4,
    "epsG": 9.0,
    "opm": 42.5,
@@ -2286,12 +2286,12 @@
    "de": 0.0,
    "fcf": 8357,
    "pat": 9116,
-   "pe": 33.0,
-   "peg": 3.66,
+   "pe": 33.3,
+   "peg": 3.7,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:48+00:00"
+   "fetched": "2026-11-24T23:09:03+00:00"
   },
   {
    "v": 2,
@@ -2403,7 +2403,7 @@
    "ticker": "ICICIBANK",
    "name": "ICICI Bank Limited",
    "sector": "Financial Services",
-   "mcap": 1148526,
+   "mcap": 1139122,
    "revG3y": 18.1,
    "epsG": 5.1,
    "opm": null,
@@ -2412,12 +2412,12 @@
    "de": 0.57,
    "fcf": 63595,
    "pat": 54208,
-   "pe": 19.6,
-   "peg": 3.85,
+   "pe": 19.5,
+   "peg": 3.82,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:49+00:00"
+   "fetched": "2026-11-24T23:09:04+00:00"
   },
   {
    "v": 2,
@@ -2487,7 +2487,7 @@
    "ticker": "ITCHOTELS",
    "name": "ITC Hotels Limited",
    "sector": "Consumer Services",
-   "mcap": 37043,
+   "mcap": 38358,
    "revG3y": null,
    "epsG": 28.5,
    "opm": 37.7,
@@ -2496,19 +2496,19 @@
    "de": 0.01,
    "fcf": 700,
    "pat": 817,
-   "pe": 39.7,
-   "peg": 1.39,
+   "pe": 40.9,
+   "peg": 1.44,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:50+00:00"
+   "fetched": "2026-11-24T23:09:05+00:00"
   },
   {
    "v": 2,
    "ticker": "ITC",
    "name": "ITC Limited",
    "sector": "Fast Moving Consumer Goods",
-   "mcap": 367584,
+   "mcap": 377234,
    "revG3y": 3.6,
    "epsG": -40.5,
    "opm": 38.1,
@@ -2517,12 +2517,12 @@
    "de": 0.03,
    "fcf": 16281,
    "pat": 20689,
-   "pe": 19.5,
+   "pe": 20.0,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:51+00:00"
+   "fetched": "2026-11-24T23:09:06+00:00"
   },
   {
    "v": 2,
@@ -2592,7 +2592,7 @@
    "ticker": "IOC",
    "name": "Indian Oil Corporation Limited",
    "sector": "Oil Gas & Consumable Fuels",
-   "mcap": null,
+   "mcap": 204758,
    "revG3y": -2.2,
    "epsG": 209.7,
    "opm": 10.8,
@@ -2606,7 +2606,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:52+00:00"
+   "fetched": "2026-11-24T23:09:07+00:00"
   },
   {
    "v": 2,
@@ -2781,7 +2781,7 @@
    "ticker": "JSWCEMENT",
    "name": "JSW Cement Limited",
    "sector": "Construction Materials",
-   "mcap": 17036,
+   "mcap": 17008,
    "revG3y": 4.7,
    "epsG": null,
    "opm": -1.7,
@@ -2790,12 +2790,12 @@
    "de": 0.68,
    "fcf": -791,
    "pat": -756,
-   "pe": 22.4,
+   "pe": 22.3,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:57+00:00"
+   "fetched": "2026-11-24T23:09:08+00:00"
   },
   {
    "v": 2,
@@ -2823,7 +2823,7 @@
    "ticker": "JSWSTEEL",
    "name": "JSW Steel Limited",
    "sector": "Metals & Mining",
-   "mcap": 325259,
+   "mcap": 320350,
    "revG3y": 3.6,
    "epsG": 537.2,
    "opm": 25.9,
@@ -2832,12 +2832,12 @@
    "de": 1.19,
    "fcf": 10498,
    "pat": 22316,
-   "pe": 11.5,
+   "pe": 11.3,
    "peg": 0.02,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:50:59+00:00"
+   "fetched": "2026-11-24T23:09:08+00:00"
   },
   {
    "v": 2,
@@ -2865,7 +2865,7 @@
    "ticker": "JSL",
    "name": "Jindal Stainless Limited",
    "sector": "Metals & Mining",
-   "mcap": 60309,
+   "mcap": 59724,
    "revG3y": 6.4,
    "epsG": 27.3,
    "opm": 13.6,
@@ -2874,12 +2874,12 @@
    "de": 0.38,
    "fcf": 737,
    "pat": 3193,
-   "pe": 18.1,
+   "pe": 17.9,
    "peg": 0.66,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:01+00:00"
+   "fetched": "2026-11-24T23:09:09+00:00"
   },
   {
    "v": 2,
@@ -3117,7 +3117,7 @@
    "ticker": "LGEINDIA",
    "name": "LG Electronics India Limited",
    "sector": "Consumer Durables",
-   "mcap": 116837,
+   "mcap": 120652,
    "revG3y": null,
    "epsG": null,
    "opm": 11.2,
@@ -3126,12 +3126,12 @@
    "de": 0.06,
    "fcf": 549,
    "pat": 1685,
-   "pe": 60.7,
+   "pe": 62.7,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:03+00:00"
+   "fetched": "2026-11-24T23:09:10+00:00"
   },
   {
    "v": 2,
@@ -3159,7 +3159,7 @@
    "ticker": "LTFOODS",
    "name": "LT Foods Limited",
    "sector": "Fast Moving Consumer Goods",
-   "mcap": 14590,
+   "mcap": 14722,
    "revG3y": 16.5,
    "epsG": 3.3,
    "opm": 11.3,
@@ -3168,19 +3168,19 @@
    "de": 0.36,
    "fcf": 551,
    "pat": 625,
-   "pe": 22.2,
-   "peg": 6.73,
+   "pe": 22.4,
+   "peg": 6.79,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:04+00:00"
+   "fetched": "2026-11-24T23:09:11+00:00"
   },
   {
    "v": 2,
    "ticker": "LT",
    "name": "Larsen & Toubro Limited",
    "sector": "Construction",
-   "mcap": 571750,
+   "mcap": 564100,
    "revG3y": 16.1,
    "epsG": 7.0,
    "opm": 11.7,
@@ -3189,12 +3189,12 @@
    "de": 1.15,
    "fcf": 11932,
    "pat": 16084,
-   "pe": 32.0,
-   "peg": 4.57,
+   "pe": 31.6,
+   "peg": 4.51,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:05+00:00"
+   "fetched": "2026-11-24T23:09:12+00:00"
   },
   {
    "v": 2,
@@ -3222,7 +3222,7 @@
    "ticker": "LEMONTREE",
    "name": "Lemon Tree Hotels Limited",
    "sector": "Consumer Services",
-   "mcap": 9764,
+   "mcap": 10106,
    "revG3y": 16.3,
    "epsG": 15.7,
    "opm": 50.8,
@@ -3231,19 +3231,19 @@
    "de": 1.44,
    "fcf": 403,
    "pat": 227,
-   "pe": 37.9,
-   "peg": 2.42,
+   "pe": 39.3,
+   "peg": 2.5,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:06+00:00"
+   "fetched": "2026-11-24T23:09:13+00:00"
   },
   {
    "v": 2,
    "ticker": "LENSKART",
    "name": "Lenskart Solutions Limited",
    "sector": "Consumer Services",
-   "mcap": 128039,
+   "mcap": 123786,
    "revG3y": null,
    "epsG": 68.9,
    "opm": 21.7,
@@ -3252,19 +3252,19 @@
    "de": 0.35,
    "fcf": 841,
    "pat": 494,
-   "pe": 163.9,
-   "peg": 2.38,
+   "pe": 158.4,
+   "peg": 2.3,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:08+00:00"
+   "fetched": "2026-11-24T23:09:14+00:00"
   },
   {
    "v": 2,
    "ticker": "LICI",
    "name": "Life Insurance Corporation of India",
    "sector": "Financial Services",
-   "mcap": 503090,
+   "mcap": 257617,
    "revG3y": 7.3,
    "epsG": 18.9,
    "opm": null,
@@ -3273,12 +3273,12 @@
    "de": null,
    "fcf": -27327,
    "pat": 57453,
-   "pe": 8.1,
-   "peg": 0.43,
+   "pe": 8.3,
+   "peg": 0.44,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:09+00:00"
+   "fetched": "2026-11-24T23:09:15+00:00"
   },
   {
    "v": 2,
@@ -3369,7 +3369,7 @@
    "ticker": "MRPL",
    "name": "Mangalore Refinery and Petrochemicals Limited",
    "sector": "Oil Gas & Consumable Fuels",
-   "mcap": 30537,
+   "mcap": 30734,
    "revG3y": -6.7,
    "epsG": 3331.2,
    "opm": 7.2,
@@ -3378,19 +3378,19 @@
    "de": 1.08,
    "fcf": 1119,
    "pat": 1925,
-   "pe": 6.9,
+   "pe": 7.0,
    "peg": 0.0,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:10+00:00"
+   "fetched": "2026-11-24T23:09:16+00:00"
   },
   {
    "v": 2,
    "ticker": "MANKIND",
    "name": "Mankind Pharma Limited",
    "sector": "Healthcare",
-   "mcap": 107805,
+   "mcap": 108025,
    "revG3y": 17.7,
    "epsG": -5.9,
    "opm": 27.0,
@@ -3399,19 +3399,19 @@
    "de": 0.39,
    "fcf": 2384,
    "pat": 1913,
-   "pe": 47.9,
+   "pe": 48.2,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:11+00:00"
+   "fetched": "2026-11-24T23:09:17+00:00"
   },
   {
    "v": 2,
    "ticker": "MARICO",
    "name": "Marico Limited",
    "sector": "Fast Moving Consumer Goods",
-   "mcap": 119939,
+   "mcap": 119355,
    "revG3y": 11.8,
    "epsG": 8.2,
    "opm": 18.6,
@@ -3420,12 +3420,12 @@
    "de": 0.13,
    "fcf": 1765,
    "pat": 1762,
-   "pe": 59.4,
-   "peg": 7.24,
+   "pe": 59.1,
+   "peg": 7.21,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:12+00:00"
+   "fetched": "2026-11-24T23:09:18+00:00"
   },
   {
    "v": 2,
@@ -3495,7 +3495,7 @@
    "ticker": "MEESHO",
    "name": "Meesho Limited",
    "sector": "Consumer Services",
-   "mcap": 116998,
+   "mcap": 117234,
    "revG3y": 30.1,
    "epsG": null,
    "opm": -9.1,
@@ -3509,7 +3509,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:13+00:00"
+   "fetched": "2026-11-24T23:09:19+00:00"
   },
   {
    "v": 2,
@@ -3537,7 +3537,7 @@
    "ticker": "MSUMI",
    "name": "Motherson Sumi Wiring India Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 26295,
+   "mcap": 27621,
    "revG3y": 17.6,
    "epsG": 3.3,
    "opm": 9.3,
@@ -3546,19 +3546,19 @@
    "de": 0.11,
    "fcf": 560,
    "pat": 625,
-   "pe": 38.1,
-   "peg": 11.55,
+   "pe": 40.0,
+   "peg": 12.14,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:14+00:00"
+   "fetched": "2026-11-24T23:09:20+00:00"
   },
   {
    "v": 2,
    "ticker": "MOTILALOFS",
    "name": "Motilal Oswal Financial Services Limited",
    "sector": "Financial Services",
-   "mcap": 74784,
+   "mcap": 74468,
    "revG3y": 29.1,
    "epsG": -25.7,
    "opm": 47.1,
@@ -3572,7 +3572,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:16+00:00"
+   "fetched": "2026-11-24T23:09:21+00:00"
   },
   {
    "v": 2,
@@ -3663,7 +3663,7 @@
    "ticker": "NAVINFLUOR",
    "name": "Navin Fluorine International Limited",
    "sector": "Chemicals",
-   "mcap": 50382,
+   "mcap": 52122,
    "revG3y": 16.5,
    "epsG": 124.4,
    "opm": 35.0,
@@ -3672,19 +3672,19 @@
    "de": 0.32,
    "fcf": 404,
    "pat": 664,
-   "pe": 55.3,
-   "peg": 0.44,
+   "pe": 57.3,
+   "peg": 0.46,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:18+00:00"
+   "fetched": "2026-11-24T23:09:21+00:00"
   },
   {
    "v": 2,
    "ticker": "NUVOCO",
    "name": "Nuvoco Vistas Corporation Limited",
    "sector": "Construction Materials",
-   "mcap": 12342,
+   "mcap": 12720,
    "revG3y": 2.7,
    "epsG": 1550.8,
    "opm": 16.3,
@@ -3693,19 +3693,19 @@
    "de": 0.53,
    "fcf": 775,
    "pat": 359,
-   "pe": 29.8,
+   "pe": 30.7,
    "peg": 0.02,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:19+00:00"
+   "fetched": "2026-11-24T23:09:22+00:00"
   },
   {
    "v": 2,
    "ticker": "OBEROIRLTY",
    "name": "Oberoi Realty Limited",
    "sector": "Realty",
-   "mcap": 66165,
+   "mcap": 67630,
    "revG3y": 12.9,
    "epsG": 12.7,
    "opm": 60.6,
@@ -3714,19 +3714,19 @@
    "de": 0.16,
    "fcf": 743,
    "pat": 2507,
-   "pe": 25.2,
-   "peg": 1.98,
+   "pe": 25.7,
+   "peg": 2.02,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:20+00:00"
+   "fetched": "2026-11-24T23:09:23+00:00"
   },
   {
    "v": 2,
    "ticker": "ONESOURCE",
    "name": "OneSource Specialty Pharma Limited",
    "sector": "Healthcare",
-   "mcap": 18128,
+   "mcap": 18369,
    "revG3y": 232.4,
    "epsG": null,
    "opm": 21.0,
@@ -3740,7 +3740,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:22+00:00"
+   "fetched": "2026-11-24T23:09:24+00:00"
   },
   {
    "v": 2,
@@ -3978,7 +3978,7 @@
    "ticker": "POONAWALLA",
    "name": "Poonawalla Fincorp Limited",
    "sector": "Financial Services",
-   "mcap": 43208,
+   "mcap": 45564,
    "revG3y": 51.4,
    "epsG": null,
    "opm": 13.1,
@@ -3987,12 +3987,12 @@
    "de": 4.68,
    "fcf": -21893,
    "pat": 542,
-   "pe": 38.4,
+   "pe": 40.5,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:24+00:00"
+   "fetched": "2026-11-24T23:09:25+00:00"
   },
   {
    "v": 2,
@@ -4041,7 +4041,7 @@
    "ticker": "PNB",
    "name": "Punjab National Bank",
    "sector": "Financial Services",
-   "mcap": 172394,
+   "mcap": 172107,
    "revG3y": 10.0,
    "epsG": -2.6,
    "opm": null,
@@ -4050,12 +4050,12 @@
    "de": 0.58,
    "fcf": 24011,
    "pat": 18393,
-   "pe": 7.6,
+   "pe": 7.5,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:26+00:00"
+   "fetched": "2026-11-24T23:09:26+00:00"
   },
   {
    "v": 2,
@@ -4104,7 +4104,7 @@
    "ticker": "RKFORGE",
    "name": "Ramkrishna Forgings Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 14515,
+   "mcap": 13908,
    "revG3y": 10.5,
    "epsG": -82.8,
    "opm": 14.8,
@@ -4113,19 +4113,19 @@
    "de": 0.74,
    "fcf": -85,
    "pat": 72,
-   "pe": 77.1,
+   "pe": 73.8,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:27+00:00"
+   "fetched": "2026-11-24T23:09:27+00:00"
   },
   {
    "v": 2,
    "ticker": "RELIANCE",
    "name": "Reliance Industries Limited",
    "sector": "Oil Gas & Consumable Fuels",
-   "mcap": null,
+   "mcap": 1828237,
    "revG3y": 6.4,
    "epsG": 16.0,
    "opm": 19.4,
@@ -4134,12 +4134,12 @@
    "de": 0.44,
    "fcf": 69197,
    "pat": 80775,
-   "pe": 22.5,
-   "peg": 1.41,
+   "pe": 22.3,
+   "peg": 1.39,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:28+00:00"
+   "fetched": "2026-11-24T23:09:28+00:00"
   },
   {
    "v": 2,
@@ -4230,7 +4230,7 @@
    "ticker": "MOTHERSON",
    "name": "Samvardhana Motherson International Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 174757,
+   "mcap": 176214,
    "revG3y": 17.1,
    "epsG": -0.3,
    "opm": 9.7,
@@ -4239,12 +4239,12 @@
    "de": 0.47,
    "fcf": 5230,
    "pat": 3860,
-   "pe": 36.7,
+   "pe": 37.0,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:29+00:00"
+   "fetched": "2026-11-24T23:09:29+00:00"
   },
   {
    "v": 2,
@@ -4314,7 +4314,7 @@
    "ticker": "SONACOMS",
    "name": "Sona BLW Precision Forgings Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 56247,
+   "mcap": 55428,
    "revG3y": 18.8,
    "epsG": 3.8,
    "opm": 26.6,
@@ -4323,12 +4323,12 @@
    "de": 0.07,
    "fcf": 167,
    "pat": 640,
-   "pe": 75.0,
-   "peg": 19.73,
+   "pe": 73.8,
+   "peg": 19.43,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:31+00:00"
+   "fetched": "2026-11-24T23:09:30+00:00"
   },
   {
    "v": 2,
@@ -4398,7 +4398,7 @@
    "ticker": "SUNTV",
    "name": "Sun TV Network Limited",
    "sector": "Media Entertainment & Publication",
-   "mcap": 25998,
+   "mcap": 26750,
    "revG3y": 4.7,
    "epsG": -15.4,
    "opm": 61.7,
@@ -4407,12 +4407,12 @@
    "de": 0.01,
    "fcf": -413,
    "pat": 1440,
-   "pe": 17.2,
+   "pe": 17.4,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:32+00:00"
+   "fetched": "2026-11-24T23:09:31+00:00"
   },
   {
    "v": 2,
@@ -4440,7 +4440,7 @@
    "ticker": "TVSMOTOR",
    "name": "TVS Motor Company Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": null,
+   "mcap": 215192,
    "revG3y": 20.2,
    "epsG": 35.0,
    "opm": 17.4,
@@ -4449,12 +4449,12 @@
    "de": 3.43,
    "fcf": -1368,
    "pat": 3018,
-   "pe": 55.4,
-   "peg": 1.58,
+   "pe": 56.2,
+   "peg": 1.61,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:33+00:00"
+   "fetched": "2026-11-24T23:09:32+00:00"
   },
   {
    "v": 2,
@@ -4545,7 +4545,7 @@
    "ticker": "TATACONSUM",
    "name": "Tata Consumer Products Limited",
    "sector": "Fast Moving Consumer Goods",
-   "mcap": 110096,
+   "mcap": 112134,
    "revG3y": 13.9,
    "epsG": 19.3,
    "opm": 14.6,
@@ -4554,19 +4554,19 @@
    "de": 0.13,
    "fcf": 1973,
    "pat": 1542,
-   "pe": 64.8,
-   "peg": 3.36,
+   "pe": 66.0,
+   "peg": 3.42,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:35+00:00"
+   "fetched": "2026-11-24T23:09:33+00:00"
   },
   {
    "v": 2,
    "ticker": "TATAELXSI",
    "name": "Tata Elxsi Limited",
    "sector": "Information Technology",
-   "mcap": 23120,
+   "mcap": 23816,
    "revG3y": 6.1,
    "epsG": -19.9,
    "opm": 24.9,
@@ -4575,19 +4575,19 @@
    "de": 0.05,
    "fcf": 653,
    "pat": 628,
-   "pe": 34.5,
+   "pe": 35.5,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:36+00:00"
+   "fetched": "2026-11-24T23:09:34+00:00"
   },
   {
    "v": 2,
    "ticker": "TMCV",
    "name": "Tata Motors Limited",
    "sector": "Capital Goods",
-   "mcap": 164125,
+   "mcap": 167127,
    "revG3y": -56.0,
    "epsG": -5.1,
    "opm": 9.0,
@@ -4596,12 +4596,12 @@
    "de": 0.44,
    "fcf": 12733,
    "pat": 3030,
-   "pe": 26.0,
+   "pe": 26.5,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:37+00:00"
+   "fetched": "2026-11-24T23:09:35+00:00"
   },
   {
    "v": 2,
@@ -4629,7 +4629,7 @@
    "ticker": "TECHM",
    "name": "Tech Mahindra Limited",
    "sector": "Information Technology",
-   "mcap": 156108,
+   "mcap": 157515,
    "revG3y": 2.2,
    "epsG": 13.1,
    "opm": 15.5,
@@ -4638,12 +4638,12 @@
    "de": 0.07,
    "fcf": 5476,
    "pat": 4811,
-   "pe": 28.3,
-   "peg": 2.16,
+   "pe": 28.6,
+   "peg": 2.18,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:38+00:00"
+   "fetched": "2026-11-24T23:09:36+00:00"
   },
   {
    "v": 2,
@@ -4776,7 +4776,7 @@
    "ticker": "ULTRACEMCO",
    "name": "UltraTech Cement Limited",
    "sector": "Construction Materials",
-   "mcap": 361405,
+   "mcap": 371992,
    "revG3y": 11.9,
    "epsG": 35.3,
    "opm": 19.9,
@@ -4785,19 +4785,19 @@
    "de": 0.31,
    "fcf": 5638,
    "pat": 8166,
-   "pe": 41.7,
-   "peg": 1.18,
+   "pe": 42.8,
+   "peg": 1.21,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:42+00:00"
+   "fetched": "2026-11-24T23:09:37+00:00"
   },
   {
    "v": 2,
    "ticker": "UNIONBANK",
    "name": "Union Bank of India",
    "sector": "Financial Services",
-   "mcap": 158703,
+   "mcap": 158932,
    "revG3y": 7.6,
    "epsG": 7.7,
    "opm": null,
@@ -4811,7 +4811,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:43+00:00"
+   "fetched": "2026-11-24T23:09:38+00:00"
   },
   {
    "v": 2,
@@ -4923,7 +4923,7 @@
    "ticker": "WIPRO",
    "name": "Wipro Limited",
    "sector": "Information Technology",
-   "mcap": 187874,
+   "mcap": 185305,
    "revG3y": 0.8,
    "epsG": 0.3,
    "opm": 22.7,
@@ -4932,12 +4932,12 @@
    "de": 0.23,
    "fcf": 13371,
    "pat": 13197,
-   "pe": 14.9,
-   "peg": 49.72,
+   "pe": 14.7,
+   "peg": 49.04,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:45+00:00"
+   "fetched": "2026-11-24T23:09:38+00:00"
   },
   {
    "v": 2,
@@ -4965,7 +4965,7 @@
    "ticker": "ZENSARTECH",
    "name": "Zensar Technologies Limited",
    "sector": "Information Technology",
-   "mcap": 11993,
+   "mcap": 12029,
    "revG3y": 5.5,
    "epsG": 18.5,
    "opm": 19.8,
@@ -4979,7 +4979,7 @@
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:46+00:00"
+   "fetched": "2026-11-24T23:09:39+00:00"
   },
   {
    "v": 2,
@@ -5007,7 +5007,7 @@
    "ticker": "BBOX",
    "name": "Black Box Limited",
    "sector": "Information Technology",
-   "mcap": 15804,
+   "mcap": 15168,
    "revG3y": 0.2,
    "epsG": 4.6,
    "opm": 6.9,
@@ -5016,12 +5016,12 @@
    "de": 0.9,
    "fcf": 12,
    "pat": 218,
-   "pe": 68.2,
-   "peg": 14.83,
+   "pe": 61.5,
+   "peg": 13.38,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:47+00:00"
+   "fetched": "2026-11-24T23:09:40+00:00"
   },
   {
    "v": 2,
@@ -5091,7 +5091,7 @@
    "ticker": "PRIVISCL",
    "name": "Privi Speciality Chemicals Limited",
    "sector": "Chemicals",
-   "mcap": 13401,
+   "mcap": 14129,
    "revG3y": 16.6,
    "epsG": 71.4,
    "opm": 26.2,
@@ -5100,19 +5100,19 @@
    "de": 0.72,
    "fcf": 230,
    "pat": 328,
-   "pe": 35.8,
-   "peg": 0.5,
+   "pe": 38.0,
+   "peg": 0.53,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:49+00:00"
+   "fetched": "2026-11-24T23:09:41+00:00"
   },
   {
    "v": 2,
    "ticker": "RUBICON",
    "name": "Rubicon Research Limited",
    "sector": "Healthcare",
-   "mcap": 27875,
+   "mcap": 27739,
    "revG3y": null,
    "epsG": null,
    "opm": 22.9,
@@ -5121,19 +5121,19 @@
    "de": 0.24,
    "fcf": -24,
    "pat": 247,
-   "pe": 86.4,
+   "pe": 85.9,
    "peg": null,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:50+00:00"
+   "fetched": "2026-11-24T23:09:43+00:00"
   },
   {
    "v": 2,
    "ticker": "SANSERA",
    "name": "Sansera Engineering Limited",
    "sector": "Automobile and Auto Components",
-   "mcap": 28803,
+   "mcap": 28833,
    "revG3y": 14.8,
    "epsG": 39.6,
    "opm": 20.5,
@@ -5143,11 +5143,11 @@
    "fcf": -126,
    "pat": 324,
    "pe": 75.0,
-   "peg": 1.89,
+   "peg": 1.9,
    "moat": 2,
    "leader": false,
    "asOf": "FY ending 2026-03-31",
-   "fetched": "2026-11-17T21:51:51+00:00"
+   "fetched": "2026-11-24T23:09:44+00:00"
   },
   {
    "v": 2,
